@@ -1,0 +1,3520 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111214">
+  <title>Российский рынок ИБ — 2025</title>
+  <style>
+:root {
+  --ink: #111214;
+  --paper: #f4f0e8;
+  --accent: #d6ff3f;
+  --coral: #f35b66;
+  --cyan: #3fbfc4;
+  --blue: #5ab8e8;
+  --green: #70c9a3;
+  --orange: #f58a64;
+  --muted-dark: rgba(17, 18, 20, .56);
+  --muted-light: rgba(244, 240, 232, .62);
+  --border-dark: rgba(17, 18, 20, .18);
+  --border-light: rgba(244, 240, 232, .18);
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+  --font-sans: "Segoe UI Variable Display", "Segoe UI", Arial, sans-serif;
+  --font-mono: "Cascadia Mono", Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #202225;
+  font-family: var(--font-sans);
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible {
+  outline: 4px solid var(--accent);
+  outline-offset: 5px;
+}
+
+.stage {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.deck {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  transform-origin: top left;
+  background: var(--ink);
+  box-shadow: 0 44px 120px rgba(0, 0, 0, .42);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 24px;
+  padding: 72px 96px 78px;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  clip-path: inset(0 0 0 100%);
+  transition:
+    clip-path 520ms var(--ease-out),
+    opacity 180ms linear;
+}
+
+.slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  opacity: .022;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.slide.is-active {
+  z-index: 3;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  clip-path: inset(0);
+}
+
+.slide.is-past {
+  z-index: 2;
+  visibility: visible;
+  opacity: 1;
+  clip-path: inset(0 100% 0 0);
+}
+
+.slide.is-entering-back {
+  animation: reveal-back 520ms var(--ease-out) both;
+}
+
+.slide--ink {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.slide--paper {
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.slide--accent {
+  color: var(--ink);
+  background: var(--accent);
+}
+
+.kicker {
+  z-index: 3;
+  grid-column: 1 / 7;
+  margin: 0;
+  color: var(--muted-dark);
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .09em;
+}
+
+.kicker--light {
+  color: var(--muted-light);
+}
+
+.slide-title {
+  z-index: 3;
+  margin: 0;
+  font-size: 80px;
+  font-weight: 790;
+  line-height: .95;
+  letter-spacing: -.045em;
+}
+
+.slide-index {
+  position: absolute;
+  right: 94px;
+  bottom: 44px;
+  z-index: 50;
+  margin: 0;
+  color: var(--muted-light);
+  font-family: var(--font-mono);
+  font-size: 24px;
+}
+
+.slide-index--dark {
+  color: var(--muted-dark);
+}
+
+/* 01 — hero */
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  opacity: .2;
+  background-image:
+    linear-gradient(to right, transparent calc(100% - 1px), rgba(244, 240, 232, .13) 1px),
+    linear-gradient(to bottom, transparent calc(100% - 1px), rgba(244, 240, 232, .07) 1px);
+  background-size: 160px 160px;
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, .85), transparent 72%);
+}
+
+.hero-copy {
+  z-index: 3;
+  grid-column: 1 / 8;
+  align-self: center;
+  transform: translateY(-12px);
+}
+
+.hero-number {
+  margin: 56px 0 0;
+  color: var(--accent);
+  font-size: 238px;
+  font-weight: 830;
+  line-height: .74;
+  letter-spacing: -.08em;
+}
+
+.hero-unit {
+  margin: 48px 0 0 8px;
+  font-family: var(--font-mono);
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.hero-caption {
+  max-width: 720px;
+  margin: 22px 0 0 8px;
+  color: var(--muted-light);
+  font-size: 34px;
+  line-height: 1.15;
+}
+
+.hero-orbit {
+  position: absolute;
+  top: 156px;
+  right: 72px;
+  width: 760px;
+  height: 760px;
+  transform: rotate(-24deg);
+}
+
+.hero-orbit circle {
+  fill: none;
+  stroke: rgba(244, 240, 232, .18);
+  stroke-width: 2;
+}
+
+.hero-orbit .hero-orbit__signal {
+  stroke: var(--coral);
+  stroke-width: 32;
+  stroke-linecap: butt;
+  stroke-dasharray: 20 80;
+}
+
+.hero-orbit .hero-orbit__core {
+  stroke: var(--cyan);
+  stroke-width: 84;
+  stroke-dasharray: 76 24;
+  opacity: .84;
+}
+
+.hero-orbit .hero-orbit__dot {
+  fill: var(--accent);
+  stroke: var(--ink);
+  stroke-width: 8;
+}
+
+/* 02 — pie */
+
+.slide-pie .kicker {
+  position: absolute;
+  top: 76px;
+  left: 96px;
+}
+
+.slide-pie .slide-title {
+  position: absolute;
+  top: 130px;
+  left: 80px;
+  width: 660px;
+  font-size: 70px;
+}
+
+.pie-wrap {
+  position: absolute;
+  left: 74px;
+  bottom: 112px;
+  width: 650px;
+  height: 650px;
+}
+
+.market-pie {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #d8d4cc;
+  box-shadow:
+    0 0 0 2px rgba(17, 18, 20, .14),
+    0 34px 70px rgba(17, 18, 20, .16);
+  transform: rotate(-90deg);
+}
+
+.market-pie::after {
+  content: "";
+  position: absolute;
+  inset: 118px;
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: inset 0 0 0 2px rgba(17, 18, 20, .12);
+}
+
+.market-pie__center {
+  position: absolute;
+  inset: 118px;
+  z-index: 2;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.market-pie__center strong {
+  font-size: 78px;
+  font-weight: 830;
+  line-height: .9;
+  letter-spacing: -.06em;
+}
+
+.market-pie__center span {
+  margin-top: 16px;
+  color: var(--muted-dark);
+  font-family: var(--font-mono);
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.pie-legend {
+  position: absolute;
+  top: 118px;
+  right: 70px;
+  display: grid;
+  width: 1040px;
+  height: 792px;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 30px;
+}
+
+.legend-item {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr) 92px;
+  gap: 12px;
+  align-items: center;
+  min-width: 0;
+  padding: 4px 4px 4px 0;
+  border-bottom: 1px solid var(--border-dark);
+  font-size: 24px;
+}
+
+.legend-dot {
+  width: 14px;
+  height: 14px;
+  background: var(--swatch);
+}
+
+.legend-name {
+  font-weight: 640;
+  line-height: 1.06;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+.legend-item strong {
+  font-family: var(--font-mono);
+  font-size: 24px;
+  text-align: right;
+}
+
+.legend-item--muted {
+  color: var(--muted-dark);
+}
+
+.chart-unit {
+  position: absolute;
+  right: 80px;
+  bottom: 66px;
+  margin: 0;
+  color: var(--muted-dark);
+  font-family: var(--font-mono);
+  font-size: 24px;
+}
+
+/* 03 — all directions */
+
+.slide-rankings .kicker {
+  position: absolute;
+  top: 54px;
+  left: 96px;
+}
+
+.rankings-title {
+  position: absolute;
+  top: 88px;
+  left: 92px;
+  margin: 0;
+  color: var(--paper);
+  font-size: 58px;
+  font-weight: 810;
+  line-height: 1;
+  letter-spacing: -.035em;
+}
+
+.rankings-summary {
+  position: absolute;
+  top: 46px;
+  right: 96px;
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  color: var(--accent);
+}
+
+.rankings-summary strong {
+  font-family: var(--font-mono);
+  font-size: 58px;
+  line-height: 1;
+}
+
+.rankings-summary span {
+  color: var(--muted-light);
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.direction-bars {
+  position: absolute;
+  top: 160px;
+  right: 96px;
+  bottom: 78px;
+  left: 96px;
+  display: grid;
+  grid-template-rows: repeat(14, minmax(0, 1fr));
+  gap: 0;
+}
+
+.direction-bar-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 54px 650px minmax(0, 1fr) 118px;
+  gap: 14px;
+  align-items: center;
+  min-height: 0;
+  padding: 0 14px;
+  color: var(--paper);
+  background: rgba(244, 240, 232, .035);
+}
+
+.direction-bar__rank,
+.direction-bar__value {
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 750;
+}
+
+.direction-bar__name {
+  min-width: 0;
+  font-size: 24px;
+  font-weight: 690;
+  line-height: 1.02;
+}
+
+.direction-bar__track {
+  position: relative;
+  height: 25px;
+  overflow: hidden;
+  background: rgba(244, 240, 232, .11);
+}
+
+.direction-bar__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: max(12px, var(--bar-width));
+  background: var(--branch);
+}
+
+.direction-bar__value {
+  color: var(--branch);
+  font-size: 27px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.rankings-unit {
+  position: absolute;
+  left: 110px;
+  bottom: 48px;
+  margin: 0;
+  color: var(--muted-light);
+  font-family: var(--font-mono);
+  font-size: 24px;
+}
+
+/* 04 — bridge */
+
+.slide-bridge .kicker {
+  position: absolute;
+  top: 52px;
+  left: 96px;
+}
+
+.bridge-equation {
+  position: absolute;
+  top: 160px;
+  right: 96px;
+  left: 96px;
+  display: grid;
+  grid-template-columns: 1fr 90px 1fr 90px 1.08fr;
+  align-items: center;
+}
+
+.bridge-term {
+  min-width: 0;
+}
+
+.bridge-term strong {
+  display: block;
+  font-size: 100px;
+  font-weight: 830;
+  line-height: .82;
+  letter-spacing: -.07em;
+}
+
+.bridge-term span {
+  display: block;
+  margin-top: 24px;
+  font-family: var(--font-mono);
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.bridge-sign {
+  font-family: var(--font-mono);
+  font-size: 64px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.bridge-term--total {
+  padding: 38px 38px 36px;
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.bridge-definitions {
+  position: absolute;
+  top: 500px;
+  right: 96px;
+  left: 96px;
+  display: grid;
+  grid-template-columns: 1.05fr 1.2fr .86fr;
+  gap: 26px;
+}
+
+.bridge-definition {
+  min-width: 0;
+  min-height: 286px;
+  padding: 30px 32px;
+  border: 2px solid rgba(17, 18, 20, .2);
+  background: rgba(244, 240, 232, .22);
+}
+
+.bridge-definition h3 {
+  margin: 0 0 20px;
+  font-family: var(--font-mono);
+  font-size: 26px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.bridge-definition p {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 650;
+  line-height: 1.14;
+}
+
+.bridge-definition strong {
+  display: block;
+  margin-top: 24px;
+  font-family: var(--font-mono);
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.bridge-definition--total {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.bridge-definition--total p {
+  color: var(--paper);
+  font-size: 30px;
+  line-height: 1.12;
+}
+
+.bridge-line {
+  position: absolute;
+  right: 96px;
+  bottom: 130px;
+  left: 96px;
+  display: flex;
+  height: 26px;
+  background: rgba(17, 18, 20, .18);
+}
+
+.bridge-line__core {
+  width: 76.54%;
+  height: 100%;
+  background: var(--ink);
+}
+
+.bridge-line__adjacent {
+  width: 23.46%;
+  height: 100%;
+  background: rgba(17, 18, 20, .36);
+}
+
+/* 05 — taxonomy */
+
+.slide-taxonomy .kicker {
+  position: absolute;
+  top: 76px;
+  left: 96px;
+}
+
+.taxonomy-title {
+  position: absolute;
+  top: 146px;
+  left: 92px;
+  margin: 0;
+  font-size: 108px;
+  font-weight: 820;
+  line-height: .9;
+  letter-spacing: -.055em;
+}
+
+.taxonomy-counts {
+  position: absolute;
+  top: 524px;
+  left: 96px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.taxonomy-counts div {
+  width: 186px;
+}
+
+.taxonomy-counts strong {
+  display: block;
+  color: var(--coral);
+  font-size: 106px;
+  font-weight: 830;
+  line-height: .84;
+  letter-spacing: -.07em;
+}
+
+.taxonomy-counts span {
+  display: block;
+  margin-top: 18px;
+  color: var(--muted-dark);
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.taxonomy-counts b {
+  color: rgba(17, 18, 20, .26);
+  font-family: var(--font-mono);
+  font-size: 42px;
+}
+
+.map-preview {
+  position: absolute;
+  top: 60px;
+  right: 104px;
+  display: grid;
+  width: 840px;
+  height: 920px;
+  place-items: center;
+  overflow: hidden;
+  border: 3px solid var(--ink);
+  color: var(--paper);
+  background: #fff;
+  text-decoration: none;
+  box-shadow: 28px 30px 0 var(--coral);
+}
+
+.taxonomy-overview {
+  position: absolute;
+  inset: 0 0 76px;
+  padding: 28px 24px 24px;
+  color: var(--ink);
+  background:
+    linear-gradient(rgba(17, 18, 20, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 18, 20, .035) 1px, transparent 1px),
+    #fff;
+  background-size: 32px 32px;
+}
+
+.taxonomy-overview__root {
+  display: flex;
+  width: 520px;
+  height: 78px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto 20px;
+  padding: 0 22px;
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.taxonomy-overview__root strong {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.taxonomy-overview__root span {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.taxonomy-overview__grid {
+  position: relative;
+  display: grid;
+  height: 690px;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 14px;
+}
+
+.taxonomy-overview__grid::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: rgba(17, 18, 20, .18);
+  transform: translateX(-1px);
+}
+
+.taxonomy-overview__node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  min-width: 0;
+  padding: 7px 9px;
+  border-left: 7px solid var(--branch);
+  color: var(--ink);
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgba(17, 18, 20, .12);
+}
+
+.taxonomy-overview__node b {
+  color: color-mix(in srgb, var(--branch), var(--ink) 32%);
+  font-family: var(--font-mono);
+  font-size: 24px;
+}
+
+.taxonomy-overview__node span {
+  font-size: 24px;
+  font-weight: 680;
+  line-height: 1.02;
+  overflow-wrap: anywhere;
+}
+
+.map-preview > span {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  height: 76px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  background: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.map-preview > span b {
+  font-size: 36px;
+}
+
+/* 06 — interactive map */
+
+.slide--map {
+  color: var(--paper);
+  background: #0e0f11;
+  padding: 56px 70px 68px;
+}
+
+.map-title {
+  position: absolute;
+  top: 30px;
+  left: 70px;
+  z-index: 5;
+  margin: 0;
+  color: rgba(244, 240, 232, .82);
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.map-direction-nav {
+  position: absolute;
+  top: 82px;
+  bottom: 72px;
+  left: 70px;
+  display: grid;
+  width: 500px;
+  grid-template-rows: repeat(14, minmax(0, 1fr));
+  overflow: hidden;
+  border: 2px solid rgba(244, 240, 232, .2);
+  background: #16181a;
+}
+
+.map-direction-button {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 42px;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+  padding: 2px 10px;
+  border: 0;
+  border-bottom: 1px solid rgba(244, 240, 232, .12);
+  border-left: 7px solid var(--branch);
+  color: var(--paper);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.map-direction-button:last-child {
+  border-bottom: 0;
+}
+
+.map-direction-button:hover,
+.map-direction-button.is-current {
+  color: var(--ink);
+  background: var(--branch);
+}
+
+.map-direction-button__id,
+.map-direction-button__count {
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.map-direction-button__name {
+  min-width: 0;
+  font-size: 24px;
+  font-weight: 670;
+  line-height: 1.01;
+}
+
+.map-direction-button__count {
+  text-align: right;
+}
+
+.map-viewport {
+  position: absolute;
+  top: 82px;
+  right: 70px;
+  bottom: 72px;
+  left: 600px;
+  overflow: hidden;
+  border: 2px solid rgba(244, 240, 232, .2);
+  background: var(--paper);
+}
+
+.map-vector {
+  position: absolute;
+  inset: 0;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.map-overview {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(17, 18, 20, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 18, 20, .035) 1px, transparent 1px),
+    var(--paper);
+  background-size: 40px 40px;
+}
+
+.map-overview__root {
+  position: absolute;
+  top: 34px;
+  left: 50%;
+  z-index: 2;
+  display: grid;
+  width: 530px;
+  height: 108px;
+  place-content: center;
+  color: var(--paper);
+  background: var(--ink);
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.map-overview__root strong {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.map-overview__root span {
+  margin-top: 10px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.map-overview__grid {
+  position: absolute;
+  top: 184px;
+  right: 44px;
+  bottom: 38px;
+  left: 44px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 82px;
+}
+
+.map-overview__grid::before {
+  content: "";
+  position: absolute;
+  top: -42px;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: rgba(17, 18, 20, .18);
+  transform: translateX(-1px);
+}
+
+.map-overview__node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr) 76px;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+  padding: 8px 12px;
+  border: 0;
+  border-left: 8px solid var(--branch);
+  color: var(--ink);
+  background: #fff;
+  text-align: left;
+  box-shadow: inset 0 0 0 1px rgba(17, 18, 20, .14);
+  cursor: pointer;
+}
+
+.map-overview__node:hover,
+.map-overview__node:focus-visible {
+  background: color-mix(in srgb, var(--branch), #fff 82%);
+}
+
+.map-overview__node::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 42px;
+  height: 2px;
+  background: var(--branch);
+}
+
+.map-overview__node:nth-child(-n + 7)::after {
+  right: -42px;
+}
+
+.map-overview__node:nth-child(n + 8)::after {
+  left: -42px;
+}
+
+.map-overview__id,
+.map-overview__value {
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.map-overview__name {
+  font-size: 24px;
+  font-weight: 680;
+  line-height: 1.04;
+}
+
+.map-overview__value {
+  color: rgba(17, 18, 20, .52);
+  text-align: right;
+}
+
+.map-detail {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: 124px minmax(0, 1fr);
+  background: var(--paper);
+}
+
+.map-detail__header {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr) 226px 154px;
+  gap: 18px;
+  align-items: center;
+  padding: 0 30px;
+  color: var(--ink);
+  background: var(--branch);
+}
+
+.map-detail__id {
+  font-family: var(--font-mono);
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.map-detail__title {
+  margin: 0;
+  font-size: 38px;
+  font-weight: 790;
+  line-height: .98;
+  letter-spacing: -.025em;
+}
+
+.map-detail__market {
+  min-width: 0;
+  text-align: right;
+}
+
+.map-detail__market strong,
+.map-detail__market span {
+  display: block;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.map-detail__market strong {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.map-detail__market span {
+  margin-top: 5px;
+  font-size: 24px;
+  font-weight: 650;
+}
+
+.map-detail__meta {
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.map-detail__groups {
+  display: flex;
+  gap: 12px;
+  min-height: 0;
+  padding: 18px 18px 20px;
+  overflow: hidden;
+}
+
+.map-group {
+  flex: var(--column-weight) 1 0;
+  min-width: 0;
+  padding-left: 10px;
+  border-left: 3px solid var(--branch);
+}
+
+.map-group__title {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  margin: 0 0 6px;
+  padding: 7px 11px;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--branch), #fff 76%);
+  font-size: 24px;
+  font-weight: 760;
+  line-height: 1.05;
+}
+
+.map-class-list {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.map-group__tracks {
+  display: grid;
+  grid-template-columns: repeat(var(--track-count), minmax(0, 1fr));
+  gap: 8px;
+  min-width: 0;
+}
+
+.map-class-item {
+  min-width: 0;
+  padding: 7px 8px 8px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgba(17, 18, 20, .13);
+  font-size: 24px;
+  line-height: 1.05;
+}
+
+.map-class-item:focus-visible {
+  outline: 4px solid color-mix(in srgb, var(--branch), var(--ink) 28%);
+  outline-offset: 1px;
+}
+
+.map-class-name {
+  display: block;
+  font-weight: 790;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.map-class-description {
+  display: block;
+  margin-top: 5px;
+  color: #62656a;
+  font-size: 24px;
+  font-weight: 520;
+  line-height: 1.05;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.map-class-market {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  align-items: center;
+  margin-top: 6px;
+  color: #343639;
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 750;
+  line-height: 1;
+}
+
+.map-class-market em {
+  padding: 3px 6px;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--branch), #fff 72%);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 750;
+}
+
+.map-class-item[data-market-type="undefined"] .map-class-market {
+  color: #5a5d61;
+  font-weight: 650;
+}
+
+.map-class-item[data-market-type="floor"] .map-class-market {
+  color: #7d2730;
+}
+
+.map-class-item[data-market-type="range"] .map-class-market {
+  color: #463154;
+}
+
+.map-controls {
+  position: absolute;
+  left: 600px;
+  bottom: 30px;
+  z-index: 60;
+  display: flex;
+  gap: 8px;
+}
+
+.map-controls button {
+  display: grid;
+  min-width: 124px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(244, 240, 232, .28);
+  color: var(--paper);
+  background: #242629;
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.map-controls button:last-child {
+  min-width: 124px;
+  font-size: 24px;
+}
+
+.map-hint {
+  display: none;
+}
+
+.map-data-note {
+  position: absolute;
+  right: 300px;
+  bottom: 38px;
+  left: 620px;
+  z-index: 5;
+  margin: 0;
+  color: rgba(244, 240, 232, .66);
+  font-family: var(--font-mono);
+  font-size: 24px;
+  line-height: 1;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.slide-map .slide-index {
+  right: 96px;
+  bottom: 38px;
+}
+
+/* 07 — closing */
+
+.slide-closing .kicker {
+  position: absolute;
+  top: 78px;
+  left: 96px;
+}
+
+.closing-title {
+  position: absolute;
+  top: 204px;
+  left: 86px;
+  margin: 0;
+  color: var(--accent);
+  font-size: 264px;
+  font-weight: 850;
+  line-height: .8;
+  letter-spacing: -.1em;
+}
+
+.closing-copy {
+  position: absolute;
+  top: 520px;
+  left: 104px;
+  margin: 0;
+  font-size: 56px;
+  font-weight: 700;
+}
+
+.closing-rule {
+  position: absolute;
+  right: 104px;
+  bottom: 230px;
+  left: 104px;
+  height: 8px;
+  background: var(--coral);
+}
+
+.closing-metrics {
+  position: absolute;
+  right: 104px;
+  bottom: 116px;
+  margin: 0;
+  color: var(--muted-light);
+  font-family: var(--font-mono);
+  font-size: 28px;
+}
+
+.closing-metrics strong {
+  color: var(--paper);
+  font-size: 52px;
+}
+
+/* Controls */
+
+.deck-controls {
+  position: fixed;
+  right: 24px;
+  bottom: 22px;
+  z-index: 100;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 14px;
+  background: rgba(10, 11, 12, .82);
+  backdrop-filter: blur(14px);
+  transition: opacity 180ms ease;
+}
+
+.control-button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 0;
+  border-radius: 9px;
+  color: var(--paper);
+  background: rgba(255, 255, 255, .08);
+  cursor: pointer;
+}
+
+.slide-progress {
+  display: flex;
+  gap: 7px;
+  padding: 0 8px;
+}
+
+.slide-progress button {
+  width: 24px;
+  height: 6px;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, .24);
+  cursor: pointer;
+}
+
+.slide-progress button.is-current {
+  background: var(--accent);
+}
+
+.keyboard-hint {
+  position: fixed;
+  left: 24px;
+  bottom: 22px;
+  z-index: 100;
+  margin: 0;
+  padding: 11px 14px;
+  border-radius: 9px;
+  color: rgba(255, 255, 255, .7);
+  background: rgba(10, 11, 12, .74);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  transition: opacity 240ms ease;
+}
+
+.keyboard-hint.is-hidden,
+.controls-hidden .deck-controls,
+.controls-hidden .keyboard-hint,
+.static-mode .deck-controls,
+.static-mode .keyboard-hint {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.static-mode .slide,
+.static-mode .slide.is-active {
+  transition: none;
+  animation: none;
+}
+
+.static-mode .deck-controls,
+.static-mode .keyboard-hint,
+.static-mode .map-controls,
+.static-mode .map-hint {
+  display: none;
+}
+
+/* Evidence links */
+
+.proof-link {
+  display: inline-flex;
+  width: max-content;
+  align-items: center;
+  color: rgba(17, 18, 20, .72);
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+  cursor: pointer;
+}
+
+.proof-link:hover {
+  color: var(--coral);
+}
+
+.proof-link--light {
+  color: rgba(244, 240, 232, .76);
+}
+
+.proof-link--light:hover {
+  color: var(--accent);
+}
+
+.hero-copy > .proof-link {
+  margin: 20px 0 0 8px;
+}
+
+.market-pie__center .proof-link {
+  margin: 12px auto 0;
+}
+
+.legend-metric {
+  display: grid;
+  justify-items: end;
+  gap: 5px;
+}
+
+.legend-metric .proof-link {
+  margin: 0;
+}
+
+.rankings-summary .proof-link {
+  align-self: center;
+  margin-left: 6px;
+}
+
+.direction-bar__metric {
+  display: grid;
+  justify-items: end;
+  gap: 2px;
+}
+
+.proof-link--bar {
+  margin: 0;
+}
+
+.bridge-term > .proof-link {
+  margin-top: 14px;
+}
+
+.bridge-components {
+  display: grid !important;
+  gap: 8px;
+}
+
+.bridge-components > span {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.bridge-components .proof-link {
+  margin: 0;
+}
+
+.map-overview__node {
+  grid-template-columns: minmax(0, 1fr) 112px;
+  gap: 0;
+  padding: 0;
+}
+
+.map-overview__select {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+  padding: 8px 10px 8px 12px;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.map-overview__node:hover,
+.map-overview__node:has(.map-overview__select:focus-visible) {
+  background: color-mix(in srgb, var(--branch), #fff 82%);
+}
+
+.map-overview__metric {
+  display: grid;
+  align-content: center;
+  justify-items: end;
+  gap: 5px;
+  height: 100%;
+  padding: 6px 10px 6px 4px;
+}
+
+.proof-link--overview {
+  margin: 0;
+  color: rgba(17, 18, 20, .66);
+}
+
+.map-detail__market .proof-link {
+  display: inline-flex;
+  margin: 6px 0 0 auto;
+  color: rgba(17, 18, 20, .72);
+}
+
+.map-class-market .proof-link {
+  margin-left: auto;
+  color: color-mix(in srgb, var(--branch), var(--ink) 38%);
+}
+
+/* Proof slides */
+
+.slide-proof {
+  padding: 54px 96px 72px;
+}
+
+.slide-proof .kicker {
+  position: absolute;
+  top: 52px;
+  left: 96px;
+}
+
+.proofs-title {
+  position: absolute;
+  top: 88px;
+  left: 92px;
+  margin: 0;
+  font-size: 68px;
+  font-weight: 830;
+  line-height: 1;
+  letter-spacing: -.045em;
+}
+
+.proofs-subtitle {
+  position: absolute;
+  top: 112px;
+  right: 96px;
+  width: 930px;
+  margin: 0;
+  color: var(--muted-dark);
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: right;
+}
+
+.proofs-map-button {
+  position: absolute;
+  top: 48px;
+  right: 96px;
+  z-index: 4;
+  min-height: 56px;
+  padding: 0 22px;
+  border: 3px solid var(--ink);
+  color: var(--paper);
+  background: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 850;
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.proofs-map-button:hover,
+.proofs-map-button:focus-visible {
+  color: var(--ink);
+  background: var(--accent);
+  outline: 4px solid var(--coral);
+  outline-offset: 3px;
+}
+
+.proof-grid {
+  position: absolute;
+  top: 190px;
+  right: 96px;
+  bottom: 82px;
+  left: 96px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.proof-grid[data-count="1"] .proof-card {
+  grid-column: 1 / 3;
+  width: min(1420px, 100%);
+  justify-self: center;
+}
+
+.proof-card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 26px 28px 24px;
+  overflow: hidden;
+  border: 3px solid var(--ink);
+  background: #fff;
+  box-shadow: 12px 12px 0 rgba(17, 18, 20, .1);
+  transition:
+    background 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.proof-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 12px;
+  background: var(--coral);
+}
+
+.proof-card.is-targeted,
+.proof-card:target {
+  z-index: 5;
+  background: var(--accent);
+  box-shadow:
+    0 0 0 10px var(--coral),
+    20px 24px 0 rgba(17, 18, 20, .22);
+  transform: translateY(-5px);
+  animation: proof-pulse 620ms var(--ease-out) both;
+}
+
+.proof-card__header {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 10px 14px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.proof-card__number {
+  color: var(--coral);
+  font-family: var(--font-mono);
+  font-size: 30px;
+  font-weight: 850;
+}
+
+.proof-card__type {
+  width: max-content;
+  max-width: 100%;
+  padding: 7px 11px 8px;
+  color: var(--paper);
+  background: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.proof-card__value {
+  grid-column: 1 / 3;
+  font-family: var(--font-mono);
+  font-size: 34px;
+  font-weight: 850;
+  line-height: 1.05;
+  letter-spacing: -.025em;
+}
+
+.proof-card__title {
+  margin: 15px 0 0;
+  font-size: 30px;
+  font-weight: 810;
+  line-height: 1.04;
+  letter-spacing: -.02em;
+}
+
+.proof-card__calculation {
+  display: grid;
+  gap: 8px;
+  margin-top: 15px;
+  padding: 13px 15px 14px;
+  border-left: 7px solid var(--coral);
+  background: rgba(17, 18, 20, .06);
+}
+
+.proof-card__calculation span,
+.proof-source__label {
+  margin: 0;
+  color: var(--muted-dark);
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.proof-card__calculation strong {
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 780;
+  line-height: 1.17;
+}
+
+.proof-card__note,
+.proof-card__derived {
+  margin: 14px 0 0;
+  font-size: 24px;
+  font-weight: 620;
+  line-height: 1.16;
+}
+
+.proof-card__derived {
+  padding: 15px 17px;
+  border: 2px dashed rgba(17, 18, 20, .4);
+}
+
+.proof-card__sources {
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.proof-source {
+  min-width: 0;
+  padding-top: 12px;
+  border-top: 2px solid rgba(17, 18, 20, .16);
+}
+
+.proof-source__quote {
+  margin: 8px 0 0;
+  font-size: 24px;
+  font-weight: 750;
+  line-height: 1.14;
+}
+
+.proof-source__meta,
+.proof-source__role {
+  margin: 7px 0 0;
+  color: #4f5256;
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 650;
+  line-height: 1.12;
+}
+
+.proof-source__role {
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 700;
+}
+
+.proof-source__url {
+  display: block;
+  max-width: 100%;
+  margin-top: 8px;
+  overflow: hidden;
+  color: #294ecf;
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 750;
+  line-height: 1.08;
+  text-decoration-thickness: 2px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.proof-card__footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 2px solid rgba(17, 18, 20, .18);
+  color: var(--muted-dark);
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 750;
+  line-height: 1;
+}
+
+.proof-related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+}
+
+.proof-related__link {
+  color: var(--ink);
+  font-size: 24px;
+  font-weight: 850;
+  text-underline-offset: 4px;
+}
+
+.proof-card.is-targeted .proof-card__type,
+.proof-card:target .proof-card__type {
+  color: var(--ink);
+  background: var(--coral);
+}
+
+.proof-card.is-targeted .proof-card__calculation,
+.proof-card:target .proof-card__calculation {
+  background: rgba(244, 240, 232, .46);
+}
+
+.slide-progress {
+  max-width: 760px;
+}
+
+.slide-progress button {
+  width: 20px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes reveal-back {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}
+
+@keyframes proof-pulse {
+  0% {
+    filter: brightness(1.28);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+  </style>
+</head>
+<body>
+  <main class="stage" aria-label="Презентация российского рынка информационной безопасности">
+    <div class="deck" id="deck">
+      <section class="slide slide--ink slide-hero is-active" data-slide="1" aria-hidden="false">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p class="kicker kicker--light">РОССИЙСКИЙ РЫНОК ИБ · 2025</p>
+          <h1 class="hero-number">476,1</h1>
+          <p class="hero-unit">млрд ₽</p>
+          <p class="hero-caption">индикативный расширенный периметр</p>
+          <a class="proof-link proof-link--light" href="#proof-001" data-proof-key="total:expanded">пруф</a>
+        </div>
+        <svg class="hero-orbit" viewBox="0 0 760 760" aria-hidden="true">
+          <circle cx="380" cy="380" r="286" pathLength="100"></circle>
+          <circle class="hero-orbit__signal" cx="380" cy="380" r="286" pathLength="100"></circle>
+          <circle class="hero-orbit__core" cx="380" cy="380" r="214" pathLength="100"></circle>
+          <circle class="hero-orbit__dot" cx="380" cy="94" r="13"></circle>
+        </svg>
+        <p class="slide-index">01 / 07</p>
+      </section>
+
+      <section class="slide slide--paper slide-pie" data-slide="2" aria-hidden="true">
+        <p class="kicker">СТРУКТУРА</p>
+        <h2 class="slide-title">14 направлений.<br>Один периметр.</h2>
+
+        <div class="pie-wrap" aria-label="Круговая диаграмма направлений рынка">
+          <div class="market-pie" id="marketPie" role="img" aria-label="Распределение 476,1 млрд рублей между 14 направлениями и остатком">
+            <div class="market-pie__center">
+              <strong>476,1</strong>
+              <span>млрд ₽</span>
+              <a class="proof-link" href="#proof-001" data-proof-key="total:expanded">пруф</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pie-legend" id="pieLegend">
+          <div class="legend-item" data-value="9.245" data-color="#F35B66"><span class="legend-dot"></span><span class="legend-name">Управление активами и видимостью</span><span class="legend-metric"><strong>9,2</strong><a class="proof-link" href="#proof-005" data-proof-key="direction:D01">пруф</a></span></div>
+          <div class="legend-item" data-value="37.526" data-color="#F58A64"><span class="legend-dot"></span><span class="legend-name">Защита данных</span><span class="legend-metric"><strong>37,5</strong><a class="proof-link" href="#proof-006" data-proof-key="direction:D02">пруф</a></span></div>
+          <div class="legend-item" data-value="67.284" data-color="#70C9A3"><span class="legend-dot"></span><span class="legend-name">Анализ угроз и мониторинг</span><span class="legend-metric"><strong>67,3</strong><a class="proof-link" href="#proof-007" data-proof-key="direction:D03">пруф</a></span></div>
+          <div class="legend-item" data-value="1.456" data-color="#55D6C5"><span class="legend-dot"></span><span class="legend-name">AI-безопасность</span><span class="legend-metric"><strong>1,5</strong><a class="proof-link" href="#proof-008" data-proof-key="direction:D04">пруф</a></span></div>
+          <div class="legend-item" data-value="85.422" data-color="#5AB8E8"><span class="legend-dot"></span><span class="legend-name">Физическая и аппаратная безопасность</span><span class="legend-metric"><strong>85,4</strong><a class="proof-link" href="#proof-009" data-proof-key="direction:D05">пруф</a></span></div>
+          <div class="legend-item" data-value="25.25" data-color="#CE6FE3"><span class="legend-dot"></span><span class="legend-name">Резервное копирование и киберустойчивость</span><span class="legend-metric"><strong>25,3</strong><a class="proof-link" href="#proof-010" data-proof-key="direction:D06">пруф</a></span></div>
+          <div class="legend-item" data-value="18.235" data-color="#D14D52"><span class="legend-dot"></span><span class="legend-name">Управление рисками, соответствием и навыками</span><span class="legend-metric"><strong>18,2</strong><a class="proof-link" href="#proof-011" data-proof-key="direction:D07">пруф</a></span></div>
+          <div class="legend-item" data-value="25.404" data-color="#FFAE6D"><span class="legend-dot"></span><span class="legend-name">Управляемые ИБ-сервисы (MSSP / MDR)</span><span class="legend-metric"><strong>25,4</strong><a class="proof-link" href="#proof-012" data-proof-key="direction:D08">пруф</a></span></div>
+          <div class="legend-item" data-value="8.28" data-color="#63B893"><span class="legend-dot"></span><span class="legend-name">Безопасность ОТ / АСУ ТП / IoT</span><span class="legend-metric"><strong>8,3</strong><a class="proof-link" href="#proof-013" data-proof-key="direction:D09">пруф</a></span></div>
+          <div class="legend-item" data-value="98.226" data-color="#3FBFC4"><span class="legend-dot"></span><span class="legend-name">Сетевая безопасность</span><span class="legend-metric"><strong>98,2</strong><a class="proof-link" href="#proof-014" data-proof-key="direction:D10">пруф</a></span></div>
+          <div class="legend-item" data-value="21.37" data-color="#55AEE7"><span class="legend-dot"></span><span class="legend-name">Управление доступом и идентификацией</span><span class="legend-metric"><strong>21,4</strong><a class="proof-link" href="#proof-015" data-proof-key="direction:D11">пруф</a></span></div>
+          <div class="legend-item" data-value="20.639" data-color="#B65DCC"><span class="legend-dot"></span><span class="legend-name">Безопасность приложений (AppSec)</span><span class="legend-metric"><strong>20,6</strong><a class="proof-link" href="#proof-016" data-proof-key="direction:D12">пруф</a></span></div>
+          <div class="legend-item" data-value="8.089" data-color="#ED6D7A"><span class="legend-dot"></span><span class="legend-name">Облачная безопасность и виртуализация</span><span class="legend-metric"><strong>8,1</strong><a class="proof-link" href="#proof-017" data-proof-key="direction:D13">пруф</a></span></div>
+          <div class="legend-item" data-value="46.594" data-color="#F0A158"><span class="legend-dot"></span><span class="legend-name">Защита конечных точек</span><span class="legend-metric"><strong>46,6</strong><a class="proof-link" href="#proof-018" data-proof-key="direction:D14">пруф</a></span></div>
+          <div class="legend-item legend-item--muted" data-value="3.052" data-color="#9AA2AA"><span class="legend-dot"></span><span class="legend-name">Нераспределённый остаток сопоставимого ядра</span><span class="legend-metric"><strong>3,1</strong><a class="proof-link" href="#proof-019" data-proof-key="residual:core">пруф</a></span></div>
+        </div>
+        <p class="chart-unit">млрд ₽ · базовый сценарий</p>
+        <p class="slide-index slide-index--dark">02 / 07</p>
+      </section>
+
+      <section class="slide slide--ink slide-rankings" data-slide="3" aria-hidden="true">
+        <p class="kicker kicker--light">ВСЕ НАПРАВЛЕНИЯ</p>
+        <h2 class="rankings-title">Размер направлений</h2>
+        <div class="rankings-summary" aria-label="Три крупнейших направления составляют 52,7 процента расширенного периметра">
+          <strong>52,7%</strong>
+          <span>топ‑3</span>
+          <a class="proof-link proof-link--light" href="#proof-004" data-proof-key="metric:top3">пруф</a>
+        </div>
+        <div class="direction-bars" id="directionBars" role="list" aria-label="Все четырнадцать направлений по убыванию объёма рынка"></div>
+        <p class="rankings-unit">млрд ₽ · базовый сценарий · по убыванию</p>
+        <p class="slide-index">03 / 07</p>
+      </section>
+
+      <section class="slide slide--accent slide-bridge" data-slide="4" aria-hidden="true">
+        <p class="kicker">ПЕРИМЕТР</p>
+        <div class="bridge-equation" aria-label="364,4 плюс 111,672 равно 476,072 миллиарда рублей">
+          <div class="bridge-term">
+            <strong>364,4</strong>
+            <span>ядро ИБ</span>
+            <a class="proof-link" href="#proof-002" data-proof-key="total:core">пруф</a>
+          </div>
+          <div class="bridge-sign">+</div>
+          <div class="bridge-term">
+            <strong>111,7</strong>
+            <span>смежные контуры</span>
+            <a class="proof-link" href="#proof-003" data-proof-key="total:adjacent">пруф</a>
+          </div>
+          <div class="bridge-sign">=</div>
+          <div class="bridge-term bridge-term--total">
+            <strong>476,1</strong>
+            <span>млрд ₽</span>
+            <a class="proof-link proof-link--light" href="#proof-001" data-proof-key="total:expanded">пруф</a>
+          </div>
+        </div>
+        <div class="bridge-definitions">
+          <article class="bridge-definition">
+            <h3>Ядро ИБ</h3>
+            <p>Сопоставимые расходы российских корпоративных и государственных заказчиков на СЗИ и профильные ИБ‑услуги.</p>
+            <strong class="bridge-components">
+              <span>271,0 продукты <a class="proof-link" href="#proof-002" data-proof-key="component:products">пруф</a></span>
+              <span>93,5 услуги <a class="proof-link" href="#proof-002" data-proof-key="component:services">пруф</a></span>
+            </strong>
+          </article>
+          <article class="bridge-definition">
+            <h3>Смежные контуры</h3>
+            <p>Рынки из карты за пределами однородного периметра корпоративной кибербезопасности.</p>
+            <strong class="bridge-components">
+              <span>85,4 физическая <a class="proof-link" href="#proof-009" data-proof-key="direction:D05">пруф</a></span>
+              <span>25,3 backup / DR <a class="proof-link" href="#proof-010" data-proof-key="direction:D06">пруф</a></span>
+              <span>1,0 страхование <a class="proof-link" href="#proof-012" data-proof-key="class:C061">пруф</a></span>
+            </strong>
+          </article>
+          <article class="bridge-definition bridge-definition--total">
+            <h3>Расширенный периметр</h3>
+            <p>Индикативная сумма разных денежных баз. Это не однородный TAM.</p>
+          </article>
+        </div>
+        <div class="bridge-line" aria-hidden="true">
+          <span class="bridge-line__core"></span>
+          <span class="bridge-line__adjacent"></span>
+        </div>
+        <p class="slide-index slide-index--dark">04 / 07</p>
+      </section>
+
+      <section class="slide slide--paper slide-taxonomy" data-slide="5" aria-hidden="true">
+        <p class="kicker">ТАКСОНОМИЯ</p>
+        <h2 class="taxonomy-title">От рынка<br>к продукту.</h2>
+        <div class="taxonomy-counts">
+          <div><strong>14</strong><span>направлений</span></div>
+          <b>→</b>
+          <div><strong>23</strong><span>поднаправления</span></div>
+          <b>→</b>
+          <div><strong>126</strong><span>классов</span></div>
+        </div>
+        <a class="map-preview" href="#6" aria-label="Открыть карту классов продуктов ИБ">
+          <div class="taxonomy-overview" id="taxonomyOverview" role="img" aria-label="Перерисованная схема всех четырнадцати направлений"></div>
+          <span>ОТКРЫТЬ КАРТУ <b>↗</b></span>
+        </a>
+        <p class="slide-index slide-index--dark">05 / 07</p>
+      </section>
+
+      <section class="slide slide--map slide-map" data-slide="6" aria-hidden="true">
+        <h2 class="map-title">Карта классов продуктов ИБ</h2>
+        <nav class="map-direction-nav" id="mapDirectionNav" aria-label="Все четырнадцать направлений карты"></nav>
+        <div class="map-viewport" id="mapViewport" tabindex="0" aria-label="Интерактивная перерисованная карта классов продуктов ИБ. Выберите направление слева, используйте колесо мыши или кнопки масштаба.">
+          <div class="map-vector" id="mapVector" role="group" aria-label="Иерархия из 14 направлений, 23 поднаправлений и 126 классов"></div>
+        </div>
+        <div class="map-controls" aria-label="Управление картой">
+          <button id="mapReset" type="button">ОБЗОР</button>
+        </div>
+        <p class="map-hint">выберите направление слева</p>
+        <p class="map-data-note">«неопределено» = нет данных, не 0 · классы неаддитивны</p>
+        <p class="slide-index">06 / 07</p>
+      </section>
+
+    </div>
+
+    <nav class="deck-controls" aria-label="Навигация по презентации">
+      <button class="control-button" id="prevSlide" type="button" aria-label="Предыдущий слайд">←</button>
+      <div class="slide-progress" id="slideProgress" aria-label="Слайды"></div>
+      <button class="control-button" id="nextSlide" type="button" aria-label="Следующий слайд">→</button>
+      <button class="control-button" id="fullscreen" type="button" aria-label="Полноэкранный режим">⛶</button>
+    </nav>
+
+    <p class="keyboard-hint" id="keyboardHint">← → · ПРОБЕЛ · F</p>
+    <p class="sr-only" id="slideStatus" aria-live="polite"></p>
+  </main>
+
+  <script>
+(() => {
+  const sources = {
+    S01: {
+      publisher: "Центр стратегических разработок",
+      title: "Рынок информационной безопасности Российской Федерации: текущее состояние и перспективы развития до 2031 года",
+      date: "май 2026",
+      location: "стр. 3, 15, 17–18",
+      url: "https://www.csr.ru/upload/iblock/f97/00g0eegv8oocs0o7txx6bkwibcr0atlg.pdf",
+    },
+    S05: {
+      publisher: "MWS Intelligence Team",
+      title: "Перспективы ИТ-рынка, выпуск 2",
+      date: "2026",
+      location: "стр. 35 и 45",
+      url: "https://mws.ru/uploads/Perspektivy_IT_rynka_Vypusk_2_a18ca0c008.pdf",
+    },
+    S06: {
+      publisher: "Positive Technologies",
+      title: "Годовой отчёт Positive Technologies за 2025 год",
+      date: "2026",
+      location: "раздел MaxPatrol EDR, «Точки роста»",
+      url: "https://ar2025.ptsecurity.com/products-solutions-services",
+    },
+    S08: {
+      publisher: "N4A / ComNews",
+      title: "Время бурного роста рынка NGFW закончилось",
+      date: "15.12.2025",
+      location: "абзацы 42, 49–52",
+      url: "https://www.comnews.ru/content/242959/2025-12-15/2025-w51/1008/vremya-burnogo-rosta-rynka-ngfw-zakonchilos",
+    },
+    S09: {
+      publisher: "Системный софт / РБК Компании",
+      title: "Рынок NGFW в России достиг 54 млрд рублей",
+      date: "2026",
+      location: "заголовок и первые абзацы",
+      url: "https://companies.rbc.ru/news/n67grqe07g/sistemnyij-soft-ryinok-ngfw-v-rossii-dostig-54-mlrd-rublej/",
+    },
+    S11: {
+      publisher: "Piccard / IT Bastion",
+      title: "Рынок PAM-систем достиг насыщения и составил 5,4 млрд руб.",
+      date: "05.06.2026",
+      location: "основной текст",
+      url: "https://it-bastion.com/news/rynok-pam-sistem-dostig-nasyshcheniya-i-sostavil-5-4-mlrd-rub-v-2025-godu/",
+    },
+    S13: {
+      publisher: "Ivideon / РБК Компании",
+      title: "Российский рынок видеонаблюдения вырос до 67,6 млрд рублей",
+      date: "28.05.2026",
+      location: "абзацы 80–93",
+      url: "https://companies.rbc.ru/amp/news/8ba24ba1-f2cf-426a-a1e0-e5ff608e9886/",
+    },
+    S14: {
+      publisher: "RUБЕЖ",
+      title: "Рынок СКУД в России: тренды, технологии, требования к безопасности",
+      date: "2025",
+      location: "абзацы 74–88",
+      url: "https://ru-bezh.ru/anton-shitikov-stepan-petrov/57448-rynok-skud-v-rossii-trendy-tehnologii-trebovaniya-k-bezopasnosti",
+    },
+    S16: {
+      publisher: "Системный софт / РБК Компании",
+      title: "Объём рынка систем резервного копирования превысил 10 млрд рублей",
+      date: "18.05.2026",
+      location: "абзацы 209–226",
+      url: "https://companies.rbc.ru/news/KdC1lwBlUV/obem-ryinka-sistem-rezervnogo-kopirovaniya-prevyisil-10-mlrd-rublej/",
+    },
+    S17: {
+      publisher: "Solar и Kasatkin Consulting / Коммерсантъ",
+      title: "Компании РФ наращивают инвестиции в обучение по кибербезопасности",
+      date: "06.11.2025",
+      location: "абзацы 114–135",
+      url: "https://www.kommersant.ru/doc/8180913",
+    },
+    S18: {
+      publisher: "ВСК / РИАМО",
+      title: "Объём премий в киберстраховании составил около 1 млрд рублей",
+      date: "20.05.2026",
+      location: "абзацы 3–18",
+      url: "https://riamo.ru/news/obschestvo/obem-premij-v-kiberstrahovanii-v-rf-sostavil-okolo-1-mlrd-rublej/",
+    },
+    S19: {
+      publisher: "CNews",
+      title: "Белые хакеры нашли почти 14 тысяч ИТ-уязвимостей",
+      date: "16.01.2026",
+      location: "раздел «Суммы выплат»",
+      url: "https://www.cnews.ru/news/top/2026-01-16_belye_hakery_nashli_pochti",
+    },
+    S20: {
+      publisher: "TAdviser / АРПП «Отечественный софт»",
+      title: "Исследование российского рынка AI Security",
+      date: "19.06.2026",
+      location: "раздел «Финансовые показатели и перспективы рынка»",
+      url: "https://arppsoft.ru/news/members/23190/",
+    },
+    S23: {
+      publisher: "ЦСР / IT-World",
+      title: "ЦСР: рынок защиты конечных точек",
+      date: "2026",
+      location: "основной текст",
+      url: "https://www.itrn.ru/news/detail.php?id=215157",
+    },
+    S25: {
+      publisher: "Код Безопасности / РБК Компании",
+      title: "Объём ИБ-рынка РФ достиг 211 млрд руб.",
+      date: "23.06.2026",
+      location: "абзацы 311–321",
+      url: "https://companies.rbc.ru/news/OXE3itjttK/issledovanie-koda-bezopasnosti-obem-ib-ryinka-rf-dostig-211-mlrd-rub/",
+    },
+    S27: {
+      publisher: "Ведомости",
+      title: "Российский рынок SIEM",
+      date: "21.01.2025",
+      location: "основной текст",
+      url: "https://www.vedomosti.ru/technology/articles/2025/01/21/1087459-solar-kupila-siem-platform",
+    },
+    S32: {
+      publisher: "M1Cloud",
+      title: "Итоги 2025 года на российском облачном рынке и прогноз на 2026 год",
+      date: "13.11.2025",
+      location: "раздел «Непрерывность бизнеса как новая норма»",
+      url: "https://m1cloud.ru/news/itogi-2025-goda-na-rossiyskom-oblachnom-rynke-i-prognoz-na-2026-god-ot-m1cloud/",
+    },
+    S33: {
+      publisher: "Sk Capital и «Код Безопасности»",
+      title: "Исследование российского рынка облачной кибербезопасности",
+      date: "04.12.2024",
+      location: "основной текст",
+      url: "https://sk.ru/news/sk-capital-i-kod-bezopasnosti-proveli-issledovanie-rossijskogo-rynka-oblachnyh-servisov-i-oblachnoj-kiberbezopasnosti/",
+    },
+    S38: {
+      publisher: "ГК «Солар» со ссылкой на iKS-Consulting",
+      title: "Российский рынок сервисов безопасности «по подписке» может удвоиться к 2028 году",
+      date: "24.09.2025",
+      location: "первые абзацы",
+      url: "https://rt-solar.ru/events/news/6077/",
+    },
+    S39: {
+      publisher: "Anti-Malware.ru",
+      title: "Системы анализа сетевого трафика (NTA): обзор мирового и российского рынка",
+      date: "04.05.2026",
+      location: "раздел «Как развивается российский рынок NTA/NDR»",
+      url: "https://www.anti-malware.ru/analytics/Market_Analysis/Global-and-Russian-market-Network-Traffic-Analysis-systems-review",
+    },
+    S45: {
+      publisher: "VolgaBlob / CNews",
+      title: "Российский рынок SIEM вырастет на 18–20% по итогам 2025 года",
+      date: "25.12.2025",
+      location: "заголовок и первый абзац",
+      url: "https://www.cnews.ru/news/line/2025-12-25_volgablob_rossijskij_rynok_siem",
+    },
+  };
+
+  const evidence = (sourceId, excerpt, role, location) => ({
+    ...sources[sourceId],
+    sourceId,
+    excerpt,
+    role,
+    location: location || sources[sourceId].location,
+  });
+
+  const proofs = [
+    {
+      id: "proof-001",
+      claims: ["total:expanded"],
+      title: "Расширенный периметр карты",
+      value: "476,1 млрд ₽",
+      type: "расчёт",
+      confidence: "D",
+      formula: "364,400 + 111,672 = 476,072 → 476,1",
+      note: "Индикативная сумма разных денежных баз; это не однородный TAM и не опубликованный итог одного исследования.",
+      related: ["proof-002", "proof-003"],
+    },
+    {
+      id: "proof-002",
+      claims: ["total:core", "component:products", "component:services"],
+      title: "Ядро корпоративной ИБ",
+      value: "364,4 млрд ₽",
+      type: "оценка источника",
+      confidence: "B",
+      formula: "271,0 СЗИ + 93,5 услуги − 0,1 округление источника = 364,4",
+      note: "Деньги конечного заказчика, корпоративный B2B; НДС в отчёте не указан.",
+      sources: [
+        evidence(
+          "S01",
+          "«рынок ИБ в России превысил 364 млрд рублей»",
+          "прямое подтверждение общего ядра",
+          "стр. 3; структура 271,0 / 93,5 — стр. 3 и 17"
+        ),
+      ],
+    },
+    {
+      id: "proof-003",
+      claims: ["total:adjacent"],
+      title: "Смежные контуры",
+      value: "111,7 млрд ₽",
+      type: "расчёт",
+      confidence: "D",
+      formula: "85,422 физическая + 25,250 backup / DR + 1,000 страхование = 111,672 → 111,7",
+      note: "Каждый компонент подтверждается отдельно; сумма смешивает рынок оборудования, сервисы и страховые премии.",
+      related: ["proof-009", "proof-010", "proof-012"],
+    },
+    {
+      id: "proof-004",
+      claims: ["metric:top3"],
+      title: "Доля трёх крупнейших направлений",
+      value: "52,7%",
+      type: "расчёт",
+      confidence: "D",
+      formula: "(98,226 + 85,422 + 67,284) / 476,072 = 52,70%",
+      note: "Расчёт по центральным точкам направлений и индикативному расширенному периметру.",
+      related: ["proof-014", "proof-009", "proof-007"],
+    },
+    {
+      id: "proof-005",
+      claims: ["direction:D01"],
+      title: "Управление активами и видимостью",
+      value: "9,2 млрд ₽",
+      type: "расчёт",
+      confidence: "C",
+      formula: "8,000 продукты + 1,245 общие услуги = 9,245 → 9,2",
+      note: "Прямой публичной оценки направления нет. Число распределено внутри ядра ЦСР; не выдаётся за опубликованный факт.",
+      sources: [
+        evidence(
+          "S05",
+          "«В исследовании используется трехуровневая модель»",
+          "контекст независимой сегментации рынка"
+        ),
+      ],
+      related: ["proof-002"],
+    },
+    {
+      id: "proof-006",
+      claims: ["direction:D02", "class:C005"],
+      title: "Защита данных / DLP",
+      value: "37,5 млрд ₽ · DLP 17,0",
+      type: "расчёт",
+      confidence: "B / C",
+      formula: "32,473 продукты + 5,053 услуги = 37,526 → 37,5",
+      note: "Итог направления расчётный. Значение DLP 17,0 млрд ₽ опубликовано отдельно и используется как контроль.",
+      sources: [
+        evidence(
+          "S25",
+          "«DLP-сегмент достиг 17 млрд руб.»",
+          "прямое подтверждение DLP"
+        ),
+      ],
+      related: ["proof-002"],
+    },
+    {
+      id: "proof-007",
+      claims: ["direction:D03", "class:C024"],
+      title: "Анализ угроз и мониторинг / SIEM",
+      value: "67,3 млрд ₽ · SIEM 21,2–24,0",
+      type: "расчёт",
+      confidence: "C",
+      formula: "Направление: 49,000 + 7,625 + 10,659 = 67,284. SIEM: 18–20 × 1,18–1,20 = 21,24–24,0",
+      note: "Итог направления не опубликован напрямую. Диапазон SIEM получен из оценки 2024 года и роста 2025 года.",
+      sources: [
+        evidence(
+          "S27",
+          "«объем российского рынка SIEM-систем оценивается в 18–20 млрд руб.»",
+          "база SIEM за 2024 год"
+        ),
+        evidence(
+          "S45",
+          "«он увеличился примерно на 18–20%»",
+          "предварительный рост SIEM в 2025 году"
+        ),
+      ],
+    },
+    {
+      id: "proof-008",
+      claims: ["direction:D04", "class:C033"],
+      title: "AI-безопасность / AI Security",
+      value: "1,5 млрд ₽ · наблюдаемый пол ≥ 0,123",
+      type: "расчёт",
+      confidence: "D",
+      formula: "Направление: 1,260 + 0,196 = 1,456 → 1,5. Пол класса: 123 млн ₽ = 0,123 млрд ₽",
+      note: "1,5 млрд ₽ — аллокация внутри ядра. 0,123 млрд ₽ — выручка одного участника, не размер всего рынка.",
+      sources: [
+        evidence(
+          "S20",
+          "«Выручка компании ... за 2025 год составила 123 млн рублей»",
+          "наблюдаемый нижний порог"
+        ),
+        evidence(
+          "S20",
+          "«Оценивать объем рынка в денежном выражении пока преждевременно»",
+          "прямое ограничение источника"
+        ),
+      ],
+    },
+    {
+      id: "proof-009",
+      claims: ["direction:D05", "class:C038", "class:C039"],
+      title: "Физическая и аппаратная безопасность",
+      value: "85,4 млрд ₽ · видео 67,6 · СКУД 17,7–18,0",
+      type: "расчёт",
+      confidence: "C",
+      formula: "67,600 + 16,350 × 1,09 = 85,4215 → 85,4; СКУД: 16,350 × 1,08–1,10 = 17,658–17,985",
+      note: "Центральный сценарий соединяет B2B/B2G-видеонаблюдение и полный СКУД. Денежная база не сопоставима с ядром ЦСР.",
+      sources: [
+        evidence(
+          "S13",
+          "«Объем российского B2B- и B2G-рынка видеонаблюдения по итогам 2025 года достиг 67,6 млрд рублей»",
+          "прямое подтверждение видеонаблюдения"
+        ),
+        evidence(
+          "S14",
+          "«за 2024 год российский рынок СКУД достиг 16,35 млрд рублей»",
+          "база расчёта СКУД"
+        ),
+      ],
+    },
+    {
+      id: "proof-010",
+      claims: ["direction:D06"],
+      title: "Резервное копирование и киберустойчивость",
+      value: "25,3 млрд ₽",
+      type: "расчёт",
+      confidence: "D",
+      formula: "20,000 BaaS / DRaaS + 50% × 10,500 backup-продукты = 25,250 → 25,3",
+      note: "Центральная точка предполагает 50%-ное пересечение продукта с сервисным пулом; диапазон 16,8–30,7 млрд ₽.",
+      sources: [
+        evidence(
+          "S32",
+          "«общий объем сегментов BaaS и DRaaS в России достигнет 20 млрд рублей»",
+          "сервисный пул, прогноз 2025"
+        ),
+        evidence(
+          "S16",
+          "«объем российского рынка систем резервного копирования по итогам 2025 года оценивается в 10,5 млрд рублей»",
+          "продуктовый контроль"
+        ),
+      ],
+    },
+    {
+      id: "proof-011",
+      claims: ["direction:D07"],
+      title: "Управление рисками, соответствием и навыками",
+      value: "18,2 млрд ₽",
+      type: "расчёт",
+      confidence: "C",
+      formula: "1,701 продукты + 0,265 общие услуги + 16,269 прямые услуги = 18,235 → 18,2",
+      note: "Прямого итога направления нет; обучение и сервисные оценки используются как контроль структуры.",
+      sources: [
+        evidence(
+          "S17",
+          "«Рынок корпоративного ИБ-образования в 2025 году вырастет на 4%, до 3,21 млрд руб.»",
+          "контроль образовательного пула"
+        ),
+      ],
+      related: ["proof-023", "proof-024"],
+    },
+    {
+      id: "proof-012",
+      claims: ["direction:D08", "class:C061"],
+      title: "Управляемые ИБ-сервисы / киберстрахование",
+      value: "25,4 млрд ₽ · страхование ≈ 1,0",
+      type: "расчёт",
+      confidence: "C / B",
+      formula: "93,5 × 26,1% = 24,404; 24,404 + 1,000 = 25,404 → 25,4",
+      note: "24,404 млрд ₽ — широкий пул аутсорсинга ЦСР, а не узкий MSSP. Страхование включено только в расширенный периметр.",
+      sources: [
+        evidence(
+          "S01",
+          "«Аутсорсинг (включая MSSP/MDR) — 26,1%»",
+          "доля аутсорсинга в рынке ИБ-услуг",
+          "стр. 17–18, рисунки 6–7"
+        ),
+        evidence(
+          "S18",
+          "«объем собранных премий в киберстраховании в 2025 году составил примерно 1 млрд рублей»",
+          "прямое подтверждение страховых премий"
+        ),
+      ],
+      related: ["proof-002", "proof-025"],
+    },
+    {
+      id: "proof-013",
+      claims: ["direction:D09", "class:C063"],
+      title: "Безопасность ОТ / АСУ ТП / IoT",
+      value: "8,3 млрд ₽ · OT Security 6,3",
+      type: "расчёт",
+      confidence: "C",
+      formula: "7,165 продукты + 1,115 общие услуги = 8,280 → 8,3",
+      note: "6,3 млрд ₽ — прогноз узкого отечественного ПО для защиты АСУ ТП; итог направления шире.",
+      sources: [
+        evidence(
+          "S05",
+          "«Защита АСУ ТП — 6,3»",
+          "фрагмент диаграммы рынка ПО за 2025 год",
+          "стр. 35, диаграмма «Структура рынка кибербезопасности ПО»"
+        ),
+      ],
+      related: ["proof-002"],
+    },
+    {
+      id: "proof-014",
+      claims: ["direction:D10", "class:C073"],
+      title: "Сетевая безопасность / NGFW",
+      value: "98,2 млрд ₽ · NGFW 47–54",
+      type: "расчёт",
+      confidence: "B / C",
+      formula: "85,000 продукты + 13,226 общие услуги = 98,226 → 98,2",
+      note: "Итог направления шире NGFW. 47 и 54 млрд ₽ имеют несовпадающие денежные базы, поэтому центральная точка NGFW не назначена.",
+      sources: [
+        evidence(
+          "S08",
+          "«объем сегмента NGFW и криптошлюзов в ценах производителей составит 47 млрд руб.»",
+          "нижний сценарий NGFW"
+        ),
+        evidence(
+          "S09",
+          "«рынок NGFW в России достиг 54 млрд рублей»",
+          "верхний сценарий NGFW"
+        ),
+      ],
+      related: ["proof-002"],
+    },
+    {
+      id: "proof-015",
+      claims: ["direction:D11", "class:C094"],
+      title: "Управление доступом и идентификацией / PAM",
+      value: "21,4 млрд ₽ · PAM 5,4",
+      type: "расчёт",
+      confidence: "B / C",
+      formula: "18,492 продукты + 2,878 общие услуги = 21,370 → 21,4",
+      note: "Итог направления шире PAM. Дополнительные 0,432 млрд ₽ продуктовой реклассификации смоделированы.",
+      sources: [
+        evidence(
+          "S11",
+          "«По итогам 2025 г. объем рынка PAM оценен в 5,4 млрд руб.»",
+          "прямое подтверждение PAM"
+        ),
+      ],
+      related: ["proof-002"],
+    },
+    {
+      id: "proof-016",
+      claims: ["direction:D12"],
+      title: "Безопасность приложений (AppSec)",
+      value: "20,6 млрд ₽",
+      type: "расчёт",
+      confidence: "C",
+      formula: "17,860 продукты + 2,779 общие услуги = 20,639 → 20,6",
+      note: "17,860 млрд ₽ — расчётная аллокация с поправкой на пересечения VM, WAF и Anti-DDoS; не опубликованный остаток.",
+      sources: [
+        evidence(
+          "S01",
+          "«Средства защиты приложений — 35,42 млрд руб.»",
+          "широкая исходная категория ЦСР",
+          "стр. 15, таблица 2"
+        ),
+      ],
+    },
+    {
+      id: "proof-017",
+      claims: ["direction:D13"],
+      title: "Облачная безопасность и виртуализация",
+      value: "8,1 млрд ₽",
+      type: "расчёт",
+      confidence: "C",
+      formula: "7,000 продукты + 1,089 общие услуги = 8,089 → 8,1",
+      note: "Широкий облачный контроль 10,51–19,2 млрд ₽ пересекается с другими направлениями и не прибавляется к ядру.",
+      sources: [
+        evidence(
+          "S33",
+          "«объем облачной кибербезопасности увеличится с пяти млрд руб. до 32 млрд руб.»",
+          "траектория 2023–2028; контроль, а не прямой итог 2025"
+        ),
+      ],
+      related: ["proof-002"],
+    },
+    {
+      id: "proof-018",
+      claims: ["direction:D14"],
+      title: "Защита конечных точек",
+      value: "46,6 млрд ₽",
+      type: "расчёт",
+      confidence: "B",
+      formula: "40,320 продукты + 6,274 общие услуги = 46,594 → 46,6",
+      note: "Продуктовая база опубликована в широком классе endpoint security; сервисная надбавка распределена аналитически.",
+      sources: [
+        evidence(
+          "S23",
+          "«объем рынка средств защиты конечных точек превысил 40 млрд рублей»",
+          "прямой продуктовый якорь"
+        ),
+      ],
+      related: ["proof-002", "proof-026", "proof-027"],
+    },
+    {
+      id: "proof-019",
+      claims: ["residual:core"],
+      title: "Нераспределённый остаток ядра",
+      value: "3,1 млрд ₽",
+      type: "расчёт",
+      confidence: "B",
+      formula: "364,400 − 361,348 распределённого ядра = 3,052 → 3,1",
+      note: "Остаток сохранён явно, а не назначен классу без доказательной базы.",
+      related: ["proof-002"],
+    },
+    {
+      id: "proof-020",
+      claims: ["class:C019"],
+      title: "VM",
+      value: "8,8 млрд ₽",
+      type: "прогноз источника",
+      confidence: "C",
+      formula: "Прямое значение диаграммы MWS; отдельная чувствительность не показана на слайде.",
+      note: "Узкий рынок отечественного ПО управления уязвимостями; не весь широкий контур vulnerability management.",
+      sources: [
+        evidence(
+          "S05",
+          "«Управление уязвимостями и сканирование — 8,8»",
+          "фрагмент диаграммы рынка ПО за 2025 год",
+          "стр. 35, диаграмма «Структура рынка кибербезопасности ПО»"
+        ),
+      ],
+    },
+    {
+      id: "proof-021",
+      claims: ["class:C023"],
+      title: "Pentest (CPT)",
+      value: "10,7 млрд ₽",
+      type: "расчёт",
+      confidence: "B",
+      formula: "93,5 × 11,4% = 10,659 → 10,7",
+      note: "Расчёт на основе объёма российского рынка ИБ-услуг ЦСР и доли оценки защищённости.",
+      sources: [
+        evidence(
+          "S01",
+          "«Оценка защищенности (пентест) — 11,4%»",
+          "доля в рынке услуг",
+          "стр. 17–18, рисунки 6–7"
+        ),
+      ],
+      related: ["proof-002"],
+    },
+    {
+      id: "proof-022",
+      claims: ["class:C025"],
+      title: "NTA",
+      value: "5–10 млрд ₽",
+      type: "оценка источника",
+      confidence: "C",
+      formula: "Диапазон источника показан без искусственного среднего.",
+      note: "Источник использует объединённый контур NTA/NDR; границы не являются статистическим доверительным интервалом.",
+      sources: [
+        evidence(
+          "S39",
+          "«Объём российского рынка NTA/NDR эксперты оценивают в диапазоне 5–10 миллиардов рублей»",
+          "прямое подтверждение диапазона"
+        ),
+      ],
+    },
+    {
+      id: "proof-023",
+      claims: ["class:C051"],
+      title: "DFIR",
+      value: "4,3 млрд ₽",
+      type: "расчёт",
+      confidence: "B",
+      formula: "93,5 × 4,6% = 4,301 → 4,3",
+      note: "Расчёт на основе объёма рынка ИБ-услуг и доли расследования инцидентов.",
+      sources: [
+        evidence(
+          "S01",
+          "«Расследование инцидентов — 4,6%»",
+          "доля в рынке услуг",
+          "стр. 17–18, рисунки 6–7"
+        ),
+      ],
+      related: ["proof-002"],
+    },
+    {
+      id: "proof-024",
+      claims: ["class:C055"],
+      title: "Bug Bounty Platforms",
+      value: "≥ 0,261 млрд ₽",
+      type: "наблюдаемый нижний порог",
+      confidence: "D",
+      formula: "161 млн ₽ + 100 млн ₽ = 261 млн ₽ = 0,261 млрд ₽",
+      note: "Это только раскрытые выплаты двух платформ: не выручка платформ и не полный размер рынка.",
+      sources: [
+        evidence(
+          "S19",
+          "«Итоговая сумма выплат ... составила 161 млн руб.; ... онлайн-платформой было выплачено ... 100 млн руб.»",
+          "прямые суммы выплат"
+        ),
+      ],
+    },
+    {
+      id: "proof-025",
+      claims: ["class:C057"],
+      title: "MSSP",
+      value: "32,1 млрд ₽",
+      type: "прогноз источника",
+      confidence: "B",
+      formula: "Прогнозный график iKS-Consulting: 2025F = 32,1 млрд ₽.",
+      note: "Прогноз опубликован до завершения 2025 года; это не ретроспективный факт и не складывается с итогом D08.",
+      sources: [
+        evidence(
+          "S38",
+          "«По результатам 2025 года рынок может вырасти на 23% до 32,1 млрд руб.»",
+          "текстовый прогноз со ссылкой на исследование iKS-Consulting"
+        ),
+      ],
+      related: ["proof-012"],
+    },
+    {
+      id: "proof-026",
+      claims: ["class:C118"],
+      title: "EDR",
+      value: "4,0 млрд ₽",
+      type: "оценка источника",
+      confidence: "B",
+      formula: "Центральная точка источника; сценарная полоса исследования 3,5–4,5 млрд ₽.",
+      note: "Оценка рынка EDR, приведённая участником рынка в годовом отчёте.",
+      sources: [
+        evidence(
+          "S06",
+          "«Рынок EDR-решений России — около 4 млрд руб.»",
+          "прямое подтверждение"
+        ),
+      ],
+    },
+    {
+      id: "proof-027",
+      claims: ["class:C120"],
+      title: "Антивирус",
+      value: "13,1 млрд ₽",
+      type: "прогноз источника",
+      confidence: "C",
+      formula: "Прямое значение диаграммы MWS; в презентации помечено как прогноз.",
+      note: "Денежная база — отечественное ПО в деньгах компаний, а не весь endpoint-контур.",
+      sources: [
+        evidence(
+          "S05",
+          "«Антивирусное ПО — 13,1»",
+          "фрагмент диаграммы рынка ПО за 2025 год",
+          "стр. 35, диаграмма «Структура рынка кибербезопасности ПО»"
+        ),
+      ],
+    },
+  ];
+
+  const claimMap = {};
+  proofs.forEach((proof, index) => {
+    proof.number = index + 1;
+    proof.claims.forEach((claim) => {
+      claimMap[claim] = proof.id;
+    });
+  });
+
+  window.PROOF_DATA = {
+    title: "Пруфы",
+    accessDate: "30.07.2026",
+    proofs,
+    claimMap,
+  };
+})();
+
+  </script>
+  <script>
+window.SECURITY_MAP = {"title":"Карта классов продуктов ИБ","directionsCount":14,"subdirectionsCount":23,"classesCount":126,"marketCoverage":{"point":11,"range":4,"floor":2,"undefined":109},"directions":[{"id":"D01","name":"Управление активами и видимостью","color":"#F35B66","value":9.245,"classesCount":4,"market":{"type":"точка","label":"9,2 млрд ₽","low":8.88,"base":9.245,"high":9.49,"status":"derived_allocation","confidence":"C","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":null,"name":"Классы направления","classes":[{"id":"C001","name":"CAASM","description":"управление киберактивами и поверхностью атак","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C002","name":"ITAM / CMDB","description":"управление ИТ-активами и реестр конфигураций","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C003","name":"Shadow IT Discovery","description":"обнаружение неуправляемых устройств и приложений","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C004","name":"Network Discovery","description":"автоматическое обнаружение активов в сети","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D02","name":"Защита данных","color":"#F58A64","value":37.526,"classesCount":14,"market":{"type":"точка","label":"37,5 млрд ₽","low":36.03,"base":37.526,"high":38.5,"status":"derived_allocation","confidence":"B","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":"SD02_01","name":"Предотвращение утечек и контроль данных","classes":[{"id":"C005","name":"DLP","description":"системы предотвращения утечек данных","market":{"type":"точка","label":"17,0 млрд ₽","qualifier":null,"value":17.0,"low":11.3,"base":17.0,"high":21.0,"status":"two_source_anchors_plus_analytical_upper_sensitivity","confidence":"C","note":"Показывать как оценку DLP 2025; 11,3 и 21,0 не образуют сопоставимый статистический диапазон."}},{"id":"C006","name":"DAG","description":"управление доступом к данным","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C007","name":"DCAP","description":"контроль доступа к данным и аналитика использования","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C008","name":"DBF","description":"защита баз данных","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C009","name":"VDR","description":"виртуальная комната данных, безопасный обмен документами","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD02_02","name":"Цифровая идентичность и шифрование","classes":[{"id":"C010","name":"Криптографические средства","description":"шифрование данных в покое и в движении","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C011","name":"Токенизация","description":"замена чувствительных данных токенами","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C012","name":"Маскировка данных","description":"обезличивание для нерабочих сред","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C013","name":"PKI","description":"инфраструктура открытых ключей, управление ключами и сертификатами","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C014","name":"IRM","description":"таргетированное управление правами доступа к информации","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C015","name":"Vault","description":"средства хранения секретов","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C016","name":"HSM","description":"аппаратные модули безопасности","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C017","name":"Постквантовая криптография (PQC)","description":"защита от квантовых атак","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C018","name":"QKD","description":"квантовое распределение ключей","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D03","name":"Анализ угроз и мониторинг","color":"#70C9A3","value":67.284,"classesCount":14,"market":{"type":"точка","label":"67,3 млрд ₽","low":64.61,"base":67.284,"high":69.04,"status":"derived_allocation","confidence":"C","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":"SD03_01","name":"Управление уязвимостями","classes":[{"id":"C019","name":"VM","description":"выявление и устранение уязвимостей","market":{"type":"точка","label":"8,8 млрд ₽","qualifier":"прогноз","value":8.8,"low":5.895,"base":8.8,"high":8.8,"status":"mixed_scope_controls","confidence":"C","note":"Показывать только как узкий прогноз отечественного VM-ПО; нижний контроль 5,895 имеет иной периметр."}},{"id":"C020","name":"ASM","description":"мониторинг поверхности атак","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C021","name":"BAS","description":"симуляция атак и тестирование безопасности","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C022","name":"CSAM","description":"управление безопасностью конфигураций","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C023","name":"Pentest (CPT)","description":"тестирование на проникновение","market":{"type":"точка","label":"10,7 млрд ₽","qualifier":null,"value":10.659,"low":9.5,"base":10.659,"high":12.0,"status":"derived_source_estimate","confidence":"B","note":"Расчётная точка: 93,5 × 11,4%; не опубликованный самостоятельный market size."}}]},{"id":"SD03_02","name":"Мониторинг и аналитика","classes":[{"id":"C024","name":"SIEM","description":"управление событиями и информацией безопасности","market":{"type":"диапазон","label":"21,2–24,0 млрд ₽","qualifier":null,"value":null,"low":21.24,"base":22.62,"high":24.0,"status":"derived_from_source_range","confidence":"C","note":"Расчётный сценарный диапазон из оценки 2024 года и темпа роста 2025 года; не опубликованная точка."}},{"id":"C025","name":"NTA","description":"аналитика сетевого трафика","market":{"type":"диапазон","label":"5–10 млрд ₽","qualifier":null,"value":null,"low":5.0,"base":7.9,"high":10.0,"status":"source_range_with_forecast_anchor","confidence":"C","note":"Экспертный диапазон объединяет NTA/NDR; 7,9 млрд ₽ — более узкий прогноз NTA-ПО."}},{"id":"C026","name":"NDR","description":"обнаружение и реагирование на сетевые угрозы","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C027","name":"Cloud-native XDR","description":"расширенное обнаружение и реагирование в облаке","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C028","name":"UEBA","description":"аналитика поведения пользователей и сущностей","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C029","name":"TI","description":"разведка и аналитика по угрозам","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD03_03","name":"Реагирование и автоматизация","classes":[{"id":"C030","name":"SOAR","description":"автоматизация безопасности и реагирования на инциденты","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C031","name":"IRP","description":"платформа реагирования на инциденты","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C032","name":"Автоматизация межсетевых экранов","description":"оркестрация правил и политик","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D04","name":"AI-безопасность","color":"#55D6C5","value":1.456,"classesCount":5,"market":{"type":"точка","label":"1,5 млрд ₽","low":1.4,"base":1.456,"high":1.49,"status":"derived_allocation","confidence":"D","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":null,"name":"Классы направления","classes":[{"id":"C033","name":"AI Security","description":"защита AI/ML-систем от adversarial attacks и model poisoning","market":{"type":"нижняя граница","label":"≥ 0,123 млрд ₽","qualifier":null,"value":null,"low":0.123,"base":null,"high":null,"status":"observable_revenue_floor_not_market_size","confidence":"D","note":"Только наблюдаемая выручка одного участника, не размер рынка."}},{"id":"C034","name":"MLSecOps","description":"безопасность ML-пайплайнов и моделей","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C035","name":"AI для киберзащиты","description":"использование ИИ для обнаружения угроз","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C036","name":"AI Governance \u0026 Auditability","description":"аудит и прозрачность решений на ИИ","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C037","name":"LLM Security","description":"защита от атак на большие языковые модели (prompt injection и др.)","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D05","name":"Физическая и аппаратная безопасность","color":"#5AB8E8","value":85.422,"classesCount":4,"market":{"type":"точка","label":"85,4 млрд ₽","low":81.658,"base":85.422,"high":88.985,"status":"analytical_expanded_perimeter","confidence":"C","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":null,"name":"Классы направления","classes":[{"id":"C038","name":"СКУД","description":"системы контроля и управления физическим доступом","market":{"type":"диапазон","label":"17,7–18,0 млрд ₽","qualifier":null,"value":null,"low":17.658,"base":17.822,"high":17.985,"status":"derived_growth_scenario","confidence":"C","note":"Расчётный сценарий на базе рынка 2024 года и роста 8–10%."}},{"id":"C039","name":"Видеонаблюдение и аналитика","description":"видеоаналитика безопасности","market":{"type":"точка","label":"67,6 млрд ₽","qualifier":null,"value":67.6,"low":64.0,"base":67.6,"high":71.0,"status":"source_point_with_analytical_sensitivity","confidence":"B","note":"Источник публикует центральную оценку; 64–71 млрд ₽ — аналитическая чувствительность."}},{"id":"C040","name":"Side-Channel Attack Protection","description":"защита от побочных каналов","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C041","name":"Физическая защита серверных и ЦОД","description":"контроль доступа в помещения","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D06","name":"Резервное копирование и киберустойчивость","color":"#CE6FE3","value":25.25,"classesCount":4,"market":{"type":"точка","label":"25,3 млрд ₽","low":16.8,"base":25.25,"high":30.7,"status":"analytical_mixed_perimeter","confidence":"D","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":null,"name":"Классы направления","classes":[{"id":"C042","name":"Immutable Backup","description":"неизменяемые резервные копии (защита от ransomware)","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C043","name":"Disaster Recovery / BCP","description":"восстановление после катастроф и непрерывность бизнеса","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C044","name":"Cyber Resilience Platforms","description":"платформы обеспечения киберустойчивости","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C045","name":"Air-gapped Storage","description":"защищённые изолированные хранилища данных","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D07","name":"Управление рисками, соответствием и навыками","color":"#D14D52","value":18.235,"classesCount":11,"market":{"type":"точка","label":"18,2 млрд ₽","low":17.51,"base":18.235,"high":18.71,"status":"derived_allocation","confidence":"C","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":"SD07_01","name":"GRC и антифрод","classes":[{"id":"C046","name":"GRC","description":"управление рисками и соблюдение нормативных требований","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C047","name":"Антифрод","description":"предотвращение цифрового мошенничества","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C048","name":"DRP","description":"разведка угроз и проактивная минимизация цифровых рисков","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C049","name":"OSINT","description":"разведка на основе открытых данных","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C050","name":"Sandbox","description":"изолированная среда для анализа угроз","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C051","name":"DFIR","description":"реагирование на инциденты и цифровая криминалистика","market":{"type":"точка","label":"4,3 млрд ₽","qualifier":null,"value":4.301,"low":3.8,"base":4.301,"high":5.0,"status":"derived_source_estimate","confidence":"B","note":"Расчётная точка: 93,5 × 4,6%; не опубликованный самостоятельный market size."}}]},{"id":"SD07_02","name":"Security Awareness и обучение","classes":[{"id":"C052","name":"SA / Security Awareness Training","description":"платформы обучения сотрудников","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C053","name":"Phishing Simulation","description":"симуляция фишинговых атак","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C054","name":"Киберполигоны","description":"учебные полигоны для отработки навыков защиты","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C055","name":"Bug Bounty Platforms","description":"платформы программ поиска уязвимостей","market":{"type":"нижняя граница","label":"≥ 0,261 млрд ₽","qualifier":null,"value":null,"low":0.261,"base":null,"high":null,"status":"observable_payout_floor_not_market_size","confidence":"D","note":"Наблюдаемые выплаты, не выручка платформ и не полный размер рынка."}},{"id":"C056","name":"Геймификация ИБ-обучения","description":"игровые форматы повышения осведомлённости","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D08","name":"Управляемые ИБ-сервисы (MSSP / MDR)","color":"#FFAE6D","value":25.404,"classesCount":5,"market":{"type":"точка","label":"25,4 млрд ₽","low":24.23,"base":25.404,"high":26.34,"status":"derived_plus_expanded","confidence":"C","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":null,"name":"Классы направления","classes":[{"id":"C057","name":"MSSP","description":"провайдер управляемых услуг безопасности","market":{"type":"точка","label":"32,1 млрд ₽","qualifier":"прогноз","value":32.1,"low":31.32,"base":32.1,"high":32.1,"status":"forecast_range_from_single_study","confidence":"B","note":"Показывать как прогноз 2025 года, не как ретроспективный факт; пул ЦСР 24,404 имеет другой периметр."}},{"id":"C058","name":"MDR","description":"управляемое обнаружение и реагирование на угрозы","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C059","name":"SOC-as-a-Service","description":"внешний центр мониторинга безопасности","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C060","name":"Threat Hunting as a Service","description":"проактивный поиск угроз как услуга","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C061","name":"Киберстрахование","description":"страхование киберрисков и ущерба от инцидентов","market":{"type":"точка","label":"≈ 1,0 млрд ₽","qualifier":null,"value":1.0,"low":0.8,"base":1.0,"high":1.0,"status":"source_point_with_analytical_sensitivity","confidence":"B","note":"Приблизительная ретроспективная оценка премий; относится к смежному периметру."}}]}]},{"id":"D09","name":"Безопасность ОТ / АСУ ТП / IoT","color":"#63B893","value":8.28,"classesCount":7,"market":{"type":"точка","label":"8,3 млрд ₽","low":7.95,"base":8.28,"high":8.5,"status":"derived_allocation","confidence":"C","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":"SD09_01","name":"Промышленные системы управления","classes":[{"id":"C062","name":"ICS/SCADA Security","description":"защита промышленных систем управления","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C063","name":"OT Security","description":"безопасность операционных технологий (187-ФЗ КИИ)","market":{"type":"точка","label":"6,3 млрд ₽","qualifier":"прогноз","value":6.3,"low":5.67,"base":6.3,"high":6.93,"status":"forecast_with_sensitivity","confidence":"C","note":"Показывать как прогноз отечественного OT/АСУ ТП ПО, а не полный OT Security TAM."}},{"id":"C064","name":"Industrial Firewall","description":"промышленный межсетевой экран","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C065","name":"Data Diode","description":"однонаправленный шлюз для изоляции ОТ-сетей","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD09_02","name":"Интернет вещей","classes":[{"id":"C066","name":"IoT Security","description":"защита устройств интернета вещей","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C067","name":"OT/IT Convergence Security","description":"защита точек соединения ОТ и ИТ-сетей","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C068","name":"Firmware Security","description":"анализ и защита прошивок устройств","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D10","name":"Сетевая безопасность","color":"#3FBFC4","value":98.226,"classesCount":16,"market":{"type":"точка","label":"98,2 млрд ₽","low":94.32,"base":98.226,"high":100.79,"status":"derived_allocation","confidence":"B","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":"SD10_01","name":"Защита периметра сети","classes":[{"id":"C069","name":"VPN","description":"виртуальная частная сеть","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C070","name":"ZTNA","description":"сетевой доступ с нулевым доверием","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C071","name":"NAC","description":"контроль доступа к сети","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C072","name":"Firewall / UTM","description":"межсетевой экран и универсальный шлюз безопасности","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C073","name":"NGFW","description":"межсетевой экран нового поколения","market":{"type":"диапазон","label":"47–54 млрд ₽","qualifier":null,"value":null,"low":47.0,"base":null,"high":54.0,"status":"incomparable_source_scenarios","confidence":"C","note":"Сценарный конверт несовместимых периметров; центральную точку не показывать."}},{"id":"C074","name":"IDS / IPS","description":"системы обнаружения и предотвращения вторжений","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C075","name":"SWG","description":"шлюз веб-безопасности, проксирование доступа","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C076","name":"SEG","description":"защита электронной почты","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C077","name":"Сегментация сети","description":"изоляция сегментов для ограничения распространения угроз","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD10_02","name":"Защита WEB и API","classes":[{"id":"C078","name":"SecDNS","description":"защита DNS","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C079","name":"Anti-DDoS","description":"защита от распределённых атак отказа в обслуживании","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C080","name":"WAF","description":"межсетевой экран для веб-приложений","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C081","name":"API Security","description":"безопасность API и защита на уровне приложений","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD10_03","name":"Безопасность коммуникаций","classes":[{"id":"C082","name":"Secure Messaging","description":"защищённые корпоративные мессенджеры","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C083","name":"UC Security","description":"безопасность унифицированных коммуникаций и видеоконференций","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C084","name":"Anti-eavesdropping","description":"защита от прослушивания каналов связи","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D11","name":"Управление доступом и идентификацией","color":"#55AEE7","value":21.37,"classesCount":11,"market":{"type":"точка","label":"21,4 млрд ₽","low":20.52,"base":21.37,"high":21.93,"status":"derived_allocation","confidence":"B","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":"SD11_01","name":"Identity \u0026 Access Management","classes":[{"id":"C085","name":"SSO","description":"единый логин для всех систем","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C086","name":"IAM","description":"управление доступом и идентификацией","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C087","name":"IGA","description":"управление идентичностями и доступом","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C088","name":"IDM","description":"управление идентификацией","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C089","name":"CIAM","description":"управление идентификацией клиентов","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C090","name":"IDP","description":"провайдер идентификации","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD11_02","name":"Аутентификация","classes":[{"id":"C091","name":"MFA","description":"многофакторная аутентификация","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C092","name":"NoPass","description":"аутентификация без паролей (passwordless)","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C093","name":"Аппаратные токены и USB-ключи","description":"физические средства аутентификации","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD11_03","name":"Привилегированный доступ и угрозы идентификации","classes":[{"id":"C094","name":"PAM","description":"управление привилегированным доступом","market":{"type":"точка","label":"5,4 млрд ₽","qualifier":null,"value":5.4,"low":4.8,"base":5.4,"high":6.0,"status":"source_estimate_with_sensitivity","confidence":"C","note":"Спонсорская рыночная оценка; 4,8–6,0 млрд ₽ — аналитическая чувствительность."}},{"id":"C095","name":"ITDR","description":"обнаружение и реагирование на угрозы идентификации","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D12","name":"Безопасность приложений (AppSec)","color":"#B65DCC","value":20.639,"classesCount":10,"market":{"type":"точка","label":"20,6 млрд ₽","low":19.82,"base":20.639,"high":21.18,"status":"derived_allocation","confidence":"C","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":"SD12_01","name":"Анализ кода","classes":[{"id":"C096","name":"SAST","description":"статический анализ безопасности кода","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C097","name":"DAST","description":"динамический анализ безопасности приложений","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C098","name":"IAST","description":"интерактивный анализ безопасности приложений","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C099","name":"MAST","description":"анализ безопасности мобильных приложений","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C100","name":"SCA","description":"композиционный анализ кода (зависимости, лицензии)","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD12_02","name":"DevSecOps и цепочка поставок","classes":[{"id":"C101","name":"DevSecOps-платформы","description":"интеграция ИБ в CI/CD-конвейер","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C102","name":"SSCS","description":"безопасность цепочки поставок ПО","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C103","name":"SBOM","description":"реестр компонентов программного обеспечения","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C104","name":"Artifact \u0026 Registry Security","description":"защита репозиториев и артефактов сборки","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C105","name":"Secrets Management in Pipeline","description":"управление секретами в DevOps","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D13","name":"Облачная безопасность и виртуализация","color":"#ED6D7A","value":8.089,"classesCount":11,"market":{"type":"точка","label":"8,1 млрд ₽","low":7.77,"base":8.089,"high":8.3,"status":"derived_allocation","confidence":"C","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":"SD13_01","name":"Облачные брокеры и платформы","classes":[{"id":"C106","name":"CASB","description":"брокер безопасности доступа к облаку","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C107","name":"CNAPP","description":"нативная облачная платформа защиты приложений","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C108","name":"CSPM","description":"управление безопасностью облачной инфраструктуры","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C109","name":"CWPP","description":"защита рабочих нагрузок в облаке","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C110","name":"CIEM","description":"управление доступом в облачных средах","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C111","name":"Облачный межсетевой экран","description":"фильтрация трафика в облаке","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C112","name":"Межсетевой экран уровня гипервизора","description":"защита виртуальных сред","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD13_02","name":"Контейнеры и оркестрация","classes":[{"id":"C113","name":"Container Security","description":"защита контейнеров (Docker, Kubernetes)","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C114","name":"Image Scanning","description":"сканирование образов на уязвимости","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C115","name":"Runtime Security","description":"защита контейнеров в реальном времени","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD13_03","name":"Мониторинг облаков","classes":[{"id":"C116","name":"Мониторинг и аналитика облачной инфраструктуры","description":"видимость событий в облаке","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D14","name":"Защита конечных точек","color":"#F0A158","value":46.594,"classesCount":10,"market":{"type":"точка","label":"46,6 млрд ₽","low":44.74,"base":46.594,"high":47.81,"status":"derived_allocation","confidence":"B","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":"SD14_01","name":"Платформенная защита","classes":[{"id":"C117","name":"EPP","description":"платформа защиты конечных точек","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C118","name":"EDR","description":"обнаружение и реагирование на угрозы на конечных точках","market":{"type":"точка","label":"4,0 млрд ₽","qualifier":null,"value":4.0,"low":3.5,"base":4.0,"high":4.5,"status":"source_estimate","confidence":"B","note":"Экспертная оценка рынка EDR; 3,5–4,5 млрд ₽ — сценарная полоса."}},{"id":"C119","name":"XDR","description":"расширенное обнаружение и реагирование (cross-layer)","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C120","name":"Антивирус","description":"сигнатурная и поведенческая защита","market":{"type":"точка","label":"13,1 млрд ₽","qualifier":"прогноз","value":13.1,"low":11.8,"base":13.1,"high":15.0,"status":"forecast_with_sensitivity","confidence":"C","note":"Показывать как прогноз отечественного антивирусного ПО в деньгах вендоров."}}]},{"id":"SD14_02","name":"Доверенная среда","classes":[{"id":"C121","name":"АПМДЗ","description":"средства доверенной загрузки","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C122","name":"НСД","description":"защита от несанкционированного доступа","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C123","name":"TPM / Secure Enclave","description":"аппаратная доверенная среда исполнения","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD14_03","name":"Защита потребителей","classes":[{"id":"C124","name":"Защита персональных данных пользователей","description":"","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C125","name":"Информирование об утечках и компрометации аутентификации","description":"","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C126","name":"Родительский контроль","description":"","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]}]};
+
+  </script>
+  <script>
+(() => {
+  const deck = document.getElementById("deck");
+  const proofData = window.PROOF_DATA;
+  if (
+    !proofData ||
+    !Array.isArray(proofData.proofs) ||
+    proofData.proofs.length === 0 ||
+    !proofData.claimMap
+  ) {
+    throw new Error("Proof data failed validation.");
+  }
+
+  const createElement = (tag, className, textContent) => {
+    const element = document.createElement(tag);
+    if (className) element.className = className;
+    if (textContent !== undefined) element.textContent = textContent;
+    return element;
+  };
+
+  const proofsById = new Map(
+    proofData.proofs.map((proof) => [proof.id, proof])
+  );
+
+  const proofNumber = (proofId) => {
+    const proof = proofsById.get(proofId);
+    return proof ? String(proof.number).padStart(2, "0") : "—";
+  };
+
+  const proofLinkLabel = (proofId) =>
+    proofsById.get(proofId)?.type === "расчёт" ? "расчёт" : "пруф";
+
+  const describeProofLink = (proofId) => {
+    const label = proofLinkLabel(proofId);
+    return `Открыть ${label} ${proofNumber(proofId)} для этого значения`;
+  };
+
+  const createProofLink = (claimKey, className = "proof-link") => {
+    const targetId = proofData.claimMap[claimKey];
+    if (!targetId) return null;
+    const link = createElement("a", className, proofLinkLabel(targetId));
+    link.href = `#${targetId}`;
+    link.dataset.proofKey = claimKey;
+    link.dataset.proofTarget = targetId;
+    link.setAttribute("aria-label", describeProofLink(targetId));
+    return link;
+  };
+
+  const synchronizeStaticProofLinks = () => {
+    document
+      .querySelectorAll(".proof-link[data-proof-key]")
+      .forEach((link) => {
+        const targetId = proofData.claimMap[link.dataset.proofKey];
+        if (!targetId) return;
+        link.href = `#${targetId}`;
+        link.dataset.proofTarget = targetId;
+        link.textContent = proofLinkLabel(targetId);
+        link.setAttribute("aria-label", describeProofLink(targetId));
+      });
+  };
+
+  const createSourceBlock = (source) => {
+    const block = createElement("div", "proof-source");
+    const label = createElement("p", "proof-source__label", "ТЕКСТ ИСТОЧНИКА");
+    const quote = createElement("blockquote", "proof-source__quote", source.excerpt);
+    const meta = createElement(
+      "p",
+      "proof-source__meta",
+      `${source.sourceId} · ${source.publisher} · ${source.date} · ${source.location}`
+    );
+    const role = createElement("p", "proof-source__role", source.role);
+    const url = createElement("a", "proof-source__url", source.url);
+    url.href = source.url;
+    url.target = "_blank";
+    url.rel = "noopener noreferrer";
+    url.title = `Открыть источник: ${source.title}`;
+    block.append(label, quote, meta, role, url);
+    return block;
+  };
+
+  const createProofCard = (proof) => {
+    const card = createElement("article", "proof-card");
+    card.id = proof.id;
+    card.tabIndex = -1;
+    card.dataset.proofNumber = String(proof.number);
+    card.setAttribute(
+      "aria-label",
+      `Пруф ${proof.number}. ${proof.title}. ${proof.value}`
+    );
+
+    const header = createElement("header", "proof-card__header");
+    header.append(
+      createElement(
+        "span",
+        "proof-card__number",
+        String(proof.number).padStart(2, "0")
+      ),
+      createElement("span", "proof-card__type", proof.type),
+      createElement("strong", "proof-card__value", proof.value)
+    );
+
+    const title = createElement("h3", "proof-card__title", proof.title);
+    const calculation = createElement("div", "proof-card__calculation");
+    calculation.append(
+      createElement(
+        "span",
+        "",
+        proof.type === "расчёт" ? "РАСЧЁТ" : "ПРОВЕРКА"
+      ),
+      createElement("strong", "", proof.formula)
+    );
+    const note = createElement("p", "proof-card__note", proof.note);
+    const sources = createElement("div", "proof-card__sources");
+    (proof.sources || []).forEach((source) => {
+      sources.appendChild(createSourceBlock(source));
+    });
+
+    const footer = createElement("footer", "proof-card__footer");
+    footer.append(
+      createElement("span", "", `проверено ${proofData.accessDate}`)
+    );
+    if (proof.related?.length) {
+      const related = createElement("nav", "proof-related");
+      related.setAttribute("aria-label", "Связанные пруфы");
+      related.appendChild(createElement("span", "", "ЦЕПОЧКА:"));
+      proof.related.forEach((targetId) => {
+        const link = createElement(
+          "a",
+          "proof-related__link",
+          `пруф ${proofNumber(targetId)}`
+        );
+        link.href = `#${targetId}`;
+        link.dataset.proofTarget = targetId;
+        related.appendChild(link);
+      });
+      footer.appendChild(related);
+    }
+
+    card.append(header, title, calculation, note);
+    if (sources.childElementCount) {
+      card.appendChild(sources);
+    } else {
+      card.appendChild(
+        createElement(
+          "p",
+          "proof-card__derived",
+          "Число не опубликовано напрямую: подтверждение строится по формуле и связанным исходным пруфам."
+        )
+      );
+    }
+    card.appendChild(footer);
+    return card;
+  };
+
+  const renderProofSlides = () => {
+    const pages = [];
+    let pendingCompactProofs = [];
+
+    proofData.proofs.forEach((proof) => {
+      const isDenseProof = (proof.sources?.length || 0) >= 2;
+
+      if (isDenseProof) {
+        if (pendingCompactProofs.length) {
+          pages.push(pendingCompactProofs);
+          pendingCompactProofs = [];
+        }
+        pages.push([proof]);
+        return;
+      }
+
+      pendingCompactProofs.push(proof);
+      if (pendingCompactProofs.length === 2) {
+        pages.push(pendingCompactProofs);
+        pendingCompactProofs = [];
+      }
+    });
+
+    if (pendingCompactProofs.length) {
+      pages.push(pendingCompactProofs);
+    }
+
+    pages.forEach((pageProofs) => {
+      const slide = createElement("section", "slide slide--paper slide-proof");
+      slide.setAttribute("aria-hidden", "true");
+      const mapButton = createElement(
+        "button",
+        "proofs-map-button",
+        "Открыть карту"
+      );
+      mapButton.type = "button";
+      mapButton.dataset.openMap = "true";
+      mapButton.setAttribute(
+        "aria-label",
+        "Открыть карту классов продуктов ИБ"
+      );
+      const range = `${String(pageProofs[0].number).padStart(2, "0")}–${String(
+        pageProofs.at(-1).number
+      ).padStart(2, "0")}`;
+      slide.append(
+        createElement("p", "kicker", `ПРУФЫ · ${range}`),
+        createElement("h2", "proofs-title", "Пруфы"),
+        mapButton,
+        createElement(
+          "p",
+          "proofs-subtitle",
+          "Короткий текст источника · прямой URL · расчёт без подмены факта"
+        )
+      );
+      const grid = createElement("div", "proof-grid");
+      grid.dataset.count = String(pageProofs.length);
+      pageProofs.forEach((proof) => grid.appendChild(createProofCard(proof)));
+      slide.append(
+        grid,
+        createElement("p", "slide-index slide-index--dark", "")
+      );
+      deck.appendChild(slide);
+    });
+  };
+
+  synchronizeStaticProofLinks();
+  renderProofSlides();
+  const slides = Array.from(document.querySelectorAll(".slide"));
+  slides.forEach((slide, index) => {
+    slide.dataset.slide = String(index + 1);
+    const slideIndex = slide.querySelector(".slide-index");
+    if (slideIndex) {
+      slideIndex.textContent = `${String(index + 1).padStart(2, "0")} / ${String(
+        slides.length
+      ).padStart(2, "0")}`;
+    }
+  });
+  const progress = document.getElementById("slideProgress");
+  const prevButton = document.getElementById("prevSlide");
+  const nextButton = document.getElementById("nextSlide");
+  const fullscreenButton = document.getElementById("fullscreen");
+  const keyboardHint = document.getElementById("keyboardHint");
+  const slideStatus = document.getElementById("slideStatus");
+  const search = new URLSearchParams(window.location.search);
+  const staticMode = search.get("static") === "1";
+  const hashTarget = window.location.hash.slice(1);
+  const hashProof = document.getElementById(hashTarget);
+  const requestedProof = search.get("proof") || (hashProof ? hashTarget : null);
+  const requestedProofElement = requestedProof
+    ? document.getElementById(requestedProof)
+    : null;
+  const requestedProofSlide = requestedProofElement
+    ? Number(requestedProofElement.closest(".slide")?.dataset.slide)
+    : null;
+  const requestedSlide = Number.parseInt(
+    search.get("slide") || requestedProofSlide || hashTarget,
+    10
+  );
+
+  let current = Number.isFinite(requestedSlide)
+    ? Math.min(Math.max(requestedSlide - 1, 0), slides.length - 1)
+    : 0;
+  let transitionTimer = null;
+  let controlsTimer = null;
+
+  const fitDeck = () => {
+    const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    deck.style.left = `${(window.innerWidth - 1920 * scale) / 2}px`;
+    deck.style.top = `${(window.innerHeight - 1080 * scale) / 2}px`;
+    deck.style.transform = `scale(${scale})`;
+  };
+
+  const announceSlide = () => {
+    const heading = slides[current].querySelector("h1, h2");
+    const title = heading
+      ? heading.textContent.replace(/\s+/g, " ").trim()
+      : "Презентация";
+    slideStatus.textContent = `Слайд ${current + 1} из ${slides.length}. ${title}`;
+    document.title = `${current + 1}/${slides.length} — ${title}`;
+  };
+
+  const updateProgress = () => {
+    Array.from(progress.children).forEach((button, index) => {
+      const selected = index === current;
+      button.classList.toggle("is-current", selected);
+      button.setAttribute("aria-current", selected ? "true" : "false");
+    });
+  };
+
+  const goTo = (target, options = {}) => {
+    const next = Math.min(Math.max(target, 0), slides.length - 1);
+    if (next === current && !options.force) return;
+
+    const previous = current;
+    const direction = next >= previous ? 1 : -1;
+    window.clearTimeout(transitionTimer);
+
+    slides.forEach((slide) => slide.classList.remove("is-entering-back"));
+    const previousSlide = slides[previous];
+    const nextSlide = slides[next];
+
+    if (previousSlide) {
+      previousSlide.classList.remove("is-active");
+      previousSlide.classList.toggle("is-past", !options.immediate);
+      previousSlide.setAttribute("aria-hidden", "true");
+    }
+
+    current = next;
+    nextSlide.classList.remove("is-past");
+    if (direction < 0 && !options.immediate) {
+      nextSlide.classList.add("is-entering-back");
+    }
+    nextSlide.classList.add("is-active");
+    nextSlide.setAttribute("aria-hidden", "false");
+
+    transitionTimer = window.setTimeout(() => {
+      slides.forEach((slide, index) => {
+        if (index !== current) {
+          slide.classList.remove("is-past", "is-entering-back");
+        }
+      });
+    }, options.immediate ? 0 : 560);
+
+    updateProgress();
+    announceSlide();
+
+    if (!options.skipHistory) {
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${window.location.search}#${current + 1}`
+      );
+    }
+  };
+
+  const highlightProof = (proofId, options = {}) => {
+    document.querySelectorAll(".proof-card.is-targeted").forEach((card) => {
+      card.classList.remove("is-targeted");
+    });
+    const target = document.getElementById(proofId);
+    if (!target) return;
+    target.classList.add("is-targeted");
+    if (!options.skipFocus && !staticMode) {
+      target.focus({ preventScroll: true });
+    }
+  };
+
+  const openProof = (proofId, options = {}) => {
+    const target = document.getElementById(proofId);
+    const targetSlide = target?.closest(".slide");
+    if (!target || !targetSlide) return;
+    const slideIndex = slides.indexOf(targetSlide);
+    if (slideIndex < 0) return;
+    goTo(slideIndex, {
+      immediate: options.immediate ?? true,
+      force: true,
+      skipHistory: true,
+    });
+    highlightProof(proofId, options);
+    if (!options.skipHistory) {
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${window.location.search}#${proofId}`
+      );
+    }
+  };
+
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest("[data-proof-target], [data-proof-key]");
+    if (!link) return;
+    const proofId =
+      link.dataset.proofTarget || proofData.claimMap[link.dataset.proofKey];
+    if (!proofId) return;
+    event.preventDefault();
+    event.stopPropagation();
+    openProof(proofId);
+  });
+
+  slides.forEach((_, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.setAttribute("aria-label", `Перейти к слайду ${index + 1}`);
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      goTo(index);
+    });
+    progress.appendChild(button);
+  });
+
+  prevButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+    goTo(current - 1);
+  });
+
+  nextButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+    goTo(current + 1);
+  });
+
+  fullscreenButton.addEventListener("click", async (event) => {
+    event.stopPropagation();
+    try {
+      if (!document.fullscreenElement) {
+        await document.documentElement.requestFullscreen();
+      } else {
+        await document.exitFullscreen();
+      }
+    } catch {
+      // Fullscreen may be blocked without a direct browser gesture.
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.target.closest("a, button, #mapViewport, #mapDirectionNav")) return;
+    if (["ArrowRight", "PageDown", " "].includes(event.key)) {
+      event.preventDefault();
+      goTo(current + 1);
+    } else if (["ArrowLeft", "PageUp", "Backspace"].includes(event.key)) {
+      event.preventDefault();
+      goTo(current - 1);
+    } else if (event.key === "Home") {
+      event.preventDefault();
+      goTo(0);
+    } else if (event.key === "End") {
+      event.preventDefault();
+      goTo(slides.length - 1);
+    } else if (event.key.toLowerCase() === "f") {
+      fullscreenButton.click();
+    }
+  });
+
+  deck.addEventListener("click", (event) => {
+    if (event.target.closest("button, a, nav, #mapViewport")) return;
+    const rect = deck.getBoundingClientRect();
+    goTo(event.clientX - rect.left < rect.width * 0.32 ? current - 1 : current + 1);
+  });
+
+  window.addEventListener("hashchange", () => {
+    const targetId = window.location.hash.slice(1);
+    if (document.getElementById(targetId)?.classList.contains("proof-card")) {
+      openProof(targetId, { skipHistory: true });
+      return;
+    }
+    const slideNumber = Number.parseInt(targetId, 10);
+    if (Number.isFinite(slideNumber)) {
+      goTo(slideNumber - 1, { skipHistory: true });
+    }
+  });
+
+  window.addEventListener("resize", fitDeck, { passive: true });
+
+  const revealControls = () => {
+    document.body.classList.remove("controls-hidden");
+    window.clearTimeout(controlsTimer);
+    controlsTimer = window.setTimeout(() => {
+      if (!staticMode) document.body.classList.add("controls-hidden");
+    }, 2600);
+  };
+
+  window.addEventListener("mousemove", revealControls, { passive: true });
+  window.addEventListener("pointerdown", revealControls, { passive: true });
+
+  const buildPie = () => {
+    const pie = document.getElementById("marketPie");
+    const items = Array.from(document.querySelectorAll(".legend-item"));
+    const total = items.reduce((sum, item) => sum + Number(item.dataset.value), 0);
+    let cumulative = 0;
+    const stops = items.map((item) => {
+      const value = Number(item.dataset.value);
+      const color = item.dataset.color;
+      const start = (cumulative / total) * 100;
+      cumulative += value;
+      const end = (cumulative / total) * 100;
+      item.style.setProperty("--swatch", color);
+      return `${color} ${start.toFixed(4)}% ${end.toFixed(4)}%`;
+    });
+    pie.style.background = `conic-gradient(${stops.join(",")})`;
+  };
+
+  const mapData = window.SECURITY_MAP;
+  if (
+    !mapData ||
+    mapData.directionsCount !== 14 ||
+    mapData.subdirectionsCount !== 23 ||
+    mapData.classesCount !== 126 ||
+    mapData.marketCoverage.point !== 11 ||
+    mapData.marketCoverage.range !== 4 ||
+    mapData.marketCoverage.floor !== 2 ||
+    mapData.marketCoverage.undefined !== 109
+  ) {
+    throw new Error("Map data failed taxonomy validation.");
+  }
+
+  const mapViewport = document.getElementById("mapViewport");
+  const mapVector = document.getElementById("mapVector");
+  const mapDirectionNav = document.getElementById("mapDirectionNav");
+  const taxonomyOverview = document.getElementById("taxonomyOverview");
+  const directionBars = document.getElementById("directionBars");
+  const mapReset = document.getElementById("mapReset");
+  const requestedDirection = search.get("direction");
+  let selectedMapDirection = null;
+
+  const applyBranchColor = (element, direction) => {
+    element.style.setProperty("--branch", direction.color);
+  };
+
+  const buildDirectionBars = () => {
+    const ranked = [...mapData.directions].sort((a, b) => b.value - a.value);
+    const maximum = ranked[0].value;
+    const rows = ranked.map((direction, index) => {
+      const row = createElement("div", "direction-bar-row");
+      row.setAttribute("role", "listitem");
+      row.dataset.direction = direction.id;
+      row.setAttribute(
+        "aria-label",
+        `${index + 1} место. ${direction.name}. ${direction.market.label}`
+      );
+      row.style.setProperty("--bar-width", `${(direction.value / maximum) * 100}%`);
+      applyBranchColor(row, direction);
+
+      const track = createElement("span", "direction-bar__track");
+      track.setAttribute("aria-hidden", "true");
+      track.appendChild(createElement("span", "direction-bar__fill"));
+      const metric = createElement("span", "direction-bar__metric");
+      metric.append(
+        createElement(
+          "span",
+          "direction-bar__value",
+          direction.market.label.replace(" млрд ₽", "")
+        ),
+        createProofLink(
+          `direction:${direction.id}`,
+          "proof-link proof-link--bar proof-link--light"
+        )
+      );
+
+      row.append(
+        createElement(
+          "span",
+          "direction-bar__rank",
+          String(index + 1).padStart(2, "0")
+        ),
+        createElement("strong", "direction-bar__name", direction.name),
+        track,
+        metric
+      );
+      return row;
+    });
+    directionBars.replaceChildren(...rows);
+  };
+
+  const setCurrentDirection = (directionId) => {
+    selectedMapDirection = directionId || null;
+    Array.from(mapDirectionNav.children).forEach((button) => {
+      const isCurrent = button.dataset.direction === selectedMapDirection;
+      button.classList.toggle("is-current", isCurrent);
+      button.setAttribute("aria-current", isCurrent ? "true" : "false");
+    });
+  };
+
+  const createOverviewNode = (direction) => {
+    const node = createElement("div", "map-overview__node");
+    const select = createElement("button", "map-overview__select");
+    const metric = createElement("span", "map-overview__metric");
+    select.type = "button";
+    select.dataset.direction = direction.id;
+    select.setAttribute(
+      "aria-label",
+      `${direction.name}. ${direction.market.label}. ${direction.classesCount} классов`
+    );
+    applyBranchColor(node, direction);
+    select.append(
+      createElement("span", "map-overview__id", direction.id),
+      createElement("span", "map-overview__name", direction.name)
+    );
+    metric.append(
+      createElement(
+        "span",
+        "map-overview__value",
+        direction.market.label.replace(" млрд ₽", "")
+      ),
+      createProofLink(
+        `direction:${direction.id}`,
+        "proof-link proof-link--overview"
+      )
+    );
+    node.append(select, metric);
+    select.addEventListener("click", (event) => {
+      event.stopPropagation();
+      renderMapDirection(direction.id);
+    });
+    return node;
+  };
+
+  const buildTaxonomyPreview = () => {
+    const root = createElement("div", "taxonomy-overview__root");
+    root.append(
+      createElement("strong", "", "Карта ИБ"),
+      createElement("span", "", "14 · 23 · 126")
+    );
+    const grid = createElement("div", "taxonomy-overview__grid");
+    mapData.directions.forEach((direction) => {
+      const node = createElement("div", "taxonomy-overview__node");
+      applyBranchColor(node, direction);
+      node.append(
+        createElement("b", "", direction.id),
+        createElement("span", "", direction.name)
+      );
+      grid.appendChild(node);
+    });
+    taxonomyOverview.replaceChildren(root, grid);
+  };
+
+  const buildDirectionNavigation = () => {
+    const buttons = mapData.directions.map((direction) => {
+      const button = createElement("button", "map-direction-button");
+      button.type = "button";
+      button.dataset.direction = direction.id;
+      button.setAttribute(
+        "aria-label",
+        `${direction.name}. Показать ${direction.classesCount} классов`
+      );
+      applyBranchColor(button, direction);
+      button.append(
+        createElement("span", "map-direction-button__id", direction.id),
+        createElement("span", "map-direction-button__name", direction.name),
+        createElement("span", "map-direction-button__count", String(direction.classesCount))
+      );
+      button.addEventListener("click", (event) => {
+        event.stopPropagation();
+        renderMapDirection(direction.id);
+      });
+      return button;
+    });
+    mapDirectionNav.replaceChildren(...buttons);
+  };
+
+  const renderMapOverview = () => {
+    const overview = createElement("div", "map-overview");
+    const root = createElement("div", "map-overview__root");
+    root.append(
+      createElement("strong", "", mapData.title),
+      createElement(
+        "span",
+        "",
+        `${mapData.directionsCount} направлений · ${mapData.subdirectionsCount} поднаправления · ${mapData.classesCount} классов`
+      )
+    );
+    const grid = createElement("div", "map-overview__grid");
+    mapData.directions.forEach((direction) => {
+      grid.appendChild(createOverviewNode(direction));
+    });
+    overview.append(root, grid);
+    mapVector.replaceChildren(overview);
+    mapVector.dataset.mode = "overview";
+    delete mapVector.dataset.direction;
+    setCurrentDirection(null);
+  };
+
+  const renderMapDirection = (directionId) => {
+    const direction = mapData.directions.find((item) => item.id === directionId);
+    if (!direction) {
+      renderMapOverview();
+      return;
+    }
+
+    const detail = createElement("article", "map-detail");
+    detail.setAttribute("aria-label", direction.name);
+    applyBranchColor(detail, direction);
+
+    const header = createElement("header", "map-detail__header");
+    const market = createElement("div", "map-detail__market");
+    market.append(
+      createElement("strong", "", direction.market.label),
+      createElement("span", "", "объём направления"),
+      createProofLink(
+        `direction:${direction.id}`,
+        "proof-link proof-link--map-header"
+      )
+    );
+    header.append(
+      createElement("span", "map-detail__id", direction.id),
+      createElement("h3", "map-detail__title", direction.name),
+      market,
+      createElement(
+        "span",
+        "map-detail__meta",
+        `${direction.classesCount} классов`
+      )
+    );
+
+    const groups = createElement("div", "map-detail__groups");
+    const getTrackCount = (group) => Math.ceil(group.classes.length / 3);
+    const totalColumnUnits = direction.groups.reduce(
+      (total, group) => total + getTrackCount(group),
+      0
+    );
+    groups.style.setProperty("--total-column-units", String(totalColumnUnits));
+    direction.groups.forEach((group) => {
+      const groupElement = createElement("section", "map-group");
+      const trackCount = getTrackCount(group);
+      const trackSize = Math.ceil(group.classes.length / trackCount);
+      groupElement.style.setProperty("--column-units", String(trackCount));
+      groupElement.style.setProperty(
+        "--column-weight",
+        String(trackCount === 1 ? 1.35 : trackCount)
+      );
+      groupElement.style.setProperty("--track-count", String(trackCount));
+      const title = createElement("h4", "map-group__title", group.name);
+      const tracks = createElement("div", "map-group__tracks");
+      for (let start = 0; start < group.classes.length; start += trackSize) {
+        const list = createElement("ul", "map-class-list");
+        group.classes.slice(start, start + trackSize).forEach((mapClass) => {
+          const item = createElement("li", "map-class-item");
+          const marketTypeClass = {
+            точка: "point",
+            диапазон: "range",
+            "нижняя граница": "floor",
+            "нет оценки": "undefined",
+          }[mapClass.market.type];
+          item.dataset.classId = mapClass.id;
+          item.dataset.marketType = marketTypeClass;
+          item.tabIndex = 0;
+
+          const accessibleParts = [
+            mapClass.name,
+            mapClass.description,
+            `Объём рынка: ${mapClass.market.label}`,
+            mapClass.market.qualifier,
+            mapClass.market.note,
+          ].filter(Boolean);
+          item.title = accessibleParts.join(" — ");
+          item.setAttribute("aria-label", accessibleParts.join(". "));
+
+          const marketLine = createElement(
+            "span",
+            "map-class-market",
+            mapClass.market.label.replace("млрд ₽", "млрд ₽")
+          );
+          if (mapClass.market.qualifier) {
+            marketLine.appendChild(
+              createElement("em", "", mapClass.market.qualifier)
+            );
+          }
+          const classProof = createProofLink(
+            `class:${mapClass.id}`,
+            "proof-link proof-link--class"
+          );
+          if (classProof) {
+            marketLine.appendChild(classProof);
+          }
+          item.append(
+            createElement("strong", "map-class-name", mapClass.name),
+            createElement(
+              "span",
+              "map-class-description",
+              mapClass.description || "описание не указано"
+            ),
+            marketLine
+          );
+          list.appendChild(item);
+        });
+        tracks.appendChild(list);
+      }
+      groupElement.append(title, tracks);
+      groups.appendChild(groupElement);
+    });
+
+    detail.append(header, groups);
+    mapVector.replaceChildren(detail);
+    mapVector.dataset.mode = "detail";
+    mapVector.dataset.direction = direction.id;
+    setCurrentDirection(direction.id);
+  };
+
+  mapReset.addEventListener("click", (event) => {
+    event.stopPropagation();
+    renderMapOverview();
+  });
+
+  document.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-open-map]");
+    if (!button) return;
+    event.preventDefault();
+    event.stopPropagation();
+    renderMapOverview();
+    const mapSlideIndex = slides.findIndex((slide) =>
+      slide.classList.contains("slide-map")
+    );
+    if (mapSlideIndex >= 0) {
+      goTo(mapSlideIndex, { force: true });
+    }
+  });
+
+  mapDirectionNav.addEventListener("keydown", (event) => {
+    if (!["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) return;
+    event.preventDefault();
+    const buttons = Array.from(mapDirectionNav.querySelectorAll("button"));
+    const activeIndex = Math.max(0, buttons.indexOf(document.activeElement));
+    let nextIndex = activeIndex;
+    if (event.key === "ArrowDown") nextIndex = Math.min(activeIndex + 1, buttons.length - 1);
+    if (event.key === "ArrowUp") nextIndex = Math.max(activeIndex - 1, 0);
+    if (event.key === "Home") nextIndex = 0;
+    if (event.key === "End") nextIndex = buttons.length - 1;
+    buttons[nextIndex].focus();
+    renderMapDirection(buttons[nextIndex].dataset.direction);
+  });
+
+  window.selectMapDirection = renderMapDirection;
+  window.showMapOverview = renderMapOverview;
+
+  buildDirectionBars();
+  buildTaxonomyPreview();
+  buildDirectionNavigation();
+  if (requestedDirection) {
+    renderMapDirection(requestedDirection);
+  } else {
+    renderMapOverview();
+  }
+
+  window.setSlide = (slideNumber) => {
+    goTo(Number(slideNumber) - 1, { immediate: true, force: true });
+  };
+
+  window.__DECK_READY__ = false;
+  fitDeck();
+  buildPie();
+
+  if (staticMode) document.body.classList.add("static-mode");
+
+  slides.forEach((slide, index) => {
+    slide.classList.toggle("is-active", index === current);
+    slide.classList.remove("is-past", "is-entering-back");
+    slide.setAttribute("aria-hidden", index === current ? "false" : "true");
+  });
+
+  updateProgress();
+  announceSlide();
+  if (requestedProof) {
+    highlightProof(requestedProof, { skipFocus: true });
+  }
+  revealControls();
+  window.setTimeout(() => keyboardHint.classList.add("is-hidden"), 4800);
+
+  document.fonts.ready.then(() => {
+    fitDeck();
+    window.__DECK_READY__ = true;
+    document.documentElement.dataset.ready = "true";
+  });
+})();
+
+  </script>
+</body>
+</html>
