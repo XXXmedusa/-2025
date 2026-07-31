@@ -1834,6 +1834,119 @@ a:focus-visible,
   }
 }
 
+  
+
+/* Revision 2 — original taxonomy, direct-report proofs */
+.pie-legend--two {
+  top: 330px;
+  grid-template-columns: 1fr;
+  width: 770px;
+}
+
+.pie-legend--two .legend-item {
+  min-height: 130px;
+  grid-template-columns: 24px minmax(0, 1fr) 190px;
+}
+
+.pie-legend--two .legend-name,
+.pie-legend--two .legend-metric strong {
+  font-size: 42px;
+}
+
+.bridge-equation--split {
+  grid-template-columns: 1fr 130px 1fr;
+}
+
+.bridge-equation--split .bridge-term strong {
+  font-size: 154px;
+}
+
+.bridge-definitions--split {
+  grid-template-columns: 1fr 1fr .86fr;
+}
+
+.bridge-line__core { width: 74.4%; }
+.bridge-line__adjacent { width: 25.6%; }
+
+.map-class-item {
+  padding: 6px 7px 7px;
+  font-size: 20px;
+  line-height: 1.03;
+}
+
+.map-class-name {
+  font-size: 20px;
+  line-height: 1.03;
+}
+
+.map-class-description {
+  margin-top: 4px;
+  font-size: 18px;
+  line-height: 1.04;
+}
+
+.map-class-market {
+  display: inline-flex;
+  max-width: 100%;
+  margin-top: 5px;
+  padding: 4px 6px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+.map-class-market .proof-link {
+  font-size: 14px;
+}
+
+.map-class-item[data-fit="product"] .map-class-market { color: #0b5d46; background: #dff4e9; }
+.map-class-item[data-fit="subclass"] .map-class-market { color: #315b76; background: #e4f0f7; }
+.map-class-item[data-fit="service"] .map-class-market { color: #663c00; background: #fff0d2; }
+.map-class-item[data-fit="overlay"] .map-class-market { color: #59406f; background: #eee5f5; }
+.map-class-item[data-fit="adjacent"] .map-class-market { color: #7a2b32; background: #f8e1e3; }
+.map-class-item[data-fit="out_of_scope"] .map-class-market { color: #4d5054; background: #e5e6e8; }
+
+.map-data-note {
+  right: 410px;
+  font-size: 18px;
+}
+
+.proof-grid[data-count="1"] {
+  grid-template-columns: 1fr;
+}
+
+.proof-grid[data-count="1"] .proof-card {
+  width: 100%;
+}
+
+.proof-source__title {
+  margin: 4px 0 12px;
+  font-size: 34px;
+  line-height: 1.08;
+}
+
+.proof-source__location {
+  margin: 20px 0 0;
+  padding: 22px 24px;
+  border-left: 7px solid var(--coral);
+  background: rgba(17, 18, 20, .055);
+  font-size: 28px;
+  font-weight: 720;
+  line-height: 1.18;
+}
+
+.proof-source__url {
+  display: inline-flex;
+  width: auto;
+  margin-top: 24px;
+  padding: 15px 20px;
+  color: var(--paper);
+  background: var(--ink);
+  font-size: 24px;
+  text-decoration: none;
+}
+
   </style>
 </head>
 <body>
@@ -1842,11 +1955,11 @@ a:focus-visible,
       <section class="slide slide--ink slide-hero is-active" data-slide="1" aria-hidden="false">
         <div class="hero-grid" aria-hidden="true"></div>
         <div class="hero-copy">
-          <p class="kicker kicker--light">РОССИЙСКИЙ РЫНОК ИБ · 2025</p>
-          <h1 class="hero-number">476,1</h1>
+          <p class="kicker kicker--light">РОССИЙСКИЙ РЫНОК ИБ · ФАКТ 2025</p>
+          <h1 class="hero-number">364,4</h1>
           <p class="hero-unit">млрд ₽</p>
-          <p class="hero-caption">индикативный расширенный периметр</p>
-          <a class="proof-link proof-link--light" href="#proof-001" data-proof-key="total:expanded">пруф</a>
+          <p class="hero-caption">корпоративные продукты и услуги · ЦСР, май 2026</p>
+          <a class="proof-link proof-link--light" href="#" data-proof-key="total:core">отчёт</a>
         </div>
         <svg class="hero-orbit" viewBox="0 0 760 760" aria-hidden="true">
           <circle cx="380" cy="380" r="286" pathLength="100"></circle>
@@ -1854,123 +1967,54 @@ a:focus-visible,
           <circle class="hero-orbit__core" cx="380" cy="380" r="214" pathLength="100"></circle>
           <circle class="hero-orbit__dot" cx="380" cy="94" r="13"></circle>
         </svg>
-        <p class="slide-index">01 / 07</p>
+        <p class="slide-index">01</p>
       </section>
 
       <section class="slide slide--paper slide-pie" data-slide="2" aria-hidden="true">
-        <p class="kicker">СТРУКТУРА</p>
-        <h2 class="slide-title">14 направлений.<br>Один периметр.</h2>
-
-        <div class="pie-wrap" aria-label="Круговая диаграмма направлений рынка">
-          <div class="market-pie" id="marketPie" role="img" aria-label="Распределение 476,1 млрд рублей между 14 направлениями и остатком">
-            <div class="market-pie__center">
-              <strong>476,1</strong>
-              <span>млрд ₽</span>
-              <a class="proof-link" href="#proof-001" data-proof-key="total:expanded">пруф</a>
-            </div>
+        <p class="kicker">СТРУКТУРА РЫНКА</p>
+        <h2 class="slide-title">Продукты + услуги.<br>Один рынок.</h2>
+        <div class="pie-wrap" aria-label="Продукты 271 миллиард рублей и услуги 93,5 миллиарда рублей">
+          <div class="market-pie" id="marketPie" role="img" aria-label="Структура российского рынка ИБ: продукты 271,0 и услуги 93,5 миллиарда рублей">
+            <div class="market-pie__center"><strong>364,4</strong><span>млрд ₽</span><a class="proof-link" href="#" data-proof-key="total:core">отчёт</a></div>
           </div>
         </div>
-
-        <div class="pie-legend" id="pieLegend">
-          <div class="legend-item" data-value="9.245" data-color="#F35B66"><span class="legend-dot"></span><span class="legend-name">Управление активами и видимостью</span><span class="legend-metric"><strong>9,2</strong><a class="proof-link" href="#proof-005" data-proof-key="direction:D01">пруф</a></span></div>
-          <div class="legend-item" data-value="37.526" data-color="#F58A64"><span class="legend-dot"></span><span class="legend-name">Защита данных</span><span class="legend-metric"><strong>37,5</strong><a class="proof-link" href="#proof-006" data-proof-key="direction:D02">пруф</a></span></div>
-          <div class="legend-item" data-value="67.284" data-color="#70C9A3"><span class="legend-dot"></span><span class="legend-name">Анализ угроз и мониторинг</span><span class="legend-metric"><strong>67,3</strong><a class="proof-link" href="#proof-007" data-proof-key="direction:D03">пруф</a></span></div>
-          <div class="legend-item" data-value="1.456" data-color="#55D6C5"><span class="legend-dot"></span><span class="legend-name">AI-безопасность</span><span class="legend-metric"><strong>1,5</strong><a class="proof-link" href="#proof-008" data-proof-key="direction:D04">пруф</a></span></div>
-          <div class="legend-item" data-value="85.422" data-color="#5AB8E8"><span class="legend-dot"></span><span class="legend-name">Физическая и аппаратная безопасность</span><span class="legend-metric"><strong>85,4</strong><a class="proof-link" href="#proof-009" data-proof-key="direction:D05">пруф</a></span></div>
-          <div class="legend-item" data-value="25.25" data-color="#CE6FE3"><span class="legend-dot"></span><span class="legend-name">Резервное копирование и киберустойчивость</span><span class="legend-metric"><strong>25,3</strong><a class="proof-link" href="#proof-010" data-proof-key="direction:D06">пруф</a></span></div>
-          <div class="legend-item" data-value="18.235" data-color="#D14D52"><span class="legend-dot"></span><span class="legend-name">Управление рисками, соответствием и навыками</span><span class="legend-metric"><strong>18,2</strong><a class="proof-link" href="#proof-011" data-proof-key="direction:D07">пруф</a></span></div>
-          <div class="legend-item" data-value="25.404" data-color="#FFAE6D"><span class="legend-dot"></span><span class="legend-name">Управляемые ИБ-сервисы (MSSP / MDR)</span><span class="legend-metric"><strong>25,4</strong><a class="proof-link" href="#proof-012" data-proof-key="direction:D08">пруф</a></span></div>
-          <div class="legend-item" data-value="8.28" data-color="#63B893"><span class="legend-dot"></span><span class="legend-name">Безопасность ОТ / АСУ ТП / IoT</span><span class="legend-metric"><strong>8,3</strong><a class="proof-link" href="#proof-013" data-proof-key="direction:D09">пруф</a></span></div>
-          <div class="legend-item" data-value="98.226" data-color="#3FBFC4"><span class="legend-dot"></span><span class="legend-name">Сетевая безопасность</span><span class="legend-metric"><strong>98,2</strong><a class="proof-link" href="#proof-014" data-proof-key="direction:D10">пруф</a></span></div>
-          <div class="legend-item" data-value="21.37" data-color="#55AEE7"><span class="legend-dot"></span><span class="legend-name">Управление доступом и идентификацией</span><span class="legend-metric"><strong>21,4</strong><a class="proof-link" href="#proof-015" data-proof-key="direction:D11">пруф</a></span></div>
-          <div class="legend-item" data-value="20.639" data-color="#B65DCC"><span class="legend-dot"></span><span class="legend-name">Безопасность приложений (AppSec)</span><span class="legend-metric"><strong>20,6</strong><a class="proof-link" href="#proof-016" data-proof-key="direction:D12">пруф</a></span></div>
-          <div class="legend-item" data-value="8.089" data-color="#ED6D7A"><span class="legend-dot"></span><span class="legend-name">Облачная безопасность и виртуализация</span><span class="legend-metric"><strong>8,1</strong><a class="proof-link" href="#proof-017" data-proof-key="direction:D13">пруф</a></span></div>
-          <div class="legend-item" data-value="46.594" data-color="#F0A158"><span class="legend-dot"></span><span class="legend-name">Защита конечных точек</span><span class="legend-metric"><strong>46,6</strong><a class="proof-link" href="#proof-018" data-proof-key="direction:D14">пруф</a></span></div>
-          <div class="legend-item legend-item--muted" data-value="3.052" data-color="#9AA2AA"><span class="legend-dot"></span><span class="legend-name">Нераспределённый остаток сопоставимого ядра</span><span class="legend-metric"><strong>3,1</strong><a class="proof-link" href="#proof-019" data-proof-key="residual:core">пруф</a></span></div>
-        </div>
-        <p class="chart-unit">млрд ₽ · базовый сценарий</p>
-        <p class="slide-index slide-index--dark">02 / 07</p>
+        <div class="pie-legend pie-legend--two" id="pieLegend"><div class="legend-item" data-value="271.0" data-color="#3FBFC4"><span class="legend-dot"></span><span class="legend-name">Продукты ИБ</span><span class="legend-metric"><strong>271,0</strong><a class="proof-link" href="#" data-proof-key="component:products">отчёт</a></span></div>
+          <div class="legend-item" data-value="93.5" data-color="#F35B66"><span class="legend-dot"></span><span class="legend-name">Услуги ИБ</span><span class="legend-metric"><strong>93,5</strong><a class="proof-link" href="#" data-proof-key="component:services">отчёт</a></span></div></div>
+        <p class="chart-unit">млрд ₽ · значения прямо указаны в отчёте ЦСР</p>
+        <p class="slide-index slide-index--dark">02</p>
       </section>
 
       <section class="slide slide--ink slide-rankings" data-slide="3" aria-hidden="true">
-        <p class="kicker kicker--light">ВСЕ НАПРАВЛЕНИЯ</p>
-        <h2 class="rankings-title">Размер направлений</h2>
-        <div class="rankings-summary" aria-label="Три крупнейших направления составляют 52,7 процента расширенного периметра">
-          <strong>52,7%</strong>
-          <span>топ‑3</span>
-          <a class="proof-link proof-link--light" href="#proof-004" data-proof-key="metric:top3">пруф</a>
-        </div>
-        <div class="direction-bars" id="directionBars" role="list" aria-label="Все четырнадцать направлений по убыванию объёма рынка"></div>
-        <p class="rankings-unit">млрд ₽ · базовый сценарий · по убыванию</p>
-        <p class="slide-index">03 / 07</p>
+        <p class="kicker kicker--light">ОПУБЛИКОВАНО В ОТЧЁТЕ ЦСР</p>
+        <h2 class="rankings-title">Прямые цифры</h2>
+        <div class="rankings-summary" aria-label="Фактические данные за 2025 год"><strong>2025</strong><span>факт</span></div>
+        <div class="direction-bars" id="directionBars" role="list" aria-label="Показатели рынка, прямо опубликованные в отчёте"></div>
+        <p class="rankings-unit">млрд ₽ · без распределения остатка и без аналитических надбавок</p>
+        <p class="slide-index">03</p>
       </section>
 
       <section class="slide slide--accent slide-bridge" data-slide="4" aria-hidden="true">
-        <p class="kicker">ПЕРИМЕТР</p>
-        <div class="bridge-equation" aria-label="364,4 плюс 111,672 равно 476,072 миллиарда рублей">
-          <div class="bridge-term">
-            <strong>364,4</strong>
-            <span>ядро ИБ</span>
-            <a class="proof-link" href="#proof-002" data-proof-key="total:core">пруф</a>
-          </div>
+        <p class="kicker">СТРУКТУРА РЫНКА</p>
+        <div class="bridge-equation bridge-equation--split" aria-label="271 миллиард рублей продукты плюс 93,5 миллиарда рублей услуги">
+          <div class="bridge-term"><strong>271,0</strong><span>продукты ИБ</span><a class="proof-link" href="#" data-proof-key="component:products">отчёт</a></div>
           <div class="bridge-sign">+</div>
-          <div class="bridge-term">
-            <strong>111,7</strong>
-            <span>смежные контуры</span>
-            <a class="proof-link" href="#proof-003" data-proof-key="total:adjacent">пруф</a>
-          </div>
-          <div class="bridge-sign">=</div>
-          <div class="bridge-term bridge-term--total">
-            <strong>476,1</strong>
-            <span>млрд ₽</span>
-            <a class="proof-link proof-link--light" href="#proof-001" data-proof-key="total:expanded">пруф</a>
-          </div>
+          <div class="bridge-term"><strong>93,5</strong><span>услуги ИБ</span><a class="proof-link" href="#" data-proof-key="component:services">отчёт</a></div>
         </div>
-        <div class="bridge-definitions">
-          <article class="bridge-definition">
-            <h3>Ядро ИБ</h3>
-            <p>Сопоставимые расходы российских корпоративных и государственных заказчиков на СЗИ и профильные ИБ‑услуги.</p>
-            <strong class="bridge-components">
-              <span>271,0 продукты <a class="proof-link" href="#proof-002" data-proof-key="component:products">пруф</a></span>
-              <span>93,5 услуги <a class="proof-link" href="#proof-002" data-proof-key="component:services">пруф</a></span>
-            </strong>
-          </article>
-          <article class="bridge-definition">
-            <h3>Смежные контуры</h3>
-            <p>Рынки из карты за пределами однородного периметра корпоративной кибербезопасности.</p>
-            <strong class="bridge-components">
-              <span>85,4 физическая <a class="proof-link" href="#proof-009" data-proof-key="direction:D05">пруф</a></span>
-              <span>25,3 backup / DR <a class="proof-link" href="#proof-010" data-proof-key="direction:D06">пруф</a></span>
-              <span>1,0 страхование <a class="proof-link" href="#proof-012" data-proof-key="class:C061">пруф</a></span>
-            </strong>
-          </article>
-          <article class="bridge-definition bridge-definition--total">
-            <h3>Расширенный периметр</h3>
-            <p>Индикативная сумма разных денежных баз. Это не однородный TAM.</p>
-          </article>
+        <div class="bridge-definitions bridge-definitions--split">
+          <article class="bridge-definition"><h3>Продукты</h3><p>Средства защиты информации, приобретённые корпоративными заказчиками.</p><strong>271,0 млрд ₽ · 2025</strong></article>
+          <article class="bridge-definition"><h3>Услуги</h3><p>Внедрение, сопровождение, аутсорсинг, консалтинг, оценка и расследование.</p><strong>93,5 млрд ₽ · 2025</strong></article>
+          <article class="bridge-definition bridge-definition--total"><h3>Источник</h3><p>ЦСР, «Рынок информационной безопасности РФ», май 2026.</p></article>
         </div>
-        <div class="bridge-line" aria-hidden="true">
-          <span class="bridge-line__core"></span>
-          <span class="bridge-line__adjacent"></span>
-        </div>
-        <p class="slide-index slide-index--dark">04 / 07</p>
+        <div class="bridge-line" aria-hidden="true"><span class="bridge-line__core"></span><span class="bridge-line__adjacent"></span></div>
+        <p class="slide-index slide-index--dark">04</p>
       </section>
 
       <section class="slide slide--paper slide-taxonomy" data-slide="5" aria-hidden="true">
-        <p class="kicker">ТАКСОНОМИЯ</p>
+        <p class="kicker">ТАКСОНОМИЯ ИСХОДНОГО САЙТА</p>
         <h2 class="taxonomy-title">От рынка<br>к продукту.</h2>
-        <div class="taxonomy-counts">
-          <div><strong>14</strong><span>направлений</span></div>
-          <b>→</b>
-          <div><strong>23</strong><span>поднаправления</span></div>
-          <b>→</b>
-          <div><strong>126</strong><span>классов</span></div>
-        </div>
-        <a class="map-preview" href="#6" aria-label="Открыть карту классов продуктов ИБ">
-          <div class="taxonomy-overview" id="taxonomyOverview" role="img" aria-label="Перерисованная схема всех четырнадцати направлений"></div>
-          <span>ОТКРЫТЬ КАРТУ <b>↗</b></span>
-        </a>
-        <p class="slide-index slide-index--dark">05 / 07</p>
+        <div class="taxonomy-counts"><div><strong>14</strong><span>направлений</span></div><b>→</b><div><strong>23</strong><span>поднаправления</span></div><b>→</b><div><strong>126</strong><span>классов</span></div></div>
+        <a class="map-preview" href="#6" aria-label="Открыть карту классов продуктов ИБ"><div class="taxonomy-overview" id="taxonomyOverview" role="img" aria-label="Схема четырнадцати направлений"></div><span>ОТКРЫТЬ КАРТУ <b>↗</b></span></a>
+        <p class="slide-index slide-index--dark">05</p>
       </section>
 
       <section class="slide slide--map slide-map" data-slide="6" aria-hidden="true">
@@ -1983,7 +2027,7 @@ a:focus-visible,
           <button id="mapReset" type="button">ОБЗОР</button>
         </div>
         <p class="map-hint">выберите направление слева</p>
-        <p class="map-data-note">«неопределено» = нет данных, не 0 · классы неаддитивны</p>
+        <p class="map-data-note">зелёный = продукт · синий = подкласс · жёлтый = услуга · красный = смежный рынок</p>
         <p class="slide-index">06 / 07</p>
       </section>
 
@@ -2002,672 +2046,12 @@ a:focus-visible,
 
   <script>
 (() => {
-  const sources = {
-    S01: {
-      publisher: "Центр стратегических разработок",
-      title: "Рынок информационной безопасности Российской Федерации: текущее состояние и перспективы развития до 2031 года",
-      date: "май 2026",
-      location: "стр. 3, 15, 17–18",
-      url: "https://www.csr.ru/upload/iblock/f97/00g0eegv8oocs0o7txx6bkwibcr0atlg.pdf",
-    },
-    S05: {
-      publisher: "MWS Intelligence Team",
-      title: "Перспективы ИТ-рынка, выпуск 2",
-      date: "2026",
-      location: "стр. 35 и 45",
-      url: "https://mws.ru/uploads/Perspektivy_IT_rynka_Vypusk_2_a18ca0c008.pdf",
-    },
-    S06: {
-      publisher: "Positive Technologies",
-      title: "Годовой отчёт Positive Technologies за 2025 год",
-      date: "2026",
-      location: "раздел MaxPatrol EDR, «Точки роста»",
-      url: "https://ar2025.ptsecurity.com/products-solutions-services",
-    },
-    S08: {
-      publisher: "N4A / ComNews",
-      title: "Время бурного роста рынка NGFW закончилось",
-      date: "15.12.2025",
-      location: "абзацы 42, 49–52",
-      url: "https://www.comnews.ru/content/242959/2025-12-15/2025-w51/1008/vremya-burnogo-rosta-rynka-ngfw-zakonchilos",
-    },
-    S09: {
-      publisher: "Системный софт / РБК Компании",
-      title: "Рынок NGFW в России достиг 54 млрд рублей",
-      date: "2026",
-      location: "заголовок и первые абзацы",
-      url: "https://companies.rbc.ru/news/n67grqe07g/sistemnyij-soft-ryinok-ngfw-v-rossii-dostig-54-mlrd-rublej/",
-    },
-    S11: {
-      publisher: "Piccard / IT Bastion",
-      title: "Рынок PAM-систем достиг насыщения и составил 5,4 млрд руб.",
-      date: "05.06.2026",
-      location: "основной текст",
-      url: "https://it-bastion.com/news/rynok-pam-sistem-dostig-nasyshcheniya-i-sostavil-5-4-mlrd-rub-v-2025-godu/",
-    },
-    S13: {
-      publisher: "Ivideon / РБК Компании",
-      title: "Российский рынок видеонаблюдения вырос до 67,6 млрд рублей",
-      date: "28.05.2026",
-      location: "абзацы 80–93",
-      url: "https://companies.rbc.ru/amp/news/8ba24ba1-f2cf-426a-a1e0-e5ff608e9886/",
-    },
-    S14: {
-      publisher: "RUБЕЖ",
-      title: "Рынок СКУД в России: тренды, технологии, требования к безопасности",
-      date: "2025",
-      location: "абзацы 74–88",
-      url: "https://ru-bezh.ru/anton-shitikov-stepan-petrov/57448-rynok-skud-v-rossii-trendy-tehnologii-trebovaniya-k-bezopasnosti",
-    },
-    S16: {
-      publisher: "Системный софт / РБК Компании",
-      title: "Объём рынка систем резервного копирования превысил 10 млрд рублей",
-      date: "18.05.2026",
-      location: "абзацы 209–226",
-      url: "https://companies.rbc.ru/news/KdC1lwBlUV/obem-ryinka-sistem-rezervnogo-kopirovaniya-prevyisil-10-mlrd-rublej/",
-    },
-    S17: {
-      publisher: "Solar и Kasatkin Consulting / Коммерсантъ",
-      title: "Компании РФ наращивают инвестиции в обучение по кибербезопасности",
-      date: "06.11.2025",
-      location: "абзацы 114–135",
-      url: "https://www.kommersant.ru/doc/8180913",
-    },
-    S18: {
-      publisher: "ВСК / РИАМО",
-      title: "Объём премий в киберстраховании составил около 1 млрд рублей",
-      date: "20.05.2026",
-      location: "абзацы 3–18",
-      url: "https://riamo.ru/news/obschestvo/obem-premij-v-kiberstrahovanii-v-rf-sostavil-okolo-1-mlrd-rublej/",
-    },
-    S19: {
-      publisher: "CNews",
-      title: "Белые хакеры нашли почти 14 тысяч ИТ-уязвимостей",
-      date: "16.01.2026",
-      location: "раздел «Суммы выплат»",
-      url: "https://www.cnews.ru/news/top/2026-01-16_belye_hakery_nashli_pochti",
-    },
-    S20: {
-      publisher: "TAdviser / АРПП «Отечественный софт»",
-      title: "Исследование российского рынка AI Security",
-      date: "19.06.2026",
-      location: "раздел «Финансовые показатели и перспективы рынка»",
-      url: "https://arppsoft.ru/news/members/23190/",
-    },
-    S23: {
-      publisher: "ЦСР / IT-World",
-      title: "ЦСР: рынок защиты конечных точек",
-      date: "2026",
-      location: "основной текст",
-      url: "https://www.itrn.ru/news/detail.php?id=215157",
-    },
-    S25: {
-      publisher: "Код Безопасности / РБК Компании",
-      title: "Объём ИБ-рынка РФ достиг 211 млрд руб.",
-      date: "23.06.2026",
-      location: "абзацы 311–321",
-      url: "https://companies.rbc.ru/news/OXE3itjttK/issledovanie-koda-bezopasnosti-obem-ib-ryinka-rf-dostig-211-mlrd-rub/",
-    },
-    S27: {
-      publisher: "Ведомости",
-      title: "Российский рынок SIEM",
-      date: "21.01.2025",
-      location: "основной текст",
-      url: "https://www.vedomosti.ru/technology/articles/2025/01/21/1087459-solar-kupila-siem-platform",
-    },
-    S32: {
-      publisher: "M1Cloud",
-      title: "Итоги 2025 года на российском облачном рынке и прогноз на 2026 год",
-      date: "13.11.2025",
-      location: "раздел «Непрерывность бизнеса как новая норма»",
-      url: "https://m1cloud.ru/news/itogi-2025-goda-na-rossiyskom-oblachnom-rynke-i-prognoz-na-2026-god-ot-m1cloud/",
-    },
-    S33: {
-      publisher: "Sk Capital и «Код Безопасности»",
-      title: "Исследование российского рынка облачной кибербезопасности",
-      date: "04.12.2024",
-      location: "основной текст",
-      url: "https://sk.ru/news/sk-capital-i-kod-bezopasnosti-proveli-issledovanie-rossijskogo-rynka-oblachnyh-servisov-i-oblachnoj-kiberbezopasnosti/",
-    },
-    S38: {
-      publisher: "ГК «Солар» со ссылкой на iKS-Consulting",
-      title: "Российский рынок сервисов безопасности «по подписке» может удвоиться к 2028 году",
-      date: "24.09.2025",
-      location: "первые абзацы",
-      url: "https://rt-solar.ru/events/news/6077/",
-    },
-    S39: {
-      publisher: "Anti-Malware.ru",
-      title: "Системы анализа сетевого трафика (NTA): обзор мирового и российского рынка",
-      date: "04.05.2026",
-      location: "раздел «Как развивается российский рынок NTA/NDR»",
-      url: "https://www.anti-malware.ru/analytics/Market_Analysis/Global-and-Russian-market-Network-Traffic-Analysis-systems-review",
-    },
-    S45: {
-      publisher: "VolgaBlob / CNews",
-      title: "Российский рынок SIEM вырастет на 18–20% по итогам 2025 года",
-      date: "25.12.2025",
-      location: "заголовок и первый абзац",
-      url: "https://www.cnews.ru/news/line/2025-12-25_volgablob_rossijskij_rynok_siem",
-    },
-  };
-
-  const evidence = (sourceId, excerpt, role, location) => ({
-    ...sources[sourceId],
-    sourceId,
-    excerpt,
-    role,
-    location: location || sources[sourceId].location,
-  });
-
-  const proofs = [
-    {
-      id: "proof-001",
-      claims: ["total:expanded"],
-      title: "Расширенный периметр карты",
-      value: "476,1 млрд ₽",
-      type: "расчёт",
-      confidence: "D",
-      formula: "364,400 + 111,672 = 476,072 → 476,1",
-      note: "Индикативная сумма разных денежных баз; это не однородный TAM и не опубликованный итог одного исследования.",
-      related: ["proof-002", "proof-003"],
-    },
-    {
-      id: "proof-002",
-      claims: ["total:core", "component:products", "component:services"],
-      title: "Ядро корпоративной ИБ",
-      value: "364,4 млрд ₽",
-      type: "оценка источника",
-      confidence: "B",
-      formula: "271,0 СЗИ + 93,5 услуги − 0,1 округление источника = 364,4",
-      note: "Деньги конечного заказчика, корпоративный B2B; НДС в отчёте не указан.",
-      sources: [
-        evidence(
-          "S01",
-          "«рынок ИБ в России превысил 364 млрд рублей»",
-          "прямое подтверждение общего ядра",
-          "стр. 3; структура 271,0 / 93,5 — стр. 3 и 17"
-        ),
-      ],
-    },
-    {
-      id: "proof-003",
-      claims: ["total:adjacent"],
-      title: "Смежные контуры",
-      value: "111,7 млрд ₽",
-      type: "расчёт",
-      confidence: "D",
-      formula: "85,422 физическая + 25,250 backup / DR + 1,000 страхование = 111,672 → 111,7",
-      note: "Каждый компонент подтверждается отдельно; сумма смешивает рынок оборудования, сервисы и страховые премии.",
-      related: ["proof-009", "proof-010", "proof-012"],
-    },
-    {
-      id: "proof-004",
-      claims: ["metric:top3"],
-      title: "Доля трёх крупнейших направлений",
-      value: "52,7%",
-      type: "расчёт",
-      confidence: "D",
-      formula: "(98,226 + 85,422 + 67,284) / 476,072 = 52,70%",
-      note: "Расчёт по центральным точкам направлений и индикативному расширенному периметру.",
-      related: ["proof-014", "proof-009", "proof-007"],
-    },
-    {
-      id: "proof-005",
-      claims: ["direction:D01"],
-      title: "Управление активами и видимостью",
-      value: "9,2 млрд ₽",
-      type: "расчёт",
-      confidence: "C",
-      formula: "8,000 продукты + 1,245 общие услуги = 9,245 → 9,2",
-      note: "Прямой публичной оценки направления нет. Число распределено внутри ядра ЦСР; не выдаётся за опубликованный факт.",
-      sources: [
-        evidence(
-          "S05",
-          "«В исследовании используется трехуровневая модель»",
-          "контекст независимой сегментации рынка"
-        ),
-      ],
-      related: ["proof-002"],
-    },
-    {
-      id: "proof-006",
-      claims: ["direction:D02", "class:C005"],
-      title: "Защита данных / DLP",
-      value: "37,5 млрд ₽ · DLP 17,0",
-      type: "расчёт",
-      confidence: "B / C",
-      formula: "32,473 продукты + 5,053 услуги = 37,526 → 37,5",
-      note: "Итог направления расчётный. Значение DLP 17,0 млрд ₽ опубликовано отдельно и используется как контроль.",
-      sources: [
-        evidence(
-          "S25",
-          "«DLP-сегмент достиг 17 млрд руб.»",
-          "прямое подтверждение DLP"
-        ),
-      ],
-      related: ["proof-002"],
-    },
-    {
-      id: "proof-007",
-      claims: ["direction:D03", "class:C024"],
-      title: "Анализ угроз и мониторинг / SIEM",
-      value: "67,3 млрд ₽ · SIEM 21,2–24,0",
-      type: "расчёт",
-      confidence: "C",
-      formula: "Направление: 49,000 + 7,625 + 10,659 = 67,284. SIEM: 18–20 × 1,18–1,20 = 21,24–24,0",
-      note: "Итог направления не опубликован напрямую. Диапазон SIEM получен из оценки 2024 года и роста 2025 года.",
-      sources: [
-        evidence(
-          "S27",
-          "«объем российского рынка SIEM-систем оценивается в 18–20 млрд руб.»",
-          "база SIEM за 2024 год"
-        ),
-        evidence(
-          "S45",
-          "«он увеличился примерно на 18–20%»",
-          "предварительный рост SIEM в 2025 году"
-        ),
-      ],
-    },
-    {
-      id: "proof-008",
-      claims: ["direction:D04", "class:C033"],
-      title: "AI-безопасность / AI Security",
-      value: "1,5 млрд ₽ · наблюдаемый пол ≥ 0,123",
-      type: "расчёт",
-      confidence: "D",
-      formula: "Направление: 1,260 + 0,196 = 1,456 → 1,5. Пол класса: 123 млн ₽ = 0,123 млрд ₽",
-      note: "1,5 млрд ₽ — аллокация внутри ядра. 0,123 млрд ₽ — выручка одного участника, не размер всего рынка.",
-      sources: [
-        evidence(
-          "S20",
-          "«Выручка компании ... за 2025 год составила 123 млн рублей»",
-          "наблюдаемый нижний порог"
-        ),
-        evidence(
-          "S20",
-          "«Оценивать объем рынка в денежном выражении пока преждевременно»",
-          "прямое ограничение источника"
-        ),
-      ],
-    },
-    {
-      id: "proof-009",
-      claims: ["direction:D05", "class:C038", "class:C039"],
-      title: "Физическая и аппаратная безопасность",
-      value: "85,4 млрд ₽ · видео 67,6 · СКУД 17,7–18,0",
-      type: "расчёт",
-      confidence: "C",
-      formula: "67,600 + 16,350 × 1,09 = 85,4215 → 85,4; СКУД: 16,350 × 1,08–1,10 = 17,658–17,985",
-      note: "Центральный сценарий соединяет B2B/B2G-видеонаблюдение и полный СКУД. Денежная база не сопоставима с ядром ЦСР.",
-      sources: [
-        evidence(
-          "S13",
-          "«Объем российского B2B- и B2G-рынка видеонаблюдения по итогам 2025 года достиг 67,6 млрд рублей»",
-          "прямое подтверждение видеонаблюдения"
-        ),
-        evidence(
-          "S14",
-          "«за 2024 год российский рынок СКУД достиг 16,35 млрд рублей»",
-          "база расчёта СКУД"
-        ),
-      ],
-    },
-    {
-      id: "proof-010",
-      claims: ["direction:D06"],
-      title: "Резервное копирование и киберустойчивость",
-      value: "25,3 млрд ₽",
-      type: "расчёт",
-      confidence: "D",
-      formula: "20,000 BaaS / DRaaS + 50% × 10,500 backup-продукты = 25,250 → 25,3",
-      note: "Центральная точка предполагает 50%-ное пересечение продукта с сервисным пулом; диапазон 16,8–30,7 млрд ₽.",
-      sources: [
-        evidence(
-          "S32",
-          "«общий объем сегментов BaaS и DRaaS в России достигнет 20 млрд рублей»",
-          "сервисный пул, прогноз 2025"
-        ),
-        evidence(
-          "S16",
-          "«объем российского рынка систем резервного копирования по итогам 2025 года оценивается в 10,5 млрд рублей»",
-          "продуктовый контроль"
-        ),
-      ],
-    },
-    {
-      id: "proof-011",
-      claims: ["direction:D07"],
-      title: "Управление рисками, соответствием и навыками",
-      value: "18,2 млрд ₽",
-      type: "расчёт",
-      confidence: "C",
-      formula: "1,701 продукты + 0,265 общие услуги + 16,269 прямые услуги = 18,235 → 18,2",
-      note: "Прямого итога направления нет; обучение и сервисные оценки используются как контроль структуры.",
-      sources: [
-        evidence(
-          "S17",
-          "«Рынок корпоративного ИБ-образования в 2025 году вырастет на 4%, до 3,21 млрд руб.»",
-          "контроль образовательного пула"
-        ),
-      ],
-      related: ["proof-023", "proof-024"],
-    },
-    {
-      id: "proof-012",
-      claims: ["direction:D08", "class:C061"],
-      title: "Управляемые ИБ-сервисы / киберстрахование",
-      value: "25,4 млрд ₽ · страхование ≈ 1,0",
-      type: "расчёт",
-      confidence: "C / B",
-      formula: "93,5 × 26,1% = 24,404; 24,404 + 1,000 = 25,404 → 25,4",
-      note: "24,404 млрд ₽ — широкий пул аутсорсинга ЦСР, а не узкий MSSP. Страхование включено только в расширенный периметр.",
-      sources: [
-        evidence(
-          "S01",
-          "«Аутсорсинг (включая MSSP/MDR) — 26,1%»",
-          "доля аутсорсинга в рынке ИБ-услуг",
-          "стр. 17–18, рисунки 6–7"
-        ),
-        evidence(
-          "S18",
-          "«объем собранных премий в киберстраховании в 2025 году составил примерно 1 млрд рублей»",
-          "прямое подтверждение страховых премий"
-        ),
-      ],
-      related: ["proof-002", "proof-025"],
-    },
-    {
-      id: "proof-013",
-      claims: ["direction:D09", "class:C063"],
-      title: "Безопасность ОТ / АСУ ТП / IoT",
-      value: "8,3 млрд ₽ · OT Security 6,3",
-      type: "расчёт",
-      confidence: "C",
-      formula: "7,165 продукты + 1,115 общие услуги = 8,280 → 8,3",
-      note: "6,3 млрд ₽ — прогноз узкого отечественного ПО для защиты АСУ ТП; итог направления шире.",
-      sources: [
-        evidence(
-          "S05",
-          "«Защита АСУ ТП — 6,3»",
-          "фрагмент диаграммы рынка ПО за 2025 год",
-          "стр. 35, диаграмма «Структура рынка кибербезопасности ПО»"
-        ),
-      ],
-      related: ["proof-002"],
-    },
-    {
-      id: "proof-014",
-      claims: ["direction:D10", "class:C073"],
-      title: "Сетевая безопасность / NGFW",
-      value: "98,2 млрд ₽ · NGFW 47–54",
-      type: "расчёт",
-      confidence: "B / C",
-      formula: "85,000 продукты + 13,226 общие услуги = 98,226 → 98,2",
-      note: "Итог направления шире NGFW. 47 и 54 млрд ₽ имеют несовпадающие денежные базы, поэтому центральная точка NGFW не назначена.",
-      sources: [
-        evidence(
-          "S08",
-          "«объем сегмента NGFW и криптошлюзов в ценах производителей составит 47 млрд руб.»",
-          "нижний сценарий NGFW"
-        ),
-        evidence(
-          "S09",
-          "«рынок NGFW в России достиг 54 млрд рублей»",
-          "верхний сценарий NGFW"
-        ),
-      ],
-      related: ["proof-002"],
-    },
-    {
-      id: "proof-015",
-      claims: ["direction:D11", "class:C094"],
-      title: "Управление доступом и идентификацией / PAM",
-      value: "21,4 млрд ₽ · PAM 5,4",
-      type: "расчёт",
-      confidence: "B / C",
-      formula: "18,492 продукты + 2,878 общие услуги = 21,370 → 21,4",
-      note: "Итог направления шире PAM. Дополнительные 0,432 млрд ₽ продуктовой реклассификации смоделированы.",
-      sources: [
-        evidence(
-          "S11",
-          "«По итогам 2025 г. объем рынка PAM оценен в 5,4 млрд руб.»",
-          "прямое подтверждение PAM"
-        ),
-      ],
-      related: ["proof-002"],
-    },
-    {
-      id: "proof-016",
-      claims: ["direction:D12"],
-      title: "Безопасность приложений (AppSec)",
-      value: "20,6 млрд ₽",
-      type: "расчёт",
-      confidence: "C",
-      formula: "17,860 продукты + 2,779 общие услуги = 20,639 → 20,6",
-      note: "17,860 млрд ₽ — расчётная аллокация с поправкой на пересечения VM, WAF и Anti-DDoS; не опубликованный остаток.",
-      sources: [
-        evidence(
-          "S01",
-          "«Средства защиты приложений — 35,42 млрд руб.»",
-          "широкая исходная категория ЦСР",
-          "стр. 15, таблица 2"
-        ),
-      ],
-    },
-    {
-      id: "proof-017",
-      claims: ["direction:D13"],
-      title: "Облачная безопасность и виртуализация",
-      value: "8,1 млрд ₽",
-      type: "расчёт",
-      confidence: "C",
-      formula: "7,000 продукты + 1,089 общие услуги = 8,089 → 8,1",
-      note: "Широкий облачный контроль 10,51–19,2 млрд ₽ пересекается с другими направлениями и не прибавляется к ядру.",
-      sources: [
-        evidence(
-          "S33",
-          "«объем облачной кибербезопасности увеличится с пяти млрд руб. до 32 млрд руб.»",
-          "траектория 2023–2028; контроль, а не прямой итог 2025"
-        ),
-      ],
-      related: ["proof-002"],
-    },
-    {
-      id: "proof-018",
-      claims: ["direction:D14"],
-      title: "Защита конечных точек",
-      value: "46,6 млрд ₽",
-      type: "расчёт",
-      confidence: "B",
-      formula: "40,320 продукты + 6,274 общие услуги = 46,594 → 46,6",
-      note: "Продуктовая база опубликована в широком классе endpoint security; сервисная надбавка распределена аналитически.",
-      sources: [
-        evidence(
-          "S23",
-          "«объем рынка средств защиты конечных точек превысил 40 млрд рублей»",
-          "прямой продуктовый якорь"
-        ),
-      ],
-      related: ["proof-002", "proof-026", "proof-027"],
-    },
-    {
-      id: "proof-019",
-      claims: ["residual:core"],
-      title: "Нераспределённый остаток ядра",
-      value: "3,1 млрд ₽",
-      type: "расчёт",
-      confidence: "B",
-      formula: "364,400 − 361,348 распределённого ядра = 3,052 → 3,1",
-      note: "Остаток сохранён явно, а не назначен классу без доказательной базы.",
-      related: ["proof-002"],
-    },
-    {
-      id: "proof-020",
-      claims: ["class:C019"],
-      title: "VM",
-      value: "8,8 млрд ₽",
-      type: "прогноз источника",
-      confidence: "C",
-      formula: "Прямое значение диаграммы MWS; отдельная чувствительность не показана на слайде.",
-      note: "Узкий рынок отечественного ПО управления уязвимостями; не весь широкий контур vulnerability management.",
-      sources: [
-        evidence(
-          "S05",
-          "«Управление уязвимостями и сканирование — 8,8»",
-          "фрагмент диаграммы рынка ПО за 2025 год",
-          "стр. 35, диаграмма «Структура рынка кибербезопасности ПО»"
-        ),
-      ],
-    },
-    {
-      id: "proof-021",
-      claims: ["class:C023"],
-      title: "Pentest (CPT)",
-      value: "10,7 млрд ₽",
-      type: "расчёт",
-      confidence: "B",
-      formula: "93,5 × 11,4% = 10,659 → 10,7",
-      note: "Расчёт на основе объёма российского рынка ИБ-услуг ЦСР и доли оценки защищённости.",
-      sources: [
-        evidence(
-          "S01",
-          "«Оценка защищенности (пентест) — 11,4%»",
-          "доля в рынке услуг",
-          "стр. 17–18, рисунки 6–7"
-        ),
-      ],
-      related: ["proof-002"],
-    },
-    {
-      id: "proof-022",
-      claims: ["class:C025"],
-      title: "NTA",
-      value: "5–10 млрд ₽",
-      type: "оценка источника",
-      confidence: "C",
-      formula: "Диапазон источника показан без искусственного среднего.",
-      note: "Источник использует объединённый контур NTA/NDR; границы не являются статистическим доверительным интервалом.",
-      sources: [
-        evidence(
-          "S39",
-          "«Объём российского рынка NTA/NDR эксперты оценивают в диапазоне 5–10 миллиардов рублей»",
-          "прямое подтверждение диапазона"
-        ),
-      ],
-    },
-    {
-      id: "proof-023",
-      claims: ["class:C051"],
-      title: "DFIR",
-      value: "4,3 млрд ₽",
-      type: "расчёт",
-      confidence: "B",
-      formula: "93,5 × 4,6% = 4,301 → 4,3",
-      note: "Расчёт на основе объёма рынка ИБ-услуг и доли расследования инцидентов.",
-      sources: [
-        evidence(
-          "S01",
-          "«Расследование инцидентов — 4,6%»",
-          "доля в рынке услуг",
-          "стр. 17–18, рисунки 6–7"
-        ),
-      ],
-      related: ["proof-002"],
-    },
-    {
-      id: "proof-024",
-      claims: ["class:C055"],
-      title: "Bug Bounty Platforms",
-      value: "≥ 0,261 млрд ₽",
-      type: "наблюдаемый нижний порог",
-      confidence: "D",
-      formula: "161 млн ₽ + 100 млн ₽ = 261 млн ₽ = 0,261 млрд ₽",
-      note: "Это только раскрытые выплаты двух платформ: не выручка платформ и не полный размер рынка.",
-      sources: [
-        evidence(
-          "S19",
-          "«Итоговая сумма выплат ... составила 161 млн руб.; ... онлайн-платформой было выплачено ... 100 млн руб.»",
-          "прямые суммы выплат"
-        ),
-      ],
-    },
-    {
-      id: "proof-025",
-      claims: ["class:C057"],
-      title: "MSSP",
-      value: "32,1 млрд ₽",
-      type: "прогноз источника",
-      confidence: "B",
-      formula: "Прогнозный график iKS-Consulting: 2025F = 32,1 млрд ₽.",
-      note: "Прогноз опубликован до завершения 2025 года; это не ретроспективный факт и не складывается с итогом D08.",
-      sources: [
-        evidence(
-          "S38",
-          "«По результатам 2025 года рынок может вырасти на 23% до 32,1 млрд руб.»",
-          "текстовый прогноз со ссылкой на исследование iKS-Consulting"
-        ),
-      ],
-      related: ["proof-012"],
-    },
-    {
-      id: "proof-026",
-      claims: ["class:C118"],
-      title: "EDR",
-      value: "4,0 млрд ₽",
-      type: "оценка источника",
-      confidence: "B",
-      formula: "Центральная точка источника; сценарная полоса исследования 3,5–4,5 млрд ₽.",
-      note: "Оценка рынка EDR, приведённая участником рынка в годовом отчёте.",
-      sources: [
-        evidence(
-          "S06",
-          "«Рынок EDR-решений России — около 4 млрд руб.»",
-          "прямое подтверждение"
-        ),
-      ],
-    },
-    {
-      id: "proof-027",
-      claims: ["class:C120"],
-      title: "Антивирус",
-      value: "13,1 млрд ₽",
-      type: "прогноз источника",
-      confidence: "C",
-      formula: "Прямое значение диаграммы MWS; в презентации помечено как прогноз.",
-      note: "Денежная база — отечественное ПО в деньгах компаний, а не весь endpoint-контур.",
-      sources: [
-        evidence(
-          "S05",
-          "«Антивирусное ПО — 13,1»",
-          "фрагмент диаграммы рынка ПО за 2025 год",
-          "стр. 35, диаграмма «Структура рынка кибербезопасности ПО»"
-        ),
-      ],
-    },
-  ];
-
-  const claimMap = {};
-  proofs.forEach((proof, index) => {
-    proof.number = index + 1;
-    proof.claims.forEach((claim) => {
-      claimMap[claim] = proof.id;
-    });
-  });
-
-  window.PROOF_DATA = {
-    title: "Пруфы",
-    accessDate: "30.07.2026",
-    proofs,
-    claimMap,
-  };
+  window.MARKET_STRUCTURE = {"total":{"value":364.4,"label":"364,4 млрд ₽","claim":"total:core"},"pie":[{"id":"M01","name":"Продукты ИБ","color":"#3FBFC4","value":271.0,"label":"271,0","claim":"component:products"},{"id":"M02","name":"Услуги ИБ","color":"#F35B66","value":93.5,"label":"93,5","claim":"component:services"}],"rows":[{"id":"M01","name":"Продукты ИБ","color":"#3FBFC4","value":271.0,"label":"271,0 млрд ₽","claim":"component:products"},{"id":"M02","name":"Услуги ИБ","color":"#F35B66","value":93.5,"label":"93,5 млрд ₽","claim":"component:services"},{"id":"M03","name":"Сетевая безопасность","color":"#55D6C5","value":88.13,"label":"88,13 млрд ₽","claim":"metric:network"},{"id":"M04","name":"Инфраструктурная безопасность","color":"#70C9A3","value":45.0,"label":"45,00 млрд ₽","claim":"metric:infrastructure"},{"id":"M05","name":"Защита конечных точек","color":"#F0A158","value":40.32,"label":"40,32 млрд ₽","claim":"metric:endpoint"},{"id":"M06","name":"Безопасность приложений","color":"#B65DCC","value":35.42,"label":"35,42 млрд ₽","claim":"metric:appsec"},{"id":"M07","name":"Защита данных","color":"#F58A64","value":32.04,"label":"32,04 млрд ₽","claim":"metric:data"},{"id":"M08","name":"Управление доступом","color":"#55AEE7","value":18.06,"label":"18,06 млрд ₽","claim":"metric:access"}]};
+  window.PROOF_DATA = {"accessDate":"31.07.2026","claimMap":{"total:core":"proof-001","component:products":"proof-002","component:services":"proof-003","metric:network":"proof-004","metric:infrastructure":"proof-004","metric:endpoint":"proof-004","metric:appsec":"proof-004","metric:data":"proof-004","metric:access":"proof-004","services:structure":"proof-005","taxonomy:csr":"proof-006","class:C005":"proof-007","class:C006":"proof-007","class:C007":"proof-007","class:C008":"proof-007","class:C019":"proof-007","class:C024":"proof-007","class:C025":"proof-007","class:C030":"proof-007","class:C063":"proof-007","class:C073":"proof-007","class:C086":"proof-007","class:C120":"proof-007","crosscheck:software":"proof-008","class:C044":"proof-009","class:C118":"proof-010","class:C057":"proof-011","class:C058":"proof-011","class:C059":"proof-011","class:C060":"proof-011","class:C052":"proof-012","class:C053":"proof-012","class:C054":"proof-012","class:C056":"proof-012","class:C094":"proof-013","crosscheck:ngfw":"proof-014"},"proofs":[{"id":"proof-001","claims":["total:core"],"title":"Объём российского рынка ИБ, 2025","value":"364,4 млрд ₽","type":"отчёт","sources":[{"publisher":"Центр стратегических разработок / СПбПУ","title":"Рынок информационной безопасности Российской Федерации: текущее состояние и перспективы развития до 2031 года","date":"май 2026","url":"https://research.spbstu.ru/userfiles/files/doc/tssr_rinok_ib_v_rossii_2026-2031_%2830_str%29.pdf","sourceId":"CSR","location":"PDF: стр. 11 из 30 — раздел «Оценка российского рынка информационной безопасности», блок «Объём российского рынка… в 2025 году»."}],"number":1},{"id":"proof-002","claims":["component:products"],"title":"Рынок средств защиты информации, 2025","value":"271,0 млрд ₽","type":"отчёт","sources":[{"publisher":"Центр стратегических разработок / СПбПУ","title":"Рынок информационной безопасности Российской Федерации: текущее состояние и перспективы развития до 2031 года","date":"май 2026","url":"https://research.spbstu.ru/userfiles/files/doc/tssr_rinok_ib_v_rossii_2026-2031_%2830_str%29.pdf","sourceId":"CSR","location":"PDF: стр. 13 из 30 — раздел «Оценка сегмента СЗИ по результатам 2025 года», строка «271 млрд руб.»."}],"number":2},{"id":"proof-003","claims":["component:services"],"title":"Рынок услуг информационной безопасности, 2025","value":"93,5 млрд ₽","type":"отчёт","sources":[{"publisher":"Центр стратегических разработок / СПбПУ","title":"Рынок информационной безопасности Российской Федерации: текущее состояние и перспективы развития до 2031 года","date":"май 2026","url":"https://research.spbstu.ru/userfiles/files/doc/tssr_rinok_ib_v_rossii_2026-2031_%2830_str%29.pdf","sourceId":"CSR","location":"PDF: стр. 17 из 30 — раздел «Оценка рынка услуг по результатам 2025 года», строка «93,5 млрд руб.»."}],"number":3},{"id":"proof-004","claims":["metric:network","metric:infrastructure","metric:endpoint","metric:appsec","metric:data","metric:access"],"title":"Продуктовые категории СЗИ","value":"88,13 · 45,00 · 40,32 · 35,42 · 32,04 · 18,06","type":"отчёт","sources":[{"publisher":"Центр стратегических разработок / СПбПУ","title":"Рынок информационной безопасности Российской Федерации: текущее состояние и перспективы развития до 2031 года","date":"май 2026","url":"https://research.spbstu.ru/userfiles/files/doc/tssr_rinok_ib_v_rossii_2026-2031_%2830_str%29.pdf","sourceId":"CSR","location":"PDF: стр. 15 из 30 — таблица 2 «Декомпозиция объёмов рынка по категориям СЗИ»."}],"number":4},{"id":"proof-005","claims":["services:structure"],"title":"Структура рынка ИБ-услуг","value":"19,0% · 26,1% · 26,1% · 12,8% · 11,4% · 4,6%","type":"отчёт","sources":[{"publisher":"Центр стратегических разработок / СПбПУ","title":"Рынок информационной безопасности Российской Федерации: текущее состояние и перспективы развития до 2031 года","date":"май 2026","url":"https://research.spbstu.ru/userfiles/files/doc/tssr_rinok_ib_v_rossii_2026-2031_%2830_str%29.pdf","sourceId":"CSR","location":"PDF: стр. 17 из 30 — рисунок 6 «Долевое распределение услуг ИБ по результатам 2025 года»."}],"number":5},{"id":"proof-006","claims":["taxonomy:csr"],"title":"Официальная декомпозиция продуктовых классов","value":"6 продуктовых категорий","type":"отчёт","sources":[{"publisher":"Центр стратегических разработок / СПбПУ","title":"Рынок информационной безопасности Российской Федерации: текущее состояние и перспективы развития до 2031 года","date":"май 2026","url":"https://research.spbstu.ru/userfiles/files/doc/tssr_rinok_ib_v_rossii_2026-2031_%2830_str%29.pdf","sourceId":"CSR","location":"PDF: стр. 29 из 30 — приложение 1 «Декомпозиция категорий средств защиты»."}],"number":6},{"id":"proof-007","claims":["class:C005","class:C006","class:C007","class:C008","class:C019","class:C024","class:C025","class:C030","class:C063","class:C073","class:C086","class:C120"],"title":"Классы российского рынка ПО ИБ, 2025","value":"146,3 млрд ₽","type":"отчёт","sources":[{"publisher":"MWS Intelligence Team","title":"Перспективы ИТ-рынка, выпуск 2","date":"март 2026","url":"https://mws.ru/uploads/Perspektivy_IT_rynka_Vypusk_2_a18ca0c008.pdf","sourceId":"MWS","location":"PDF: стр. 35–36 — диаграмма «Структура рынка кибербезопасности ПО», значения SIEM, AV, DLP, VM, Access, NTA, NGFW/FW, OT, DAG/DCAP/DAM и IRP/SOAR."}],"number":7},{"id":"proof-008","claims":["crosscheck:software"],"title":"Российский рынок ПО кибербезопасности, 2025","value":"148,0 млрд ₽","type":"отчёт","sources":[{"publisher":"Strategy Partners","title":"Динамика и прогнозы развития российского рынка инфраструктурного ПО","date":"июль 2026","url":"https://strategy.ru/rnd/files/160/download/","sourceId":"STRATEGY","location":"PDF: стр. 7 — диаграмма рынка инфраструктурного ПО, строка «Кибербезопасность»."}],"number":8},{"id":"proof-009","claims":["class:C044"],"title":"Российский рынок систем резервного копирования, 2025","value":"10,6 млрд ₽","type":"отчёт","sources":[{"publisher":"Strategy Partners","title":"Динамика и прогнозы развития российского рынка инфраструктурного ПО","date":"июль 2026","url":"https://strategy.ru/rnd/files/160/download/","sourceId":"STRATEGY","location":"PDF: стр. 18 — блок рынка систем резервного копирования; headline 10,6 млрд ₽."}],"number":9},{"id":"proof-010","claims":["class:C118"],"title":"Российский рынок EDR","value":"около 4 млрд ₽","type":"отчёт","sources":[{"publisher":"Positive Technologies","title":"Годовой отчёт за 2025 год — продукты, решения, сервисы","date":"2026","url":"https://ar2025.ptsecurity.com/products-solutions-services","sourceId":"PT","location":"Онлайн-отчёт: раздел «MaxPatrol EDR» → подраздел «Точки роста» → первый пункт о рынке EDR-решений России."}],"number":10},{"id":"proof-011","claims":["class:C057","class:C058","class:C059","class:C060"],"title":"Российский рынок MSSP","value":"26,1 млрд ₽ · 2024A","type":"отчёт","sources":[{"publisher":"iKS-Consulting","title":"Российский рынок MSSP","date":"2025","url":"https://survey.iksconsulting.ru/page80682986.html","sourceId":"IKS","location":"Страница исследования: инфографика «Объём российского рынка MSSP»; рядом указан прогноз роста на 2025 год 23%."}],"number":11},{"id":"proof-012","claims":["class:C052","class:C053","class:C054","class:C056"],"title":"Российский рынок корпоративного ИБ-образования","value":"около 3,2 млрд ₽ · 2025","type":"отчёт","sources":[{"publisher":"Kasatkin Consulting / ГК «Солар»","title":"Обзор рынка образования кибербезопасности в России","date":"ноябрь 2025","url":"https://kascons.ru/cybersecurity2025","sourceId":"KAS","location":"Страница исследования: раздел «Ключевые выводы исследования» → подраздел «Рынок стабильно растёт»."}],"number":12},{"id":"proof-013","claims":["class:C094"],"title":"Российский рынок PAM, 2025","value":"5,4 млрд ₽","type":"отчёт","sources":[{"publisher":"Piccard / «АйТи Бастион»","title":"Исследование российского рынка PAM за 2025 год","date":"июнь 2026","url":"https://it-bastion.com/news/rynok-pam-sistem-dostig-nasyshcheniya-i-sostavil-5-4-mlrd-rub-v-2025-godu/","sourceId":"PAM","location":"Основной текст: абзац «По итогам 2025 года объём рынка PAM оценён в 5,4 млрд рублей»; выше указано, что исследование Piccard заказано «АйТи Бастион»."}],"number":13},{"id":"proof-014","claims":["crosscheck:ngfw"],"title":"Российский рынок NGFW, 2024","value":"52,2 млрд ₽","type":"отчёт","sources":[{"publisher":"Центр стратегических разработок","title":"Исследование российского рынка NGFW","date":"2025","url":"https://www.csr.ru/ru/news/tsentr-strategicheskikh-razrabotok-provyel-pervoe-v-rossii-issledovanie-rynka-ngfw-resheniy-dlya-zashchity-ot-setevykh-kiberugroz","sourceId":"NGFW","location":"Официальная страница ЦСР: первый содержательный абзац под заголовком — объём рынка 52,2 млрд ₽ и рост 30,1% по итогам 2024 года."}],"number":14}]};
 })();
-
   </script>
   <script>
-window.SECURITY_MAP = {"title":"Карта классов продуктов ИБ","directionsCount":14,"subdirectionsCount":23,"classesCount":126,"marketCoverage":{"point":11,"range":4,"floor":2,"undefined":109},"directions":[{"id":"D01","name":"Управление активами и видимостью","color":"#F35B66","value":9.245,"classesCount":4,"market":{"type":"точка","label":"9,2 млрд ₽","low":8.88,"base":9.245,"high":9.49,"status":"derived_allocation","confidence":"C","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":null,"name":"Классы направления","classes":[{"id":"C001","name":"CAASM","description":"управление киберактивами и поверхностью атак","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C002","name":"ITAM / CMDB","description":"управление ИТ-активами и реестр конфигураций","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C003","name":"Shadow IT Discovery","description":"обнаружение неуправляемых устройств и приложений","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C004","name":"Network Discovery","description":"автоматическое обнаружение активов в сети","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D02","name":"Защита данных","color":"#F58A64","value":37.526,"classesCount":14,"market":{"type":"точка","label":"37,5 млрд ₽","low":36.03,"base":37.526,"high":38.5,"status":"derived_allocation","confidence":"B","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":"SD02_01","name":"Предотвращение утечек и контроль данных","classes":[{"id":"C005","name":"DLP","description":"системы предотвращения утечек данных","market":{"type":"точка","label":"17,0 млрд ₽","qualifier":null,"value":17.0,"low":11.3,"base":17.0,"high":21.0,"status":"two_source_anchors_plus_analytical_upper_sensitivity","confidence":"C","note":"Показывать как оценку DLP 2025; 11,3 и 21,0 не образуют сопоставимый статистический диапазон."}},{"id":"C006","name":"DAG","description":"управление доступом к данным","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C007","name":"DCAP","description":"контроль доступа к данным и аналитика использования","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C008","name":"DBF","description":"защита баз данных","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C009","name":"VDR","description":"виртуальная комната данных, безопасный обмен документами","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD02_02","name":"Цифровая идентичность и шифрование","classes":[{"id":"C010","name":"Криптографические средства","description":"шифрование данных в покое и в движении","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C011","name":"Токенизация","description":"замена чувствительных данных токенами","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C012","name":"Маскировка данных","description":"обезличивание для нерабочих сред","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C013","name":"PKI","description":"инфраструктура открытых ключей, управление ключами и сертификатами","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C014","name":"IRM","description":"таргетированное управление правами доступа к информации","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C015","name":"Vault","description":"средства хранения секретов","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C016","name":"HSM","description":"аппаратные модули безопасности","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C017","name":"Постквантовая криптография (PQC)","description":"защита от квантовых атак","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C018","name":"QKD","description":"квантовое распределение ключей","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D03","name":"Анализ угроз и мониторинг","color":"#70C9A3","value":67.284,"classesCount":14,"market":{"type":"точка","label":"67,3 млрд ₽","low":64.61,"base":67.284,"high":69.04,"status":"derived_allocation","confidence":"C","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":"SD03_01","name":"Управление уязвимостями","classes":[{"id":"C019","name":"VM","description":"выявление и устранение уязвимостей","market":{"type":"точка","label":"8,8 млрд ₽","qualifier":"прогноз","value":8.8,"low":5.895,"base":8.8,"high":8.8,"status":"mixed_scope_controls","confidence":"C","note":"Показывать только как узкий прогноз отечественного VM-ПО; нижний контроль 5,895 имеет иной периметр."}},{"id":"C020","name":"ASM","description":"мониторинг поверхности атак","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C021","name":"BAS","description":"симуляция атак и тестирование безопасности","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C022","name":"CSAM","description":"управление безопасностью конфигураций","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C023","name":"Pentest (CPT)","description":"тестирование на проникновение","market":{"type":"точка","label":"10,7 млрд ₽","qualifier":null,"value":10.659,"low":9.5,"base":10.659,"high":12.0,"status":"derived_source_estimate","confidence":"B","note":"Расчётная точка: 93,5 × 11,4%; не опубликованный самостоятельный market size."}}]},{"id":"SD03_02","name":"Мониторинг и аналитика","classes":[{"id":"C024","name":"SIEM","description":"управление событиями и информацией безопасности","market":{"type":"диапазон","label":"21,2–24,0 млрд ₽","qualifier":null,"value":null,"low":21.24,"base":22.62,"high":24.0,"status":"derived_from_source_range","confidence":"C","note":"Расчётный сценарный диапазон из оценки 2024 года и темпа роста 2025 года; не опубликованная точка."}},{"id":"C025","name":"NTA","description":"аналитика сетевого трафика","market":{"type":"диапазон","label":"5–10 млрд ₽","qualifier":null,"value":null,"low":5.0,"base":7.9,"high":10.0,"status":"source_range_with_forecast_anchor","confidence":"C","note":"Экспертный диапазон объединяет NTA/NDR; 7,9 млрд ₽ — более узкий прогноз NTA-ПО."}},{"id":"C026","name":"NDR","description":"обнаружение и реагирование на сетевые угрозы","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C027","name":"Cloud-native XDR","description":"расширенное обнаружение и реагирование в облаке","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C028","name":"UEBA","description":"аналитика поведения пользователей и сущностей","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C029","name":"TI","description":"разведка и аналитика по угрозам","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD03_03","name":"Реагирование и автоматизация","classes":[{"id":"C030","name":"SOAR","description":"автоматизация безопасности и реагирования на инциденты","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C031","name":"IRP","description":"платформа реагирования на инциденты","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C032","name":"Автоматизация межсетевых экранов","description":"оркестрация правил и политик","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D04","name":"AI-безопасность","color":"#55D6C5","value":1.456,"classesCount":5,"market":{"type":"точка","label":"1,5 млрд ₽","low":1.4,"base":1.456,"high":1.49,"status":"derived_allocation","confidence":"D","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":null,"name":"Классы направления","classes":[{"id":"C033","name":"AI Security","description":"защита AI/ML-систем от adversarial attacks и model poisoning","market":{"type":"нижняя граница","label":"≥ 0,123 млрд ₽","qualifier":null,"value":null,"low":0.123,"base":null,"high":null,"status":"observable_revenue_floor_not_market_size","confidence":"D","note":"Только наблюдаемая выручка одного участника, не размер рынка."}},{"id":"C034","name":"MLSecOps","description":"безопасность ML-пайплайнов и моделей","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C035","name":"AI для киберзащиты","description":"использование ИИ для обнаружения угроз","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C036","name":"AI Governance \u0026 Auditability","description":"аудит и прозрачность решений на ИИ","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C037","name":"LLM Security","description":"защита от атак на большие языковые модели (prompt injection и др.)","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D05","name":"Физическая и аппаратная безопасность","color":"#5AB8E8","value":85.422,"classesCount":4,"market":{"type":"точка","label":"85,4 млрд ₽","low":81.658,"base":85.422,"high":88.985,"status":"analytical_expanded_perimeter","confidence":"C","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":null,"name":"Классы направления","classes":[{"id":"C038","name":"СКУД","description":"системы контроля и управления физическим доступом","market":{"type":"диапазон","label":"17,7–18,0 млрд ₽","qualifier":null,"value":null,"low":17.658,"base":17.822,"high":17.985,"status":"derived_growth_scenario","confidence":"C","note":"Расчётный сценарий на базе рынка 2024 года и роста 8–10%."}},{"id":"C039","name":"Видеонаблюдение и аналитика","description":"видеоаналитика безопасности","market":{"type":"точка","label":"67,6 млрд ₽","qualifier":null,"value":67.6,"low":64.0,"base":67.6,"high":71.0,"status":"source_point_with_analytical_sensitivity","confidence":"B","note":"Источник публикует центральную оценку; 64–71 млрд ₽ — аналитическая чувствительность."}},{"id":"C040","name":"Side-Channel Attack Protection","description":"защита от побочных каналов","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C041","name":"Физическая защита серверных и ЦОД","description":"контроль доступа в помещения","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D06","name":"Резервное копирование и киберустойчивость","color":"#CE6FE3","value":25.25,"classesCount":4,"market":{"type":"точка","label":"25,3 млрд ₽","low":16.8,"base":25.25,"high":30.7,"status":"analytical_mixed_perimeter","confidence":"D","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":null,"name":"Классы направления","classes":[{"id":"C042","name":"Immutable Backup","description":"неизменяемые резервные копии (защита от ransomware)","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C043","name":"Disaster Recovery / BCP","description":"восстановление после катастроф и непрерывность бизнеса","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C044","name":"Cyber Resilience Platforms","description":"платформы обеспечения киберустойчивости","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C045","name":"Air-gapped Storage","description":"защищённые изолированные хранилища данных","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D07","name":"Управление рисками, соответствием и навыками","color":"#D14D52","value":18.235,"classesCount":11,"market":{"type":"точка","label":"18,2 млрд ₽","low":17.51,"base":18.235,"high":18.71,"status":"derived_allocation","confidence":"C","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":"SD07_01","name":"GRC и антифрод","classes":[{"id":"C046","name":"GRC","description":"управление рисками и соблюдение нормативных требований","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C047","name":"Антифрод","description":"предотвращение цифрового мошенничества","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C048","name":"DRP","description":"разведка угроз и проактивная минимизация цифровых рисков","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C049","name":"OSINT","description":"разведка на основе открытых данных","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C050","name":"Sandbox","description":"изолированная среда для анализа угроз","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C051","name":"DFIR","description":"реагирование на инциденты и цифровая криминалистика","market":{"type":"точка","label":"4,3 млрд ₽","qualifier":null,"value":4.301,"low":3.8,"base":4.301,"high":5.0,"status":"derived_source_estimate","confidence":"B","note":"Расчётная точка: 93,5 × 4,6%; не опубликованный самостоятельный market size."}}]},{"id":"SD07_02","name":"Security Awareness и обучение","classes":[{"id":"C052","name":"SA / Security Awareness Training","description":"платформы обучения сотрудников","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C053","name":"Phishing Simulation","description":"симуляция фишинговых атак","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C054","name":"Киберполигоны","description":"учебные полигоны для отработки навыков защиты","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C055","name":"Bug Bounty Platforms","description":"платформы программ поиска уязвимостей","market":{"type":"нижняя граница","label":"≥ 0,261 млрд ₽","qualifier":null,"value":null,"low":0.261,"base":null,"high":null,"status":"observable_payout_floor_not_market_size","confidence":"D","note":"Наблюдаемые выплаты, не выручка платформ и не полный размер рынка."}},{"id":"C056","name":"Геймификация ИБ-обучения","description":"игровые форматы повышения осведомлённости","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D08","name":"Управляемые ИБ-сервисы (MSSP / MDR)","color":"#FFAE6D","value":25.404,"classesCount":5,"market":{"type":"точка","label":"25,4 млрд ₽","low":24.23,"base":25.404,"high":26.34,"status":"derived_plus_expanded","confidence":"C","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":null,"name":"Классы направления","classes":[{"id":"C057","name":"MSSP","description":"провайдер управляемых услуг безопасности","market":{"type":"точка","label":"32,1 млрд ₽","qualifier":"прогноз","value":32.1,"low":31.32,"base":32.1,"high":32.1,"status":"forecast_range_from_single_study","confidence":"B","note":"Показывать как прогноз 2025 года, не как ретроспективный факт; пул ЦСР 24,404 имеет другой периметр."}},{"id":"C058","name":"MDR","description":"управляемое обнаружение и реагирование на угрозы","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C059","name":"SOC-as-a-Service","description":"внешний центр мониторинга безопасности","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C060","name":"Threat Hunting as a Service","description":"проактивный поиск угроз как услуга","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C061","name":"Киберстрахование","description":"страхование киберрисков и ущерба от инцидентов","market":{"type":"точка","label":"≈ 1,0 млрд ₽","qualifier":null,"value":1.0,"low":0.8,"base":1.0,"high":1.0,"status":"source_point_with_analytical_sensitivity","confidence":"B","note":"Приблизительная ретроспективная оценка премий; относится к смежному периметру."}}]}]},{"id":"D09","name":"Безопасность ОТ / АСУ ТП / IoT","color":"#63B893","value":8.28,"classesCount":7,"market":{"type":"точка","label":"8,3 млрд ₽","low":7.95,"base":8.28,"high":8.5,"status":"derived_allocation","confidence":"C","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":"SD09_01","name":"Промышленные системы управления","classes":[{"id":"C062","name":"ICS/SCADA Security","description":"защита промышленных систем управления","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C063","name":"OT Security","description":"безопасность операционных технологий (187-ФЗ КИИ)","market":{"type":"точка","label":"6,3 млрд ₽","qualifier":"прогноз","value":6.3,"low":5.67,"base":6.3,"high":6.93,"status":"forecast_with_sensitivity","confidence":"C","note":"Показывать как прогноз отечественного OT/АСУ ТП ПО, а не полный OT Security TAM."}},{"id":"C064","name":"Industrial Firewall","description":"промышленный межсетевой экран","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C065","name":"Data Diode","description":"однонаправленный шлюз для изоляции ОТ-сетей","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD09_02","name":"Интернет вещей","classes":[{"id":"C066","name":"IoT Security","description":"защита устройств интернета вещей","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C067","name":"OT/IT Convergence Security","description":"защита точек соединения ОТ и ИТ-сетей","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C068","name":"Firmware Security","description":"анализ и защита прошивок устройств","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D10","name":"Сетевая безопасность","color":"#3FBFC4","value":98.226,"classesCount":16,"market":{"type":"точка","label":"98,2 млрд ₽","low":94.32,"base":98.226,"high":100.79,"status":"derived_allocation","confidence":"B","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":"SD10_01","name":"Защита периметра сети","classes":[{"id":"C069","name":"VPN","description":"виртуальная частная сеть","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C070","name":"ZTNA","description":"сетевой доступ с нулевым доверием","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C071","name":"NAC","description":"контроль доступа к сети","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C072","name":"Firewall / UTM","description":"межсетевой экран и универсальный шлюз безопасности","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C073","name":"NGFW","description":"межсетевой экран нового поколения","market":{"type":"диапазон","label":"47–54 млрд ₽","qualifier":null,"value":null,"low":47.0,"base":null,"high":54.0,"status":"incomparable_source_scenarios","confidence":"C","note":"Сценарный конверт несовместимых периметров; центральную точку не показывать."}},{"id":"C074","name":"IDS / IPS","description":"системы обнаружения и предотвращения вторжений","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C075","name":"SWG","description":"шлюз веб-безопасности, проксирование доступа","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C076","name":"SEG","description":"защита электронной почты","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C077","name":"Сегментация сети","description":"изоляция сегментов для ограничения распространения угроз","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD10_02","name":"Защита WEB и API","classes":[{"id":"C078","name":"SecDNS","description":"защита DNS","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C079","name":"Anti-DDoS","description":"защита от распределённых атак отказа в обслуживании","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C080","name":"WAF","description":"межсетевой экран для веб-приложений","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C081","name":"API Security","description":"безопасность API и защита на уровне приложений","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD10_03","name":"Безопасность коммуникаций","classes":[{"id":"C082","name":"Secure Messaging","description":"защищённые корпоративные мессенджеры","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C083","name":"UC Security","description":"безопасность унифицированных коммуникаций и видеоконференций","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C084","name":"Anti-eavesdropping","description":"защита от прослушивания каналов связи","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D11","name":"Управление доступом и идентификацией","color":"#55AEE7","value":21.37,"classesCount":11,"market":{"type":"точка","label":"21,4 млрд ₽","low":20.52,"base":21.37,"high":21.93,"status":"derived_allocation","confidence":"B","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":"SD11_01","name":"Identity \u0026 Access Management","classes":[{"id":"C085","name":"SSO","description":"единый логин для всех систем","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C086","name":"IAM","description":"управление доступом и идентификацией","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C087","name":"IGA","description":"управление идентичностями и доступом","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C088","name":"IDM","description":"управление идентификацией","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C089","name":"CIAM","description":"управление идентификацией клиентов","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C090","name":"IDP","description":"провайдер идентификации","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD11_02","name":"Аутентификация","classes":[{"id":"C091","name":"MFA","description":"многофакторная аутентификация","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C092","name":"NoPass","description":"аутентификация без паролей (passwordless)","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C093","name":"Аппаратные токены и USB-ключи","description":"физические средства аутентификации","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD11_03","name":"Привилегированный доступ и угрозы идентификации","classes":[{"id":"C094","name":"PAM","description":"управление привилегированным доступом","market":{"type":"точка","label":"5,4 млрд ₽","qualifier":null,"value":5.4,"low":4.8,"base":5.4,"high":6.0,"status":"source_estimate_with_sensitivity","confidence":"C","note":"Спонсорская рыночная оценка; 4,8–6,0 млрд ₽ — аналитическая чувствительность."}},{"id":"C095","name":"ITDR","description":"обнаружение и реагирование на угрозы идентификации","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D12","name":"Безопасность приложений (AppSec)","color":"#B65DCC","value":20.639,"classesCount":10,"market":{"type":"точка","label":"20,6 млрд ₽","low":19.82,"base":20.639,"high":21.18,"status":"derived_allocation","confidence":"C","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":"SD12_01","name":"Анализ кода","classes":[{"id":"C096","name":"SAST","description":"статический анализ безопасности кода","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C097","name":"DAST","description":"динамический анализ безопасности приложений","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C098","name":"IAST","description":"интерактивный анализ безопасности приложений","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C099","name":"MAST","description":"анализ безопасности мобильных приложений","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C100","name":"SCA","description":"композиционный анализ кода (зависимости, лицензии)","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD12_02","name":"DevSecOps и цепочка поставок","classes":[{"id":"C101","name":"DevSecOps-платформы","description":"интеграция ИБ в CI/CD-конвейер","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C102","name":"SSCS","description":"безопасность цепочки поставок ПО","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C103","name":"SBOM","description":"реестр компонентов программного обеспечения","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C104","name":"Artifact \u0026 Registry Security","description":"защита репозиториев и артефактов сборки","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C105","name":"Secrets Management in Pipeline","description":"управление секретами в DevOps","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D13","name":"Облачная безопасность и виртуализация","color":"#ED6D7A","value":8.089,"classesCount":11,"market":{"type":"точка","label":"8,1 млрд ₽","low":7.77,"base":8.089,"high":8.3,"status":"derived_allocation","confidence":"C","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":"SD13_01","name":"Облачные брокеры и платформы","classes":[{"id":"C106","name":"CASB","description":"брокер безопасности доступа к облаку","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C107","name":"CNAPP","description":"нативная облачная платформа защиты приложений","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C108","name":"CSPM","description":"управление безопасностью облачной инфраструктуры","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C109","name":"CWPP","description":"защита рабочих нагрузок в облаке","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C110","name":"CIEM","description":"управление доступом в облачных средах","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C111","name":"Облачный межсетевой экран","description":"фильтрация трафика в облаке","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C112","name":"Межсетевой экран уровня гипервизора","description":"защита виртуальных сред","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD13_02","name":"Контейнеры и оркестрация","classes":[{"id":"C113","name":"Container Security","description":"защита контейнеров (Docker, Kubernetes)","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C114","name":"Image Scanning","description":"сканирование образов на уязвимости","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C115","name":"Runtime Security","description":"защита контейнеров в реальном времени","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD13_03","name":"Мониторинг облаков","classes":[{"id":"C116","name":"Мониторинг и аналитика облачной инфраструктуры","description":"видимость событий в облаке","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]},{"id":"D14","name":"Защита конечных точек","color":"#F0A158","value":46.594,"classesCount":10,"market":{"type":"точка","label":"46,6 млрд ₽","low":44.74,"base":46.594,"high":47.81,"status":"derived_allocation","confidence":"B","note":"Показывать центральную точку базового сценария. Это дедуплицированная аналитическая аллокация, а не обязательно самостоятельно опубликованный размер направления."},"groups":[{"id":"SD14_01","name":"Платформенная защита","classes":[{"id":"C117","name":"EPP","description":"платформа защиты конечных точек","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C118","name":"EDR","description":"обнаружение и реагирование на угрозы на конечных точках","market":{"type":"точка","label":"4,0 млрд ₽","qualifier":null,"value":4.0,"low":3.5,"base":4.0,"high":4.5,"status":"source_estimate","confidence":"B","note":"Экспертная оценка рынка EDR; 3,5–4,5 млрд ₽ — сценарная полоса."}},{"id":"C119","name":"XDR","description":"расширенное обнаружение и реагирование (cross-layer)","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C120","name":"Антивирус","description":"сигнатурная и поведенческая защита","market":{"type":"точка","label":"13,1 млрд ₽","qualifier":"прогноз","value":13.1,"low":11.8,"base":13.1,"high":15.0,"status":"forecast_with_sensitivity","confidence":"C","note":"Показывать как прогноз отечественного антивирусного ПО в деньгах вендоров."}}]},{"id":"SD14_02","name":"Доверенная среда","classes":[{"id":"C121","name":"АПМДЗ","description":"средства доверенной загрузки","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C122","name":"НСД","description":"защита от несанкционированного доступа","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C123","name":"TPM / Secure Enclave","description":"аппаратная доверенная среда исполнения","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]},{"id":"SD14_03","name":"Защита потребителей","classes":[{"id":"C124","name":"Защита персональных данных пользователей","description":"","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C125","name":"Информирование об утечках и компрометации аутентификации","description":"","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}},{"id":"C126","name":"Родительский контроль","description":"","market":{"type":"нет оценки","label":"неопределено","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"N/A","confidence":"N/A","note":"Публичная денежная оценка 2025 года не установлена."}}]}]}]};
-
+window.SECURITY_MAP = {"title":"Карта классов продуктов ИБ","directionsCount":14,"subdirectionsCount":23,"classesCount":126,"marketCoverage":{"product":34,"adjacent":13,"subclass":58,"service":7,"overlay":11,"out_of_scope":3},"directions":[{"id":"D01","name":"Управление активами и видимостью","color":"#F35B66","value":0,"classesCount":4,"market":{"type":"таксономия","label":"4 классов","low":null,"base":null,"high":null,"status":"taxonomy_only","confidence":"N/A","caption":"классы продуктов","note":"Денежная оценка направления не назначается."},"groups":[{"id":null,"name":"Классы направления","classes":[{"id":"C001","name":"CAASM","description":"управление киберактивами и поверхностью атак","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C002","name":"ITAM / CMDB","description":"управление ИТ-активами и реестр конфигураций","market":{"type":"статус","label":"Смежный рынок","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"adjacent","confidence":"аналитическая классификация","note":null},"fit":"adjacent","fitLabel":"Смежный рынок"},{"id":"C003","name":"Shadow IT Discovery","description":"обнаружение неуправляемых устройств и приложений","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C004","name":"Network Discovery","description":"автоматическое обнаружение активов в сети","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"}]}]},{"id":"D02","name":"Защита данных","color":"#F58A64","value":0,"classesCount":14,"market":{"type":"таксономия","label":"14 классов","low":null,"base":null,"high":null,"status":"taxonomy_only","confidence":"N/A","caption":"классы продуктов","note":"Денежная оценка направления не назначается."},"groups":[{"id":"SD02_01","name":"Предотвращение утечек и контроль данных","classes":[{"id":"C005","name":"DLP","description":"системы предотвращения утечек данных","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C006","name":"DAG","description":"управление доступом к данным","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C007","name":"DCAP","description":"контроль доступа к данным и аналитика использования","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C008","name":"DBF","description":"защита баз данных","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C009","name":"VDR","description":"виртуальная комната данных, безопасный обмен документами","market":{"type":"статус","label":"Смежный рынок","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"adjacent","confidence":"аналитическая классификация","note":null},"fit":"adjacent","fitLabel":"Смежный рынок"},{"id":"C122","name":"НСД","description":"защита от несанкционированного доступа","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"}]},{"id":"SD02_02","name":"Цифровая идентичность и шифрование","classes":[{"id":"C010","name":"Криптографические средства","description":"шифрование данных в покое и в движении","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C011","name":"Токенизация","description":"замена чувствительных данных токенами","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C012","name":"Маскировка данных","description":"обезличивание для нерабочих сред","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C014","name":"IRM","description":"таргетированное управление правами доступа к информации","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C015","name":"Vault","description":"средства хранения секретов","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C016","name":"HSM","description":"аппаратные модули безопасности","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C017","name":"Постквантовая криптография (PQC)","description":"защита от квантовых атак","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C018","name":"QKD","description":"квантовое распределение ключей","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"}]}]},{"id":"D03","name":"Анализ угроз и мониторинг","color":"#70C9A3","value":0,"classesCount":11,"market":{"type":"таксономия","label":"11 классов","low":null,"base":null,"high":null,"status":"taxonomy_only","confidence":"N/A","caption":"классы продуктов","note":"Денежная оценка направления не назначается."},"groups":[{"id":"SD03_01","name":"Управление уязвимостями","classes":[{"id":"C020","name":"ASM","description":"мониторинг поверхности атак","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C021","name":"BAS","description":"симуляция атак и тестирование безопасности","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C022","name":"CSAM","description":"управление безопасностью конфигураций","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C023","name":"Pentest (CPT)","description":"тестирование на проникновение","market":{"type":"статус","label":"Услуга — не класс продукта","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"service","confidence":"аналитическая классификация","note":null},"fit":"service","fitLabel":"Услуга — не класс продукта"}]},{"id":"SD03_02","name":"Мониторинг, аналитика и внешняя разведка","classes":[{"id":"C024","name":"SIEM","description":"управление событиями и информацией безопасности","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C028","name":"UEBA","description":"аналитика поведения пользователей и сущностей","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C029","name":"TI","description":"разведка и аналитика по угрозам","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C048","name":"DRP","description":"разведка угроз и проактивная минимизация цифровых рисков","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C049","name":"OSINT","description":"разведка на основе открытых данных","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"}]},{"id":"SD03_03","name":"Реагирование и автоматизация","classes":[{"id":"C030","name":"SOAR","description":"автоматизация безопасности и реагирования на инциденты","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C031","name":"IRP","description":"платформа реагирования на инциденты","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"}]}]},{"id":"D04","name":"AI-безопасность","color":"#55D6C5","value":0,"classesCount":5,"market":{"type":"таксономия","label":"5 классов","low":null,"base":null,"high":null,"status":"taxonomy_only","confidence":"N/A","caption":"классы продуктов","note":"Денежная оценка направления не назначается."},"groups":[{"id":null,"name":"Классы направления","classes":[{"id":"C033","name":"AI Security","description":"защита AI/ML-систем от adversarial attacks и model poisoning","market":{"type":"статус","label":"Сквозной класс","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"overlay","confidence":"аналитическая классификация","note":null},"fit":"overlay","fitLabel":"Сквозной класс"},{"id":"C034","name":"MLSecOps","description":"безопасность ML-пайплайнов и моделей","market":{"type":"статус","label":"Сквозной класс","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"overlay","confidence":"аналитическая классификация","note":null},"fit":"overlay","fitLabel":"Сквозной класс"},{"id":"C035","name":"AI для киберзащиты","description":"использование ИИ для обнаружения угроз","market":{"type":"статус","label":"Сквозной класс","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"overlay","confidence":"аналитическая классификация","note":null},"fit":"overlay","fitLabel":"Сквозной класс"},{"id":"C036","name":"AI Governance & Auditability","description":"аудит и прозрачность решений на ИИ","market":{"type":"статус","label":"Сквозной класс","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"overlay","confidence":"аналитическая классификация","note":null},"fit":"overlay","fitLabel":"Сквозной класс"},{"id":"C037","name":"LLM Security","description":"защита от атак на большие языковые модели (prompt injection и др.)","market":{"type":"статус","label":"Сквозной класс","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"overlay","confidence":"аналитическая классификация","note":null},"fit":"overlay","fitLabel":"Сквозной класс"}]}]},{"id":"D05","name":"Физическая и аппаратная безопасность","color":"#5AB8E8","value":0,"classesCount":4,"market":{"type":"таксономия","label":"4 классов","low":null,"base":null,"high":null,"status":"taxonomy_only","confidence":"N/A","caption":"классы продуктов","note":"Денежная оценка направления не назначается."},"groups":[{"id":null,"name":"Классы направления","classes":[{"id":"C038","name":"СКУД","description":"системы контроля и управления физическим доступом","market":{"type":"статус","label":"Смежный рынок","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"adjacent","confidence":"аналитическая классификация","note":null},"fit":"adjacent","fitLabel":"Смежный рынок"},{"id":"C039","name":"Видеонаблюдение и аналитика","description":"видеоаналитика безопасности","market":{"type":"статус","label":"Смежный рынок","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"adjacent","confidence":"аналитическая классификация","note":null},"fit":"adjacent","fitLabel":"Смежный рынок"},{"id":"C040","name":"Side-Channel Attack Protection","description":"защита от побочных каналов","market":{"type":"статус","label":"Смежный рынок","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"adjacent","confidence":"аналитическая классификация","note":null},"fit":"adjacent","fitLabel":"Смежный рынок"},{"id":"C041","name":"Физическая защита серверных и ЦОД","description":"контроль доступа в помещения","market":{"type":"статус","label":"Смежный рынок","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"adjacent","confidence":"аналитическая классификация","note":null},"fit":"adjacent","fitLabel":"Смежный рынок"}]}]},{"id":"D06","name":"Резервное копирование и киберустойчивость","color":"#CE6FE3","value":0,"classesCount":4,"market":{"type":"таксономия","label":"4 классов","low":null,"base":null,"high":null,"status":"taxonomy_only","confidence":"N/A","caption":"классы продуктов","note":"Денежная оценка направления не назначается."},"groups":[{"id":null,"name":"Классы направления","classes":[{"id":"C042","name":"Immutable Backup","description":"неизменяемые резервные копии (защита от ransomware)","market":{"type":"статус","label":"Смежный рынок","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"adjacent","confidence":"аналитическая классификация","note":null},"fit":"adjacent","fitLabel":"Смежный рынок"},{"id":"C043","name":"Disaster Recovery / BCP","description":"восстановление после катастроф и непрерывность бизнеса","market":{"type":"статус","label":"Смежный рынок","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"adjacent","confidence":"аналитическая классификация","note":null},"fit":"adjacent","fitLabel":"Смежный рынок"},{"id":"C044","name":"Cyber Resilience Platforms","description":"платформы обеспечения киберустойчивости","market":{"type":"статус","label":"Смежный рынок","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"adjacent","confidence":"аналитическая классификация","note":null},"fit":"adjacent","fitLabel":"Смежный рынок"},{"id":"C045","name":"Air-gapped Storage","description":"защищённые изолированные хранилища данных","market":{"type":"статус","label":"Смежный рынок","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"adjacent","confidence":"аналитическая классификация","note":null},"fit":"adjacent","fitLabel":"Смежный рынок"}]}]},{"id":"D07","name":"Управление рисками, соответствием и навыками","color":"#D14D52","value":0,"classesCount":6,"market":{"type":"таксономия","label":"6 классов","low":null,"base":null,"high":null,"status":"taxonomy_only","confidence":"N/A","caption":"классы продуктов","note":"Денежная оценка направления не назначается."},"groups":[{"id":"SD07_01","name":"GRC и антифрод","classes":[{"id":"C046","name":"GRC","description":"управление рисками и соблюдение нормативных требований","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C047","name":"Антифрод","description":"предотвращение цифрового мошенничества","market":{"type":"статус","label":"Смежный рынок","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"adjacent","confidence":"аналитическая классификация","note":null},"fit":"adjacent","fitLabel":"Смежный рынок"}]},{"id":"SD07_02","name":"Security Awareness и обучение","classes":[{"id":"C052","name":"SA / Security Awareness Training","description":"платформы обучения сотрудников","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C053","name":"Phishing Simulation","description":"симуляция фишинговых атак","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C054","name":"Киберполигоны","description":"учебные полигоны для отработки навыков защиты","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C056","name":"Геймификация ИБ-обучения","description":"игровые форматы повышения осведомлённости","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"}]}]},{"id":"D08","name":"Управляемые ИБ-сервисы (MSSP / MDR)","color":"#FFAE6D","value":0,"classesCount":6,"market":{"type":"таксономия","label":"6 классов","low":null,"base":null,"high":null,"status":"taxonomy_only","confidence":"N/A","caption":"классы продуктов","note":"Денежная оценка направления не назначается."},"groups":[{"id":null,"name":"Классы направления","classes":[{"id":"C051","name":"DFIR","description":"реагирование на инциденты и цифровая криминалистика","market":{"type":"статус","label":"Услуга — не класс продукта","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"service","confidence":"аналитическая классификация","note":null},"fit":"service","fitLabel":"Услуга — не класс продукта"},{"id":"C057","name":"MSSP","description":"провайдер управляемых услуг безопасности","market":{"type":"статус","label":"Услуга — не класс продукта","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"service","confidence":"аналитическая классификация","note":null},"fit":"service","fitLabel":"Услуга — не класс продукта"},{"id":"C058","name":"MDR","description":"управляемое обнаружение и реагирование на угрозы","market":{"type":"статус","label":"Услуга — не класс продукта","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"service","confidence":"аналитическая классификация","note":null},"fit":"service","fitLabel":"Услуга — не класс продукта"},{"id":"C059","name":"SOC-as-a-Service","description":"внешний центр мониторинга безопасности","market":{"type":"статус","label":"Услуга — не класс продукта","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"service","confidence":"аналитическая классификация","note":null},"fit":"service","fitLabel":"Услуга — не класс продукта"},{"id":"C060","name":"Threat Hunting as a Service","description":"проактивный поиск угроз как услуга","market":{"type":"статус","label":"Услуга — не класс продукта","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"service","confidence":"аналитическая классификация","note":null},"fit":"service","fitLabel":"Услуга — не класс продукта"},{"id":"C061","name":"Киберстрахование","description":"страхование киберрисков и ущерба от инцидентов","market":{"type":"статус","label":"Смежный рынок","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"adjacent","confidence":"аналитическая классификация","note":null},"fit":"adjacent","fitLabel":"Смежный рынок"}]}]},{"id":"D09","name":"Безопасность ОТ / АСУ ТП / IoT","color":"#63B893","value":0,"classesCount":6,"market":{"type":"таксономия","label":"6 классов","low":null,"base":null,"high":null,"status":"taxonomy_only","confidence":"N/A","caption":"классы продуктов","note":"Денежная оценка направления не назначается."},"groups":[{"id":"SD09_01","name":"Промышленные системы управления","classes":[{"id":"C062","name":"ICS/SCADA Security","description":"защита промышленных систем управления","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C063","name":"OT Security","description":"безопасность операционных технологий (187-ФЗ КИИ)","market":{"type":"статус","label":"Сквозной класс","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"overlay","confidence":"аналитическая классификация","note":null},"fit":"overlay","fitLabel":"Сквозной класс"},{"id":"C065","name":"Data Diode","description":"однонаправленный шлюз для изоляции ОТ-сетей","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"}]},{"id":"SD09_02","name":"Интернет вещей","classes":[{"id":"C066","name":"IoT Security","description":"защита устройств интернета вещей","market":{"type":"статус","label":"Сквозной класс","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"overlay","confidence":"аналитическая классификация","note":null},"fit":"overlay","fitLabel":"Сквозной класс"},{"id":"C067","name":"OT/IT Convergence Security","description":"защита точек соединения ОТ и ИТ-сетей","market":{"type":"статус","label":"Сквозной класс","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"overlay","confidence":"аналитическая классификация","note":null},"fit":"overlay","fitLabel":"Сквозной класс"},{"id":"C068","name":"Firmware Security","description":"анализ и защита прошивок устройств","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"}]}]},{"id":"D10","name":"Сетевая безопасность","color":"#3FBFC4","value":0,"classesCount":18,"market":{"type":"таксономия","label":"18 классов","low":null,"base":null,"high":null,"status":"taxonomy_only","confidence":"N/A","caption":"классы продуктов","note":"Денежная оценка направления не назначается."},"groups":[{"id":"SD10_01","name":"Периметр, сетевой доступ и обнаружение","classes":[{"id":"C025","name":"NTA","description":"аналитика сетевого трафика","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C026","name":"NDR","description":"обнаружение и реагирование на сетевые угрозы","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C032","name":"Автоматизация межсетевых экранов","description":"оркестрация правил и политик","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C050","name":"Sandbox","description":"изолированная среда для анализа угроз","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C064","name":"Industrial Firewall","description":"промышленный межсетевой экран","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C069","name":"VPN","description":"виртуальная частная сеть","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C070","name":"ZTNA","description":"сетевой доступ с нулевым доверием","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C071","name":"NAC","description":"контроль доступа к сети","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C072","name":"Firewall / UTM","description":"межсетевой экран и универсальный шлюз безопасности","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C073","name":"NGFW","description":"межсетевой экран нового поколения","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C074","name":"IDS / IPS","description":"системы обнаружения и предотвращения вторжений","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C075","name":"SWG","description":"шлюз веб-безопасности, проксирование доступа","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C076","name":"SEG","description":"защита электронной почты","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C077","name":"Сегментация сети","description":"изоляция сегментов для ограничения распространения угроз","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"}]},{"id":"SD10_02","name":"Защита WEB и API","classes":[{"id":"C078","name":"SecDNS","description":"защита DNS","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"}]},{"id":"SD10_03","name":"Безопасность коммуникаций","classes":[{"id":"C082","name":"Secure Messaging","description":"защищённые корпоративные мессенджеры","market":{"type":"статус","label":"Смежный рынок","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"adjacent","confidence":"аналитическая классификация","note":null},"fit":"adjacent","fitLabel":"Смежный рынок"},{"id":"C083","name":"UC Security","description":"безопасность унифицированных коммуникаций и видеоконференций","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C084","name":"Anti-eavesdropping","description":"защита от прослушивания каналов связи","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"}]}]},{"id":"D11","name":"Управление доступом и идентификацией","color":"#55AEE7","value":0,"classesCount":13,"market":{"type":"таксономия","label":"13 классов","low":null,"base":null,"high":null,"status":"taxonomy_only","confidence":"N/A","caption":"классы продуктов","note":"Денежная оценка направления не назначается."},"groups":[{"id":"SD11_01","name":"Identity & Access Management","classes":[{"id":"C085","name":"SSO","description":"единый логин для всех систем","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C086","name":"IAM","description":"управление доступом и идентификацией","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C087","name":"IGA","description":"управление идентичностями и доступом","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C088","name":"IDM","description":"управление идентификацией","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C089","name":"CIAM","description":"управление идентификацией клиентов","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C090","name":"IDP","description":"провайдер идентификации","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"}]},{"id":"SD11_02","name":"Аутентификация и криптографическая инфраструктура","classes":[{"id":"C013","name":"PKI","description":"инфраструктура открытых ключей, управление ключами и сертификатами","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C091","name":"MFA","description":"многофакторная аутентификация","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C092","name":"NoPass","description":"аутентификация без паролей (passwordless)","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C093","name":"Аппаратные токены и USB-ключи","description":"физические средства аутентификации","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"}]},{"id":"SD11_03","name":"Привилегированный доступ и угрозы идентификации","classes":[{"id":"C094","name":"PAM","description":"управление привилегированным доступом","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C095","name":"ITDR","description":"обнаружение и реагирование на угрозы идентификации","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C105","name":"Secrets Management in Pipeline","description":"управление секретами в DevOps","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"}]}]},{"id":"D12","name":"Безопасность приложений (AppSec)","color":"#B65DCC","value":0,"classesCount":14,"market":{"type":"таксономия","label":"14 классов","low":null,"base":null,"high":null,"status":"taxonomy_only","confidence":"N/A","caption":"классы продуктов","note":"Денежная оценка направления не назначается."},"groups":[{"id":"SD12_01","name":"Анализ приложений и уязвимостей","classes":[{"id":"C019","name":"VM","description":"выявление и устранение уязвимостей","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C079","name":"Anti-DDoS","description":"защита от распределённых атак отказа в обслуживании","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C080","name":"WAF","description":"межсетевой экран для веб-приложений","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C081","name":"API Security","description":"безопасность API и защита на уровне приложений","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C096","name":"SAST","description":"статический анализ безопасности кода","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C097","name":"DAST","description":"динамический анализ безопасности приложений","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C098","name":"IAST","description":"интерактивный анализ безопасности приложений","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C099","name":"MAST","description":"анализ безопасности мобильных приложений","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C100","name":"SCA","description":"композиционный анализ кода (зависимости, лицензии)","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"}]},{"id":"SD12_02","name":"DevSecOps, цепочка поставок и проверка","classes":[{"id":"C055","name":"Bug Bounty Platforms","description":"платформы программ поиска уязвимостей","market":{"type":"статус","label":"Услуга — не класс продукта","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"service","confidence":"аналитическая классификация","note":null},"fit":"service","fitLabel":"Услуга — не класс продукта"},{"id":"C101","name":"DevSecOps-платформы","description":"интеграция ИБ в CI/CD-конвейер","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C102","name":"SSCS","description":"безопасность цепочки поставок ПО","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C103","name":"SBOM","description":"реестр компонентов программного обеспечения","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C104","name":"Artifact & Registry Security","description":"защита репозиториев и артефактов сборки","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"}]}]},{"id":"D13","name":"Облачная безопасность и виртуализация","color":"#ED6D7A","value":0,"classesCount":11,"market":{"type":"таксономия","label":"11 классов","low":null,"base":null,"high":null,"status":"taxonomy_only","confidence":"N/A","caption":"классы продуктов","note":"Денежная оценка направления не назначается."},"groups":[{"id":"SD13_01","name":"Облачные брокеры и платформы","classes":[{"id":"C106","name":"CASB","description":"брокер безопасности доступа к облаку","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C107","name":"CNAPP","description":"нативная облачная платформа защиты приложений","market":{"type":"статус","label":"Сквозной класс","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"overlay","confidence":"аналитическая классификация","note":null},"fit":"overlay","fitLabel":"Сквозной класс"},{"id":"C108","name":"CSPM","description":"управление безопасностью облачной инфраструктуры","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C109","name":"CWPP","description":"защита рабочих нагрузок в облаке","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C110","name":"CIEM","description":"управление доступом в облачных средах","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C111","name":"Облачный межсетевой экран","description":"фильтрация трафика в облаке","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C112","name":"Межсетевой экран уровня гипервизора","description":"защита виртуальных сред","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"}]},{"id":"SD13_02","name":"Контейнеры и оркестрация","classes":[{"id":"C113","name":"Container Security","description":"защита контейнеров (Docker, Kubernetes)","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C114","name":"Image Scanning","description":"сканирование образов на уязвимости","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C115","name":"Runtime Security","description":"защита контейнеров в реальном времени","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"}]},{"id":"SD13_03","name":"Мониторинг облаков","classes":[{"id":"C116","name":"Мониторинг и аналитика облачной инфраструктуры","description":"видимость событий в облаке","market":{"type":"статус","label":"Сквозной класс","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"overlay","confidence":"аналитическая классификация","note":null},"fit":"overlay","fitLabel":"Сквозной класс"}]}]},{"id":"D14","name":"Защита конечных точек","color":"#F0A158","value":0,"classesCount":10,"market":{"type":"таксономия","label":"10 классов","low":null,"base":null,"high":null,"status":"taxonomy_only","confidence":"N/A","caption":"классы продуктов","note":"Денежная оценка направления не назначается."},"groups":[{"id":"SD14_01","name":"Платформенная защита","classes":[{"id":"C027","name":"Cloud-native XDR","description":"расширенное обнаружение и реагирование в облаке","market":{"type":"статус","label":"Сквозной класс","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"overlay","confidence":"аналитическая классификация","note":null},"fit":"overlay","fitLabel":"Сквозной класс"},{"id":"C117","name":"EPP","description":"платформа защиты конечных точек","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C118","name":"EDR","description":"обнаружение и реагирование на угрозы на конечных точках","market":{"type":"статус","label":"Класс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"product","confidence":"аналитическая классификация","note":null},"fit":"product","fitLabel":"Класс продукта ИБ"},{"id":"C119","name":"XDR","description":"расширенное обнаружение и реагирование (cross-layer)","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C120","name":"Антивирус","description":"сигнатурная и поведенческая защита","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"}]},{"id":"SD14_02","name":"Доверенная среда","classes":[{"id":"C121","name":"АПМДЗ","description":"средства доверенной загрузки","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"},{"id":"C123","name":"TPM / Secure Enclave","description":"аппаратная доверенная среда исполнения","market":{"type":"статус","label":"Подкласс продукта ИБ","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"subclass","confidence":"аналитическая классификация","note":null},"fit":"subclass","fitLabel":"Подкласс продукта ИБ"}]},{"id":"SD14_03","name":"Защита потребителей","classes":[{"id":"C124","name":"Защита персональных данных пользователей","description":"","market":{"type":"статус","label":"Вне корпоративного рынка","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"out_of_scope","confidence":"аналитическая классификация","note":null},"fit":"out_of_scope","fitLabel":"Вне корпоративного рынка"},{"id":"C125","name":"Информирование об утечках и компрометации аутентификации","description":"","market":{"type":"статус","label":"Вне корпоративного рынка","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"out_of_scope","confidence":"аналитическая классификация","note":null},"fit":"out_of_scope","fitLabel":"Вне корпоративного рынка"},{"id":"C126","name":"Родительский контроль","description":"","market":{"type":"статус","label":"Вне корпоративного рынка","qualifier":null,"value":null,"low":null,"base":null,"high":null,"status":"out_of_scope","confidence":"аналитическая классификация","note":null},"fit":"out_of_scope","fitLabel":"Вне корпоративного рынка"}]}]}],"audit":{"classNamesAndDescriptions":"preserved verbatim from source","moves":["C013","C019","C025","C026","C027","C032","C048","C049","C050","C051","C055","C064","C079","C080","C081","C105","C122"],"accessDate":"31.07.2026"}};
   </script>
   <script>
 (() => {
@@ -2698,8 +2082,7 @@ window.SECURITY_MAP = {"title":"Карта классов продуктов И�
     return proof ? String(proof.number).padStart(2, "0") : "—";
   };
 
-  const proofLinkLabel = (proofId) =>
-    proofsById.get(proofId)?.type === "расчёт" ? "расчёт" : "пруф";
+  const proofLinkLabel = () => "отчёт";
 
   const describeProofLink = (proofId) => {
     const label = proofLinkLabel(proofId);
@@ -2732,20 +2115,24 @@ window.SECURITY_MAP = {"title":"Карта классов продуктов И�
 
   const createSourceBlock = (source) => {
     const block = createElement("div", "proof-source");
-    const label = createElement("p", "proof-source__label", "ТЕКСТ ИСТОЧНИКА");
-    const quote = createElement("blockquote", "proof-source__quote", source.excerpt);
+    const label = createElement("p", "proof-source__label", "ОТЧЁТ");
+    const title = createElement("h4", "proof-source__title", source.title);
     const meta = createElement(
       "p",
       "proof-source__meta",
-      `${source.sourceId} · ${source.publisher} · ${source.date} · ${source.location}`
+      `${source.publisher} · ${source.date}`
     );
-    const role = createElement("p", "proof-source__role", source.role);
-    const url = createElement("a", "proof-source__url", source.url);
+    const location = createElement(
+      "p",
+      "proof-source__location",
+      `ГДЕ ИМЕННО: ${source.location}`
+    );
+    const url = createElement("a", "proof-source__url", "ОТКРЫТЬ ОТЧЁТ ↗");
     url.href = source.url;
     url.target = "_blank";
     url.rel = "noopener noreferrer";
-    url.title = `Открыть источник: ${source.title}`;
-    block.append(label, quote, meta, role, url);
+    url.title = `Открыть отчёт: ${source.title}`;
+    block.append(label, title, meta, location, url);
     return block;
   };
 
@@ -2754,136 +2141,40 @@ window.SECURITY_MAP = {"title":"Карта классов продуктов И�
     card.id = proof.id;
     card.tabIndex = -1;
     card.dataset.proofNumber = String(proof.number);
-    card.setAttribute(
-      "aria-label",
-      `Пруф ${proof.number}. ${proof.title}. ${proof.value}`
-    );
-
+    card.setAttribute("aria-label", `Отчёт ${proof.number}. ${proof.title}. ${proof.value}`);
     const header = createElement("header", "proof-card__header");
     header.append(
-      createElement(
-        "span",
-        "proof-card__number",
-        String(proof.number).padStart(2, "0")
-      ),
-      createElement("span", "proof-card__type", proof.type),
+      createElement("span", "proof-card__number", String(proof.number).padStart(2, "0")),
+      createElement("span", "proof-card__type", "ОТЧЁТ"),
       createElement("strong", "proof-card__value", proof.value)
     );
-
     const title = createElement("h3", "proof-card__title", proof.title);
-    const calculation = createElement("div", "proof-card__calculation");
-    calculation.append(
-      createElement(
-        "span",
-        "",
-        proof.type === "расчёт" ? "РАСЧЁТ" : "ПРОВЕРКА"
-      ),
-      createElement("strong", "", proof.formula)
-    );
-    const note = createElement("p", "proof-card__note", proof.note);
     const sources = createElement("div", "proof-card__sources");
-    (proof.sources || []).forEach((source) => {
-      sources.appendChild(createSourceBlock(source));
-    });
-
+    (proof.sources || []).forEach((item) => sources.appendChild(createSourceBlock(item)));
     const footer = createElement("footer", "proof-card__footer");
-    footer.append(
-      createElement("span", "", `проверено ${proofData.accessDate}`)
-    );
-    if (proof.related?.length) {
-      const related = createElement("nav", "proof-related");
-      related.setAttribute("aria-label", "Связанные пруфы");
-      related.appendChild(createElement("span", "", "ЦЕПОЧКА:"));
-      proof.related.forEach((targetId) => {
-        const link = createElement(
-          "a",
-          "proof-related__link",
-          `пруф ${proofNumber(targetId)}`
-        );
-        link.href = `#${targetId}`;
-        link.dataset.proofTarget = targetId;
-        related.appendChild(link);
-      });
-      footer.appendChild(related);
-    }
-
-    card.append(header, title, calculation, note);
-    if (sources.childElementCount) {
-      card.appendChild(sources);
-    } else {
-      card.appendChild(
-        createElement(
-          "p",
-          "proof-card__derived",
-          "Число не опубликовано напрямую: подтверждение строится по формуле и связанным исходным пруфам."
-        )
-      );
-    }
-    card.appendChild(footer);
+    footer.append(createElement("span", "", `ссылка проверена ${proofData.accessDate}`));
+    card.append(header, title, sources, footer);
     return card;
   };
 
   const renderProofSlides = () => {
-    const pages = [];
-    let pendingCompactProofs = [];
-
     proofData.proofs.forEach((proof) => {
-      const isDenseProof = (proof.sources?.length || 0) >= 2;
-
-      if (isDenseProof) {
-        if (pendingCompactProofs.length) {
-          pages.push(pendingCompactProofs);
-          pendingCompactProofs = [];
-        }
-        pages.push([proof]);
-        return;
-      }
-
-      pendingCompactProofs.push(proof);
-      if (pendingCompactProofs.length === 2) {
-        pages.push(pendingCompactProofs);
-        pendingCompactProofs = [];
-      }
-    });
-
-    if (pendingCompactProofs.length) {
-      pages.push(pendingCompactProofs);
-    }
-
-    pages.forEach((pageProofs) => {
       const slide = createElement("section", "slide slide--paper slide-proof");
       slide.setAttribute("aria-hidden", "true");
-      const mapButton = createElement(
-        "button",
-        "proofs-map-button",
-        "Открыть карту"
-      );
+      const mapButton = createElement("button", "proofs-map-button", "Открыть карту");
       mapButton.type = "button";
       mapButton.dataset.openMap = "true";
-      mapButton.setAttribute(
-        "aria-label",
-        "Открыть карту классов продуктов ИБ"
-      );
-      const range = `${String(pageProofs[0].number).padStart(2, "0")}–${String(
-        pageProofs.at(-1).number
-      ).padStart(2, "0")}`;
+      mapButton.setAttribute("aria-label", "Открыть карту классов продуктов ИБ");
       slide.append(
-        createElement("p", "kicker", `ПРУФЫ · ${range}`),
-        createElement("h2", "proofs-title", "Пруфы"),
+        createElement("p", "kicker", `ОТЧЁТ · ${String(proof.number).padStart(2, "0")}`),
+        createElement("h2", "proofs-title", "Пруф"),
         mapButton,
-        createElement(
-          "p",
-          "proofs-subtitle",
-          "Короткий текст источника · прямой URL · расчёт без подмены факта"
-        )
+        createElement("p", "proofs-subtitle", "Название отчёта · точное место · прямая ссылка")
       );
       const grid = createElement("div", "proof-grid");
-      grid.dataset.count = String(pageProofs.length);
-      pageProofs.forEach((proof) => grid.appendChild(createProofCard(proof)));
-      slide.append(
-        grid,
-        createElement("p", "slide-index slide-index--dark", "")
-      );
+      grid.dataset.count = "1";
+      grid.appendChild(createProofCard(proof));
+      slide.append(grid, createElement("p", "slide-index slide-index--dark", ""));
       deck.appendChild(slide);
     });
   };
@@ -3149,10 +2440,7 @@ window.SECURITY_MAP = {"title":"Карта классов продуктов И�
     mapData.directionsCount !== 14 ||
     mapData.subdirectionsCount !== 23 ||
     mapData.classesCount !== 126 ||
-    mapData.marketCoverage.point !== 11 ||
-    mapData.marketCoverage.range !== 4 ||
-    mapData.marketCoverage.floor !== 2 ||
-    mapData.marketCoverage.undefined !== 109
+    Object.values(mapData.marketCoverage).reduce((sum, value) => sum + value, 0) !== 126
   ) {
     throw new Error("Map data failed taxonomy validation.");
   }
@@ -3171,44 +2459,27 @@ window.SECURITY_MAP = {"title":"Карта классов продуктов И�
   };
 
   const buildDirectionBars = () => {
-    const ranked = [...mapData.directions].sort((a, b) => b.value - a.value);
+    const ranked = [...window.MARKET_STRUCTURE.rows].sort((a, b) => b.value - a.value);
     const maximum = ranked[0].value;
-    const rows = ranked.map((direction, index) => {
+    const rows = ranked.map((metric, index) => {
       const row = createElement("div", "direction-bar-row");
       row.setAttribute("role", "listitem");
-      row.dataset.direction = direction.id;
-      row.setAttribute(
-        "aria-label",
-        `${index + 1} место. ${direction.name}. ${direction.market.label}`
-      );
-      row.style.setProperty("--bar-width", `${(direction.value / maximum) * 100}%`);
-      applyBranchColor(row, direction);
-
+      row.setAttribute("aria-label", `${metric.name}. ${metric.label}`);
+      row.style.setProperty("--bar-width", `${(metric.value / maximum) * 100}%`);
+      applyBranchColor(row, metric);
       const track = createElement("span", "direction-bar__track");
       track.setAttribute("aria-hidden", "true");
       track.appendChild(createElement("span", "direction-bar__fill"));
-      const metric = createElement("span", "direction-bar__metric");
-      metric.append(
-        createElement(
-          "span",
-          "direction-bar__value",
-          direction.market.label.replace(" млрд ₽", "")
-        ),
-        createProofLink(
-          `direction:${direction.id}`,
-          "proof-link proof-link--bar proof-link--light"
-        )
+      const metricBlock = createElement("span", "direction-bar__metric");
+      metricBlock.append(
+        createElement("span", "direction-bar__value", metric.label.replace(" млрд ₽", "")),
+        createProofLink(metric.claim, "proof-link proof-link--bar proof-link--light")
       );
-
       row.append(
-        createElement(
-          "span",
-          "direction-bar__rank",
-          String(index + 1).padStart(2, "0")
-        ),
-        createElement("strong", "direction-bar__name", direction.name),
+        createElement("span", "direction-bar__rank", String(index + 1).padStart(2, "0")),
+        createElement("strong", "direction-bar__name", metric.name),
         track,
-        metric
+        metricBlock
       );
       return row;
     });
@@ -3240,15 +2511,7 @@ window.SECURITY_MAP = {"title":"Карта классов продуктов И�
       createElement("span", "map-overview__name", direction.name)
     );
     metric.append(
-      createElement(
-        "span",
-        "map-overview__value",
-        direction.market.label.replace(" млрд ₽", "")
-      ),
-      createProofLink(
-        `direction:${direction.id}`,
-        "proof-link proof-link--overview"
-      )
+      createElement("span", "map-overview__value", `${direction.classesCount} классов`)
     );
     node.append(select, metric);
     select.addEventListener("click", (event) => {
@@ -3337,12 +2600,8 @@ window.SECURITY_MAP = {"title":"Карта классов продуктов И�
     const header = createElement("header", "map-detail__header");
     const market = createElement("div", "map-detail__market");
     market.append(
-      createElement("strong", "", direction.market.label),
-      createElement("span", "", "объём направления"),
-      createProofLink(
-        `direction:${direction.id}`,
-        "proof-link proof-link--map-header"
-      )
+      createElement("strong", "", "КАРТА"),
+      createElement("span", "", "классов продуктов")
     );
     header.append(
       createElement("span", "map-detail__id", direction.id),
@@ -3378,22 +2637,17 @@ window.SECURITY_MAP = {"title":"Карта классов продуктов И�
         const list = createElement("ul", "map-class-list");
         group.classes.slice(start, start + trackSize).forEach((mapClass) => {
           const item = createElement("li", "map-class-item");
-          const marketTypeClass = {
-            точка: "point",
-            диапазон: "range",
-            "нижняя граница": "floor",
-            "нет оценки": "undefined",
-          }[mapClass.market.type];
+          const marketTypeClass = mapClass.fit || "undefined";
           item.dataset.classId = mapClass.id;
           item.dataset.marketType = marketTypeClass;
+          item.dataset.fit = mapClass.fit;
           item.tabIndex = 0;
 
           const accessibleParts = [
             mapClass.name,
             mapClass.description,
-            `Объём рынка: ${mapClass.market.label}`,
+            `Оценка типа: ${mapClass.fitLabel}`,
             mapClass.market.qualifier,
-            mapClass.market.note,
           ].filter(Boolean);
           item.title = accessibleParts.join(" — ");
           item.setAttribute("aria-label", accessibleParts.join(". "));
@@ -3401,7 +2655,7 @@ window.SECURITY_MAP = {"title":"Карта классов продуктов И�
           const marketLine = createElement(
             "span",
             "map-class-market",
-            mapClass.market.label.replace("млрд ₽", "млрд ₽")
+            mapClass.fitLabel
           );
           if (mapClass.market.qualifier) {
             marketLine.appendChild(
